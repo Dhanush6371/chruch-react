@@ -1,0 +1,99 @@
+========================================
+THE WAY CHURCH CARDIFF - REACT APP
+SETUP GUIDE
+========================================
+
+✅ WHAT'S BEEN DONE:
+
+1. ✅ Created complete React app structure
+2. ✅ Extracted exact fonts from Wix (futura-lt-w01-light, futura-lt-w01-book)
+3. ✅ Copied all images locally to public/images/
+4. ✅ Built all 6 pages (Home, About, Belief, Team, Invitation, Give)
+5. ✅ Created responsive header with mobile menu
+6. ✅ Added social media icons
+7. ✅ Configured image paths with fallback to Wix CDN
+8. ✅ Pixel-perfect CSS matching Wix design
+
+========================================
+🚀 HOW TO RUN:
+========================================
+
+1. Open terminal/command prompt
+
+2. Navigate to the folder:
+   cd react-way-cardiff
+
+3. Install dependencies (first time only):
+   npm install
+
+4. Start the development server:
+   npm start
+
+5. Open browser to:
+   http://localhost:3000
+
+========================================
+📦 BUILD FOR PRODUCTION:
+========================================
+
+To create production-ready files:
+
+   npm run build
+
+This creates a 'build' folder with optimized files ready to deploy.
+
+========================================
+🎨 FONTS:
+========================================
+
+The app uses exact Wix fonts:
+- futura-lt-w01-light (body text)
+- futura-lt-w01-book (headings)
+
+Fonts are loaded from Wix CDN in src/fonts.css
+
+========================================
+🖼️ IMAGES:
+========================================
+
+All images are:
+- Stored in: public/images/
+- Configured in: src/imageConfig.js
+- Fallback to Wix CDN if local not found
+
+========================================
+📝 CUSTOMIZATION:
+========================================
+
+To edit content:
+- Edit files in: src/pages/
+
+To change styles:
+- Edit CSS files in: src/components/ and src/pages/
+
+To add new pages:
+1. Create new file in src/pages/
+2. Add route in src/App.js
+3. Add link in src/components/Header.js
+
+========================================
+🌐 DEPLOYMENT:
+========================================
+
+After running 'npm run build', you can deploy the 'build' folder to:
+- Netlify
+- Vercel
+- GitHub Pages
+- Any static hosting service
+
+========================================
+📞 SUPPORT:
+========================================
+
+If you encounter issues:
+1. Make sure Node.js is installed (v14 or higher)
+2. Delete node_modules and run 'npm install' again
+3. Clear browser cache
+4. Check console for errors
+
+========================================

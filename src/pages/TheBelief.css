@@ -1,0 +1,367 @@
+.home-page {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    height: 80vh;
+    min-height: 600px;
+    max-height: 900px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-out;
+}
+
+.hero-section.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hero-section .bg-image,
+.image-section .bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* Belief hero - position image higher to show more top */
+.hero-section .bg-image.belief-hero {
+    object-position: center top;
+}
+
+/* Image Sections */
+.image-section {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    height: 600px;
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(1.08);
+    transition: opacity 1.4s ease-in-out, transform 1.4s ease-out;
+}
+
+.image-section.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Video Section */
+.video-section {
+    height: 600px;
+}
+
+/* Split Section Layout */
+.split-section {
+    display: flex;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    min-height: 600px;
+}
+
+.split-section.loaded {
+    animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.split-left,
+.split-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.split-left.loaded,
+.split-right.loaded {
+    animation: fadeIn 1.4s ease-in-out forwards;
+}
+
+.split-left {
+    background-color: #E8E8F5;
+}
+
+.split-right {
+    background-color: #E8E8F5;
+}
+
+.split-content {
+    max-width: 600px;
+    padding: 80px 60px;
+}
+
+.split-content.animate-in {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.split-content h2 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    margin: 0 0 30px 0;
+    color: #000000;
+    letter-spacing: 2px;
+    transition: letter-spacing 0.3s ease;
+}
+
+.split-content.animate-in h2 {
+    animation: slideInFromLeft 0.8s ease-out 0.2s both;
+}
+
+.split-content p {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5a5a5a;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+}
+
+.split-content.animate-in p {
+    animation: slideInFromLeft 0.8s ease-out 0.4s both;
+}
+
+.split-content p:last-child {
+    margin-bottom: 0;
+}
+
+.split-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 70vh;
+        min-height: 500px;
+    }
+
+    .image-section {
+        height: 400px;
+    }
+
+    .split-section {
+        flex-direction: column;
+    }
+
+    .split-left,
+    .split-right {
+        width: 100%;
+    }
+
+    .split-image {
+        height: 400px;
+    }
+
+    .split-content {
+        padding: 50px 30px;
+    }
+
+    .split-content h2 {
+        font-size: 36px;
+    }
+}
+
+/* Additional Animations and Effects */
+
+/* Parallax-like effect on scroll */
+.hero-section.loaded,
+.image-section.loaded {
+    animation: subtleZoom 0.8s ease-out forwards;
+}
+
+@keyframes subtleZoom {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Smooth hover effect on split sections */
+.split-left {
+    transition: background-color 0.5s ease, opacity 1.4s ease-in-out;
+}
+
+.split-right {
+    transition: background-color 0.5s ease, opacity 1.4s ease-in-out;
+}
+
+.split-section:hover .split-left,
+.split-section:hover .split-right {
+    filter: brightness(1.02);
+}
+
+/* Image section subtle scale on hover */
+.image-section.loaded {
+    transition: opacity 1.4s ease-in-out, transform 1.4s ease-out, filter 0.5s ease;
+}
+
+.image-section.loaded:hover {
+    filter: brightness(1.05);
+}
+
+/* Hero section subtle movement */
+.hero-section.loaded {
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-out, filter 0.5s ease;
+}
+
+.hero-section.loaded:hover {
+    filter: brightness(1.03);
+}
+
+/* Split content hover effects */
+.split-content h2 {
+    transition: letter-spacing 0.3s ease;
+}
+
+.split-content:hover h2 {
+    letter-spacing: 3px;
+}
+
+/* Paragraph hover effect */
+.split-content p {
+    transition: color 0.3s ease;
+}
+
+.split-content:hover p {
+    color: #000000;
+}
+
+/* Video section fade in */
+.video-section {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.video-section.loaded {
+    opacity: 1;
+}
+
+.video-section video {
+    transition: filter 0.5s ease;
+}
+
+.video-section:hover video {
+    filter: brightness(1.1);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Split section background transitions */
+.split-section {
+    transition: opacity 1.2s ease-in-out, background-position 0.5s ease;
+}
+
+.split-section:hover {
+    background-position: center 45%;
+}
+
+/* Enhanced split image loading */
+.split-left,
+.split-right {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Keyframe animations */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive animation adjustments */
+@media (max-width: 768px) {
+
+    /* Reduce animation complexity on mobile for performance */
+    .hero-section,
+    .image-section {
+        transform: none !important;
+    }
+
+    .hero-section.loaded,
+    .image-section.loaded {
+        animation: none;
+    }
+
+    .split-content {
+        transform: translateY(20px);
+    }
+
+    .split-section:hover {
+        background-position: center center;
+    }
+}
+
+/* Prefers reduced motion - accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

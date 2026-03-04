@@ -1,0 +1,311 @@
+/* Section 1 - About Us (Light Blue Background) */
+.team-about-section {
+    background-color: #E8E8F5;
+    padding: 40px 40px 80px 40px;
+}
+
+.team-about-section .section-content {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.team-about-section h1 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 20px 0;
+    line-height: normal;
+}
+
+.team-about-section .subtitle {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    margin: 0 0 30px 0;
+}
+
+.team-about-section .description {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #5a5a5a;
+    margin: 0 0 50px 0;
+}
+
+.team-hero-image {
+    width: 100%;
+    max-width: 980px;
+    height: 383px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.team-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Section 3 - Meet The Team (Light Blue Background) */
+.team-members-section {
+    background-color: #E8E8F5;
+    padding: 80px 40px;
+}
+
+.team-members-section .section-content {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.team-members-section h2 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 20px 0;
+    text-align: center;
+    line-height: normal;
+}
+
+.horizontal-line {
+    width: 100px;
+    height: 2px;
+    background-color: #000000;
+    margin: 0 auto 50px auto;
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Team Member Card */
+.team-member-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-member-image {
+    width: 100%;
+    max-width: 443px;
+    height: 431px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.team-member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.team-member-info {
+    width: 100%;
+}
+
+.team-member-info h3 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 10px 0;
+}
+
+.team-member-role {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 16px;
+    color: #5a5a5a;
+    margin: 0 0 15px 0;
+}
+
+.team-member-bio {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #5a5a5a;
+    margin: 0 0 20px 0;
+}
+
+.team-member-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-member-social a {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.team-member-social a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.team-member-social a:hover img {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .team-about-section,
+    .team-members-section {
+        padding: 50px 20px;
+    }
+
+    .team-about-section h1 {
+        font-size: 40px;
+    }
+
+    .team-about-section .subtitle {
+        font-size: 18px;
+    }
+
+    .team-about-section .description {
+        font-size: 16px;
+    }
+
+    .team-hero-image {
+        height: 250px;
+    }
+
+    .team-members-section h2 {
+        font-size: 32px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .team-member-image {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 443 / 431;
+    }
+}
+
+/* Section 4 - Our Clients (Light Blue Background) */
+.clients-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.client-logo {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Responsive Design for Clients Section */
+@media (max-width: 768px) {
+    .clients-grid {
+        gap: 30px;
+    }
+
+    .client-logo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Animation styles */
+.section-content.animate-in {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.team-member-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.team-member-card.animate-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.team-member-card:nth-child(1).animate-in {
+    animation-delay: 0.1s;
+}
+
+.team-member-card:nth-child(2).animate-in {
+    animation-delay: 0.2s;
+}
+
+.team-member-card:nth-child(3).animate-in {
+    animation-delay: 0.3s;
+}
+
+.team-member-card:nth-child(4).animate-in {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects */
+.team-member-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.client-logo {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.client-logo:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

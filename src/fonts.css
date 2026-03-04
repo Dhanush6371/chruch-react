@@ -1,0 +1,26 @@
+/* Futura Light - Main body font */
+@font-face {
+    font-family: 'futura-lt-w01-light';
+    src: url('https://static.parastorage.com/fonts/v2/8e5b5cbc-6ad9-49f7-aee7-4e5133c3ee4d/v1/futura-lt-w01-light.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* Futura Book - Headings */
+@font-face {
+    font-family: 'futura-lt-w01-book';
+    src: url('https://static.parastorage.com/fonts/v2/790166f1-b347-4f16-8a29-f0c4931a7c35/v1/futura-lt-w01-book.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* DIN Next Light - Alternative font */
+@font-face {
+    font-family: 'din-next-w01-light';
+    src: url('https://static.parastorage.com/fonts/v2/c4bd97f5-6f0d-4e37-8c4d-6f0829d8bd8e/v1/din-next-w01-light.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}

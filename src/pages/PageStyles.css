@@ -1,0 +1,72 @@
+.page {
+    width: 100%;
+}
+
+.page-hero {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.hero-overlay h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-content {
+    padding: 80px 20px;
+    background-color: #fff;
+}
+
+.page-content .section-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-content h2 {
+    font-family: 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    margin-bottom: 30px;
+    color: #342216;
+}
+
+.page-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #342216;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        height: 400px;
+    }
+
+    .hero-overlay h1 {
+        font-size: 40px;
+    }
+
+    .page-content h2 {
+        font-size: 40px;
+    }
+
+    .page-content p {
+        font-size: 18px;
+    }
+}
