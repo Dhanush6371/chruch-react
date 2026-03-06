@@ -26,6 +26,30 @@
     opacity: 1;
 }
 
+/* Video Hero Section */
+.hero-section.video-hero {
+    background-attachment: scroll;
+    /* Override fixed for video */
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+    /* Enhance video quality rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
 .hero-section .bg-image,
 .image-section .bg-image {
     width: 100%;

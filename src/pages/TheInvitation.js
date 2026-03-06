@@ -79,7 +79,7 @@ function TheInvitation() {
                             loop
                             muted
                             playsInline
-                            poster={getImageUrl('invitationVideo')}
+                            poster={getImageUrl('invitationVideoPoster')}
                         >
                             <source src="https://video.wixstatic.com/video/11062b_3fc3608105274653a4675d6e30353973/720p/mp4/file.mp4" type="video/mp4" />
                             <source src="https://video.wixstatic.com/video/11062b_3fc3608105274653a4675d6e30353973/480p/mp4/file.mp4" type="video/mp4" />
@@ -137,7 +137,7 @@ function TheInvitation() {
                     </div>
                     <div className="split-right split-image">
                         <img
-                            src={getImageUrl('invitationServe')}
+                            src={getImageUrl('cityTraffic')}
                             alt="Serve"
                         />
                     </div>

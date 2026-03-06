@@ -154,13 +154,13 @@ function TheTeam() {
                                     <p className="team-member-bio">{member.bio}</p>
                                     <div className="team-member-social">
                                         <a href={member.social.facebook} aria-label="Facebook">
-                                            <img src={getImageUrl('facebook')} alt="Facebook" />
+                                            <img src={getImageUrl('iconFacebook')} alt="Facebook" />
                                         </a>
                                         <a href={member.social.twitter} aria-label="Twitter">
-                                            <img src={getImageUrl('envelope')} alt="Twitter" />
+                                            <img src={getImageUrl('iconEnvelope')} alt="Twitter" />
                                         </a>
                                         <a href={member.social.linkedin} aria-label="LinkedIn">
-                                            <img src={getImageUrl('phone')} alt="LinkedIn" />
+                                            <img src={getImageUrl('iconPhone')} alt="LinkedIn" />
                                         </a>
                                     </div>
                                 </div>
@@ -182,19 +182,19 @@ function TheTeam() {
 
                     <div className="clients-grid">
                         <div className="client-logo">
-                            <img src={getImageUrl('decorative2')} alt="Client 1" />
+                            <img src={getImageUrl('clientLogo2')} alt="Client 1" />
                         </div>
                         <div className="client-logo">
-                            <img src={getImageUrl('decorative1')} alt="Client 2" />
+                            <img src={getImageUrl('clientLogo1')} alt="Client 2" />
                         </div>
                         <div className="client-logo">
-                            <img src={getImageUrl('decorative3')} alt="Client 3" />
+                            <img src={getImageUrl('clientLogo3')} alt="Client 3" />
                         </div>
                         <div className="client-logo">
-                            <img src={getImageUrl('decorative4')} alt="Client 4" />
+                            <img src={getImageUrl('clientLogo4')} alt="Client 4" />
                         </div>
                         <div className="client-logo">
-                            <img src={getImageUrl('decorative5')} alt="Client 5" />
+                            <img src={getImageUrl('clientLogo5')} alt="Client 5" />
                         </div>
                     </div>
                 </div>

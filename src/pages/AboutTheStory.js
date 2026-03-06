@@ -133,7 +133,7 @@ function AboutTheStory() {
                     data-index="3"
                     className={`split-right ${loadedSections.has('3') ? 'loaded' : ''}`}
                     style={{
-                        backgroundImage: loadedSections.has('3') ? `url(${getImageUrl('aboutHero')})` : 'none',
+                        backgroundImage: loadedSections.has('3') ? `url(${getImageUrl('cityTraffic')})` : 'none',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center center'
                     }}

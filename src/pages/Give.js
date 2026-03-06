@@ -67,7 +67,7 @@ function Give() {
                     loop
                     muted
                     playsInline
-                    poster={getImageUrl('giveHeroVideo')}
+                    poster={getImageUrl('giveHeroVideoPoster')}
                     style={{
                         width: '100%',
                         height: '100%',
@@ -90,7 +90,7 @@ function Give() {
                             loop
                             muted
                             playsInline
-                            poster={getImageUrl('giveVideo')}
+                            poster={getImageUrl('invitationVideoPoster')}
                         >
                             <source src="https://video.wixstatic.com/video/11062b_3fc3608105274653a4675d6e30353973/720p/mp4/file.mp4" type="video/mp4" />
                             <source src="https://video.wixstatic.com/video/11062b_3fc3608105274653a4675d6e30353973/480p/mp4/file.mp4" type="video/mp4" />
@@ -123,7 +123,7 @@ function Give() {
                 data-index="0"
                 className={`image-section ${loadedSections.has('0') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('0') ? `url(${getImageUrl('giveForestRoad')})` : 'none'
+                    backgroundImage: loadedSections.has('0') ? `url(${getImageUrl('darkForest')})` : 'none'
                 }}
             >
             </section>
@@ -151,7 +151,7 @@ function Give() {
                     </div>
                     <div className="split-right split-image">
                         <img
-                            src={getImageUrl('giveServeImage')}
+                            src={getImageUrl('cityTraffic')}
                             alt="Serve"
                         />
                     </div>
@@ -164,7 +164,7 @@ function Give() {
                 data-index="1"
                 className={`image-section ${loadedSections.has('1') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('1') ? `url(${getImageUrl('giveMountainRoad')})` : 'none'
+                    backgroundImage: loadedSections.has('1') ? `url(${getImageUrl('mountainRoad')})` : 'none'
                 }}
             >
             </section>

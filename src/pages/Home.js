@@ -68,16 +68,22 @@ function Home() {
 
     return (
         <div className="home-page">
-            {/* Hero Section */}
+            {/* Hero Section with Video Background */}
             <section
                 ref={(el) => (sectionRefs.current[0] = el)}
                 data-index="0"
-                className={`hero-section ${loadedSections.has('0') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('0') ? `url(${getImageUrl('hero1')})` : 'none',
-                    transform: `translateY(${scrollY * 0.5}px)`
-                }}
+                className={`hero-section video-hero ${loadedSections.has('0') ? 'loaded' : ''}`}
             >
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="hero-video"
+                >
+                    <source src="/images-new/home-hero-1.mp4" type="video/mp4" />
+                </video>
             </section>
 
             {/* Quote Section 1 */}

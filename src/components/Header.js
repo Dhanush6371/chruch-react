@@ -51,32 +51,32 @@ function Header() {
                     {/* Social icons in mobile menu */}
                     <div className="mobile-social-icons">
                         <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Youtube">
-                            <img src={getImageUrl('youtube')} alt="Youtube" />
+                            <img src={getImageUrl('iconYoutube')} alt="Youtube" />
                         </a>
                         <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <img src={getImageUrl('instagram')} alt="Instagram" />
+                            <img src={getImageUrl('iconInstagram')} alt="Instagram" />
                         </a>
                         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <img src={getImageUrl('facebook')} alt="Facebook" />
+                            <img src={getImageUrl('iconFacebook')} alt="Facebook" />
                         </a>
                         <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                            <img src={getImageUrl('tiktok')} alt="TikTok" />
+                            <img src={getImageUrl('iconTiktok')} alt="TikTok" />
                         </a>
                     </div>
                 </nav>
 
                 <div className="desktop-social-icons">
                     <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Youtube">
-                        <img src={getImageUrl('youtube')} alt="Youtube" />
+                        <img src={getImageUrl('iconYoutube')} alt="Youtube" />
                     </a>
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <img src={getImageUrl('instagram')} alt="Instagram" />
+                        <img src={getImageUrl('iconInstagram')} alt="Instagram" />
                     </a>
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                        <img src={getImageUrl('facebook')} alt="Facebook" />
+                        <img src={getImageUrl('iconFacebook')} alt="Facebook" />
                     </a>
                     <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                        <img src={getImageUrl('tiktok')} alt="TikTok" />
+                        <img src={getImageUrl('iconTiktok')} alt="TikTok" />
                     </a>
                 </div>
 

@@ -78,7 +78,7 @@ function TheBelief() {
                     data-index="1"
                     className={`split-left ${loadedSections.has('1') ? 'loaded' : ''}`}
                     style={{
-                        backgroundImage: loadedSections.has('1') ? `url(${getImageUrl('beliefBigBen')})` : 'none',
+                        backgroundImage: loadedSections.has('1') ? `url(${getImageUrl('bigBen')})` : 'none',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center center'
                     }}
@@ -104,7 +104,7 @@ function TheBelief() {
                 data-index="2"
                 className={`image-section ${loadedSections.has('2') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('2') ? `url(${getImageUrl('beliefForestRoad')})` : 'none'
+                    backgroundImage: loadedSections.has('2') ? `url(${getImageUrl('darkForest')})` : 'none'
                 }}
             >
             </section>
@@ -128,7 +128,7 @@ function TheBelief() {
                     data-index="3"
                     className={`split-right ${loadedSections.has('3') ? 'loaded' : ''}`}
                     style={{
-                        backgroundImage: loadedSections.has('3') ? `url(${getImageUrl('beliefCityTraffic')})` : 'none',
+                        backgroundImage: loadedSections.has('3') ? `url(${getImageUrl('cityTraffic')})` : 'none',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center center'
                     }}
@@ -142,7 +142,7 @@ function TheBelief() {
                 data-index="4"
                 className={`image-section ${loadedSections.has('4') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('4') ? `url(${getImageUrl('beliefMountainRoad')})` : 'none'
+                    backgroundImage: loadedSections.has('4') ? `url(${getImageUrl('mountainRoad')})` : 'none'
                 }}
             >
             </section>
@@ -182,7 +182,7 @@ function TheBelief() {
                     loop
                     muted
                     playsInline
-                    poster={getImageUrl('beliefVideo')}
+                    poster={getImageUrl('beliefVideoPoster')}
                     style={{
                         width: '100%',
                         height: '100%',
@@ -226,7 +226,7 @@ function TheBelief() {
                 data-index="6"
                 className={`image-section ${loadedSections.has('6') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('6') ? `url(${getImageUrl('beliefFinalImage')})` : 'none'
+                    backgroundImage: loadedSections.has('6') ? `url(${getImageUrl('sunsetRoad')})` : 'none'
                 }}
             >
             </section>
@@ -261,7 +261,7 @@ function TheBelief() {
                 data-index="7"
                 className={`image-section ${loadedSections.has('7') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('7') ? 'url(https://static.wixstatic.com/media/11062b_315676c29a024fec8776f18a6a10d395~mv2_d_2560_1705_s_2.jpg/v1/fill/w_2560,h_900,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_315676c29a024fec8776f18a6a10d395~mv2_d_2560_1705_s_2.jpg)' : 'none'
+                    backgroundImage: loadedSections.has('7') ? `url(${getImageUrl('forestAerial')})` : 'none'
                 }}
             >
             </section>
@@ -272,7 +272,7 @@ function TheBelief() {
                 data-index="8"
                 className={`split-section ${loadedSections.has('8') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('8') ? 'url(https://static.wixstatic.com/media/11062b_94dff012450847b99e7c70515f421bd6~mv2_d_5184_3456_s_4_2.jpg/v1/fill/w_2560,h_900,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_94dff012450847b99e7c70515f421bd6~mv2_d_5184_3456_s_4_2.jpg)' : 'none',
+                    backgroundImage: loadedSections.has('8') ? `url(${getImageUrl('sunsetRoad')})` : 'none',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                 }}
@@ -305,7 +305,7 @@ function TheBelief() {
                 data-index="9"
                 className={`image-section ${loadedSections.has('9') ? 'loaded' : ''}`}
                 style={{
-                    backgroundImage: loadedSections.has('9') ? 'url(https://static.wixstatic.com/media/11062b_814c3e36659644d8903dc8a413c92577~mv2.jpg/v1/fill/w_2560,h_900,al_c,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_814c3e36659644d8903dc8a413c92577~mv2.jpg)' : 'none'
+                    backgroundImage: loadedSections.has('9') ? `url(${getImageUrl('forestRoadAerial')})` : 'none'
                 }}
             >
             </section>
