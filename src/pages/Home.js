@@ -138,16 +138,24 @@ function Home() {
                 </div>
             </section>
 
-            {/* Image Section 2 */}
+            {/* Video Section 2 */}
             <section
                 ref={(el) => (sectionRefs.current[2] = el)}
                 data-index="2"
-                className={`image-section ${loadedSections.has('2') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('2') ? `url(${getImageUrl('hero3')})` : 'none',
-                    backgroundPositionY: `${50 - (scrollY - (sectionRefs.current[2]?.offsetTop || 0)) * 0.3}%`
-                }}
+                className={`hero-section video-hero ${loadedSections.has('2') ? 'loaded' : ''}`}
             >
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="hero-video"
+                    style={{ playbackRate: 0.05 }}
+                    onLoadedMetadata={(e) => { e.target.playbackRate = 0.5; }}
+                >
+                    <source src="/images-new/home-hero-3.mp4" type="video/mp4" />
+                </video>
             </section>
 
             {/* Quote Section 3 */}
@@ -177,16 +185,22 @@ function Home() {
                 </div>
             </section>
 
-            {/* Image Section 3 */}
+            {/* Video Section 3 */}
             <section
                 ref={(el) => (sectionRefs.current[3] = el)}
                 data-index="3"
-                className={`image-section ${loadedSections.has('3') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('3') ? `url(${getImageUrl('hero4')})` : 'none',
-                    backgroundPositionY: `${50 - (scrollY - (sectionRefs.current[3]?.offsetTop || 0)) * 0.3}%`
-                }}
+                className={`hero-section video-hero ${loadedSections.has('3') ? 'loaded' : ''}`}
             >
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="hero-video"
+                >
+                    <source src="/images-new/home-hero-4.mp4" type="video/mp4" />
+                </video>
             </section>
 
             {/* Quote Section 4 */}

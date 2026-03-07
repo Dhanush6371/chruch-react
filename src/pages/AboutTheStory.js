@@ -59,15 +59,23 @@ function AboutTheStory() {
 
     return (
         <div className="home-page">
-            {/* Hero Section - London building */}
+            {/* Hero Section - London building video */}
             <section
                 ref={(el) => (sectionRefs.current[0] = el)}
                 data-index="0"
-                className={`hero-section ${loadedSections.has('0') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('0') ? `url(${getImageUrl('londonBuilding')})` : 'none'
-                }}
+                className={`hero-section video-hero ${loadedSections.has('0') ? 'loaded' : ''}`}
             >
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="hero-video"
+                    style={{ objectPosition: 'center bottom' }}
+                >
+                    <source src="/images-new/london-building.mp4" type="video/mp4" />
+                </video>
             </section>
 
             {/* The Reason Section - Big Ben LEFT, Text RIGHT */}
