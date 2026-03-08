@@ -125,9 +125,9 @@
     letter-spacing: 1px;
 }
 
-/* Content Sections - Light blue/lavender background */
+/* Content Sections - White background */
 .content-section {
-    background-color: #E8E8F5;
+    background-color: #FFFFFF;
     padding: 80px 40px;
 }
 
@@ -622,7 +622,7 @@
 }
 
 .content-section:hover {
-    background-color: #e0e0f0;
+    background-color: #f9f9f9;
 }
 
 /* Quote section hover glow effect */

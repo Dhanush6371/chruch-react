@@ -144,15 +144,27 @@ function TheInvitation() {
                 </div>
             </section>
 
-            {/* Full-width Mountain Road Image */}
+            {/* Full-width Mountain Road Video */}
             <section
                 ref={(el) => (sectionRefs.current[1] = el)}
                 data-index="1"
-                className={`image-section ${loadedSections.has('1') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('1') ? `url(${getImageUrl('mountainRoad')})` : 'none'
-                }}
+                className={`image-section video-section ${loadedSections.has('1') ? 'loaded' : ''}`}
             >
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center center',
+                        display: 'block'
+                    }}
+                >
+                    <source src="/images-new/mountain-road.mp4" type="video/mp4" />
+                </video>
             </section>
         </div>
     );

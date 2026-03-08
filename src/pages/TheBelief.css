@@ -102,11 +102,11 @@
 }
 
 .split-left {
-    background-color: #E8E8F5;
+    background-color: #FFFFFF;
 }
 
 .split-right {
-    background-color: #E8E8F5;
+    background-color: #FFFFFF;
 }
 
 .split-content {
@@ -188,10 +188,14 @@
     .split-left,
     .split-right {
         width: 100%;
+        min-height: 400px;
     }
 
     .split-image {
-        height: 400px;
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+        object-position: center center;
     }
 
     .split-content {

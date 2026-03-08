@@ -25,13 +25,15 @@
 .split-section {
     width: 100%;
     background-color: #ffffff;
+    overflow-x: hidden;
 }
 
 .split-container {
     display: flex;
-    max-width: 980px;
+    max-width: 100%;
     margin: 0 auto;
     min-height: 677px;
+    overflow: hidden;
 }
 
 .split-left,
@@ -68,8 +70,9 @@
 }
 
 .split-content-blue {
-    background-color: #E8E8F5;
+    background-color: #FFFFFF;
     padding: 45px 50px;
+    overflow: hidden;
 }
 
 .split-text-content {
@@ -111,9 +114,18 @@
     width: 100%;
     height: 600px;
     overflow: hidden;
+    position: relative;
 }
 
 .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.image-section video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -131,6 +143,7 @@
     .split-container {
         flex-direction: column;
         min-height: auto;
+        max-width: 100%;
     }
 
     .split-left,
@@ -139,6 +152,10 @@
     }
 
     .split-image {
+        height: 400px;
+    }
+
+    .split-video {
         height: 400px;
     }
 

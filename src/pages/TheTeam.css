@@ -1,6 +1,6 @@
-/* Section 1 - About Us (Light Blue Background) */
+/* Section 1 - About Us (White Background) */
 .team-about-section {
-    background-color: #E8E8F5;
+    background-color: #FFFFFF;
     padding: 40px 40px 80px 40px;
 }
 
@@ -50,9 +50,9 @@
     display: block;
 }
 
-/* Section 3 - Meet The Team (Light Blue Background) */
+/* Section 3 - Meet The Team (White Background) */
 .team-members-section {
-    background-color: #E8E8F5;
+    background-color: #FFFFFF;
     padding: 80px 40px;
 }
 

@@ -140,11 +140,23 @@ function TheBelief() {
             <section
                 ref={(el) => (sectionRefs.current[4] = el)}
                 data-index="4"
-                className={`image-section ${loadedSections.has('4') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('4') ? `url(${getImageUrl('mountainRoad')})` : 'none'
-                }}
+                className={`image-section video-section ${loadedSections.has('4') ? 'loaded' : ''}`}
             >
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center center',
+                        display: 'block'
+                    }}
+                >
+                    <source src="/images-new/mountain-road.mp4" type="video/mp4" />
+                </video>
             </section>
 
             {/* Split Section - Text LEFT, Heading RIGHT (Black) */}

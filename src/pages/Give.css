@@ -15,6 +15,73 @@
     display: block;
 }
 
+/* Split Section Styles for Give Page */
+.split-section {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.split-container {
+    display: flex;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 677px;
+    overflow: hidden;
+}
+
+.split-left,
+.split-right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.split-video {
+    overflow: hidden;
+    position: relative;
+}
+
+.split-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.split-image {
+    overflow: hidden;
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+.split-content-blue {
+    background-color: #FFFFFF;
+    padding: 45px 50px;
+    overflow: hidden;
+}
+
+.split-text-content {
+    max-width: 100%;
+}
+
+.split-text-content h2 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 68px 0;
+    text-align: center;
+    line-height: normal;
+}
+
 /* Give Text Styles */
 .give-text,
 .serve-text {
@@ -44,11 +111,43 @@
         max-height: 400px;
     }
 
+    .split-container {
+        flex-direction: column;
+        min-height: auto;
+        max-width: 100%;
+    }
+
+    .split-left,
+    .split-right {
+        width: 100%;
+    }
+
+    .split-image {
+        height: 400px;
+    }
+
+    .split-video {
+        height: 400px;
+    }
+
+    .split-content-blue {
+        padding: 40px 20px;
+    }
+
+    .split-text-content h2 {
+        font-size: 40px;
+        margin: 0 0 40px 0;
+    }
+
     .give-text,
     .serve-text,
     .give-quote,
     .serve-quote {
         font-size: 18px;
+    }
+
+    .image-section {
+        height: 400px;
     }
 }
 
