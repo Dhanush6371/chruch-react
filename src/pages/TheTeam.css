@@ -37,7 +37,7 @@
 .team-hero-image {
     width: 100%;
     max-width: 980px;
-    height: 383px;
+    height: 600px;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -181,7 +181,7 @@
     }
 
     .team-hero-image {
-        height: 250px;
+        height: 400px;
     }
 
     .team-members-section h2 {

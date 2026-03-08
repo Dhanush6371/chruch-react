@@ -1,8 +1,9 @@
 /* Hero Section with Video Background */
 .invitation-hero {
     width: 100%;
-    height: 60vh;
-    max-height: 600px;
+    height: 80vh;
+    min-height: 600px;
+    max-height: 900px;
     position: relative;
     overflow: hidden;
 }
@@ -32,7 +33,7 @@
     display: flex;
     max-width: 100%;
     margin: 0 auto;
-    min-height: 677px;
+    min-height: 600px;
     overflow: hidden;
 }
 
@@ -136,8 +137,8 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .invitation-hero {
-        height: 50vh;
-        max-height: 400px;
+        height: 70vh;
+        min-height: 500px;
     }
 
     .split-container {

@@ -5,7 +5,9 @@
 .page-hero {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 80vh;
+    min-height: 600px;
+    max-height: 900px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -55,7 +57,8 @@
 
 @media (max-width: 768px) {
     .page-hero {
-        height: 400px;
+        height: 70vh;
+        min-height: 500px;
     }
 
     .hero-overlay h1 {
