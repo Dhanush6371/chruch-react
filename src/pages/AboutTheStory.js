@@ -3,29 +3,25 @@ import { getImageUrl } from '../imageConfig';
 import '../pages/Home.css';
 
 function AboutTheStory() {
-    const [loadedSections, setLoadedSections] = useState(new Set());
     const [visibleContent, setVisibleContent] = useState(new Set());
+    const [scrollY, setScrollY] = useState(0);
     const sectionRefs = useRef([]);
     const contentRefs = useRef([]);
 
     useEffect(() => {
-        const imageObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = entry.target.dataset.index;
-                        setTimeout(() => {
-                            setLoadedSections((prev) => new Set([...prev, index]));
-                        }, 300);
-                        imageObserver.unobserve(entry.target);
-                    }
+        let ticking = false;
+
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrollY(window.scrollY);
+                    ticking = false;
                 });
-            },
-            {
-                rootMargin: '50px',
-                threshold: 0.01
+                ticking = true;
             }
-        );
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
         const contentObserver = new IntersectionObserver(
             (entries) => {
@@ -43,16 +39,12 @@ function AboutTheStory() {
             }
         );
 
-        sectionRefs.current.forEach((ref) => {
-            if (ref) imageObserver.observe(ref);
-        });
-
         contentRefs.current.forEach((ref) => {
             if (ref) contentObserver.observe(ref);
         });
 
         return () => {
-            imageObserver.disconnect();
+            window.removeEventListener('scroll', handleScroll);
             contentObserver.disconnect();
         };
     }, []);
@@ -62,8 +54,7 @@ function AboutTheStory() {
             {/* Hero Section - London building video */}
             <section
                 ref={(el) => (sectionRefs.current[0] = el)}
-                data-index="0"
-                className={`hero-section video-hero ${loadedSections.has('0') ? 'loaded' : ''}`}
+                className="hero-section video-hero loaded"
             >
                 <video
                     autoPlay
@@ -72,35 +63,35 @@ function AboutTheStory() {
                     playsInline
                     preload="auto"
                     className="hero-video"
-                    style={{ objectPosition: 'center bottom' }}
+                    style={{
+                        objectPosition: 'center bottom',
+                        transform: `translate3d(0, ${scrollY * 0.3}px, 0)`
+                    }}
                 >
                     <source src="/images-new/london-building.mp4" type="video/mp4" />
                 </video>
             </section>
 
-            {/* The Reason Section - Big Ben LEFT, Text RIGHT */}
-            <section className="split-section">
-                <div
-                    ref={(el) => (sectionRefs.current[1] = el)}
-                    data-index="1"
-                    className={`split-left ${loadedSections.has('1') ? 'loaded' : ''}`}
-                    style={{
-                        backgroundImage: loadedSections.has('1') ? `url(${getImageUrl('bigBen')})` : 'none',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center center'
-                    }}
-                >
-                </div>
-                <div className="split-right">
+            {/* The Reason Section - Text LEFT, Heading RIGHT */}
+            <section className="split-section mission-section">
+                <div className="split-left">
                     <div
                         ref={(el) => (contentRefs.current[0] = el)}
                         data-content="0"
                         className={`split-content ${visibleContent.has('0') ? 'animate-in' : ''}`}
                     >
-                        <h2>THE REASON</h2>
                         <p>
                             The Way is being formed as a local church with a simple conviction: that Jesus still meets people in the middle of real life, and that the Church is called to walk closely with others through both beauty and brokenness. As a church rooted in Cardiff, we seek to live among the people of this city and bear witness to the way, the truth, and the life of Jesus. From the streets and homes of Cardiff, we trust that God will raise a sent people to the nations, conduits of His grace who will carry the life of Jesus beyond the city to plant and strengthen churches across the UK and Europe.
                         </p>
+                    </div>
+                </div>
+                <div className="split-right mission-heading">
+                    <div
+                        ref={(el) => (contentRefs.current[6] = el)}
+                        data-content="6"
+                        className={`${visibleContent.has('6') ? 'animate-in' : ''}`}
+                    >
+                        <h2>THE REASON</h2>
                     </div>
                 </div>
             </section>
@@ -108,68 +99,65 @@ function AboutTheStory() {
             {/* Image Section - Dark forest with sunlight beam */}
             <section
                 ref={(el) => (sectionRefs.current[2] = el)}
-                data-index="2"
-                className={`image-section ${loadedSections.has('2') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('2') ? `url(${getImageUrl('darkForest')})` : 'none'
-                }}
+                className="image-section loaded"
             >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('darkForest')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[2]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
             </section>
 
-            {/* The Vision Section - Text LEFT, Turquoise river RIGHT */}
-            <section className="split-section">
-                <div className="split-left">
+            {/* The Vision Section - Heading LEFT, Content RIGHT */}
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
                     <div
                         ref={(el) => (contentRefs.current[1] = el)}
                         data-content="1"
-                        className={`split-content ${visibleContent.has('1') ? 'animate-in' : ''}`}
+                        className={`${visibleContent.has('1') ? 'animate-in' : ''}`}
                     >
                         <h2>THE VISION</h2>
-                        <p>
-                            <strong>W — WITNESS</strong> We believe the gospel must be embodied before it is explained. Through transformed lives, loving community, and faithful obedience, we desire to bear witness to Jesus in both word and deed. "But you will receive power when the Holy Spirit comes upon you. And you will be my witnesses, telling people about me everywhere—in Jerusalem, throughout Judea, in Samaria, and to the ends of the earth." - Acts 1:8
-                        </p>
-                        <p>
-                            <strong>A — APOSTOLIC EQUIPPING</strong> We are committed to forming disciples who are grounded in Scripture, filled with the Holy Spirit, and equipped to serve God faithfully in every sphere of life. Through teaching, prayer, and community, we seek to raise mature believers who carry responsibility, humility, and faith. "Now these are the gifts Christ gave to the church: the apostles, the prophets, the evangelists, and the pastors and teachers. Their responsibility is to equip God's people to do his work and build up the body of Christ." - Ephesians 4:11–12
-                        </p>
-                        <p>
-                            <strong>Y — YIELDING NATIONS</strong> We look forward to God raising a sent people who carry the life of Jesus beyond the city. Our heart is to see churches planted, strengthened, and multiplied, as disciples are released into God's mission among the nations. "Therefore, go and make disciples of all the nations, baptizing them in the name of the Father and the Son and the Holy Spirit." - Matthew 28:19
-                        </p>
                     </div>
                 </div>
-                <div
-                    ref={(el) => (sectionRefs.current[3] = el)}
-                    data-index="3"
-                    className={`split-right ${loadedSections.has('3') ? 'loaded' : ''}`}
-                    style={{
-                        backgroundImage: loadedSections.has('3') ? `url(${getImageUrl('cityTraffic')})` : 'none',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center center'
-                    }}
-                >
+                <div className="split-right">
+                    <div
+                        ref={(el) => (contentRefs.current[7] = el)}
+                        data-content="7"
+                        className={`split-content how-we-live-content ${visibleContent.has('7') ? 'animate-in' : ''}`}
+                    >
+                        <div className="value-block">
+                            <h3>W — WITNESS</h3>
+                            <p>We believe the gospel must be embodied before it is explained. Through transformed lives, loving community, and faithful obedience, we desire to bear witness to Jesus in both word and deed.</p>
+                            <p className="scripture">"But you will receive power when the Holy Spirit comes upon you. And you will be my witnesses, telling people about me everywhere—in Jerusalem, throughout Judea, in Samaria, and to the ends of the earth." - Acts 1:8</p>
+                        </div>
+                        <div className="value-block">
+                            <h3>A — APOSTOLIC EQUIPPING</h3>
+                            <p>We are committed to forming disciples who are grounded in Scripture, filled with the Holy Spirit, and equipped to serve God faithfully in every sphere of life. Through teaching, prayer, and community, we seek to raise mature believers who carry responsibility, humility, and faith.</p>
+                            <p className="scripture">"Now these are the gifts Christ gave to the church: the apostles, the prophets, the evangelists, and the pastors and teachers. Their responsibility is to equip God's people to do his work and build up the body of Christ." - Ephesians 4:11–12</p>
+                        </div>
+                        <div className="value-block">
+                            <h3>Y — YIELDING NATIONS</h3>
+                            <p>We look forward to God raising a sent people who carry the life of Jesus beyond the city. Our heart is to see churches planted, strengthened, and multiplied, as disciples are released into God's mission among the nations.</p>
+                            <p className="scripture">"Therefore, go and make disciples of all the nations, baptizing them in the name of the Father and the Son and the Holy Spirit." - Matthew 28:19</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             {/* Image Section - Road in mountains */}
             <section
                 ref={(el) => (sectionRefs.current[4] = el)}
-                data-index="4"
-                className={`image-section video-section ${loadedSections.has('4') ? 'loaded' : ''}`}
+                className="image-section loaded"
             >
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                <div
+                    className="bg-image-wrapper"
                     style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'center center',
-                        display: 'block'
+                        backgroundImage: `url(${getImageUrl('mountainRoad')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[4]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
-                >
-                    <source src="/images-new/mountain-road.mp4" type="video/mp4" />
-                </video>
+                />
             </section>
 
             {/* The Mission Section - Text LEFT, Heading RIGHT */}
@@ -199,12 +187,15 @@ function AboutTheStory() {
             {/* Image Section - Road with sunset */}
             <section
                 ref={(el) => (sectionRefs.current[5] = el)}
-                data-index="5"
-                className={`image-section ${loadedSections.has('5') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('5') ? `url(${getImageUrl('sunsetRoad')})` : 'none'
-                }}
+                className="image-section loaded"
             >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('sunsetRoad')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[5]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
             </section>
 
             {/* How We Live This Out Section - Heading LEFT, Content RIGHT */}

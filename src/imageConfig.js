@@ -20,6 +20,14 @@ export const images = {
     mountainRoad: '/images-new/mountain-road.jpg',
     sunsetRoad: '/images-new/sunset-road.jpg',
 
+    // New unique images to replace repeated ones
+    bruno: '/images-new/bruno.jpg',
+    jinhui: '/images-new/jinhui.jpg',
+    johntower: '/images-new/johntower.jpg',
+    mattFox: '/images-new/matt-fox.jpg',
+    saagar: '/images-new/saagar.jpg',
+    sheikh: '/images-new/sheikh.jpg',
+
     // The Belief Page
     beliefHero: '/images-new/belief-hero.jpg',
     beliefVideoPoster: '/images-new/belief-video-poster.jpg',

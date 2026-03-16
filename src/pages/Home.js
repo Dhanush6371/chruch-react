@@ -3,37 +3,25 @@ import { getImageUrl } from '../imageConfig';
 import './Home.css';
 
 function Home() {
-    const [loadedSections, setLoadedSections] = useState(new Set());
     const [visibleContent, setVisibleContent] = useState(new Set());
     const [scrollY, setScrollY] = useState(0);
     const sectionRefs = useRef([]);
     const contentRefs = useRef([]);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            setScrollY(window.scrollY);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrollY(window.scrollY);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-
-        const imageObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = entry.target.dataset.index;
-                        // Add delay to make loading more visible
-                        setTimeout(() => {
-                            setLoadedSections((prev) => new Set([...prev, index]));
-                        }, 300);
-                        imageObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                rootMargin: '50px',
-                threshold: 0.01
-            }
-        );
 
         const contentObserver = new IntersectionObserver(
             (entries) => {
@@ -51,17 +39,12 @@ function Home() {
             }
         );
 
-        sectionRefs.current.forEach((ref) => {
-            if (ref) imageObserver.observe(ref);
-        });
-
         contentRefs.current.forEach((ref) => {
             if (ref) contentObserver.observe(ref);
         });
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            imageObserver.disconnect();
             contentObserver.disconnect();
         };
     }, []);
@@ -71,8 +54,7 @@ function Home() {
             {/* Hero Section with Video Background */}
             <section
                 ref={(el) => (sectionRefs.current[0] = el)}
-                data-index="0"
-                className={`hero-section video-hero ${loadedSections.has('0') ? 'loaded' : ''}`}
+                className="hero-section video-hero loaded"
             >
                 <video
                     autoPlay
@@ -87,11 +69,14 @@ function Home() {
             </section>
 
             {/* Quote Section 1 */}
-            <section className="quote-section">
+            <section className="quote-section" ref={(el) => (sectionRefs.current[5] = el)}>
                 <div
                     ref={(el) => (contentRefs.current[0] = el)}
                     data-content="0"
                     className={`section-content ${visibleContent.has('0') ? 'animate-in' : ''}`}
+                    style={{
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[5]?.offsetTop || 0)) * -0.2}px, 0)`
+                    }}
                 >
                     <h1 className="quote-text">
                         Jesus said, "Come to me, all of you who are weary and carry heavy burdens, and I will give you rest. - Matthew 11:28
@@ -102,17 +87,19 @@ function Home() {
             {/* Image Section 1 */}
             <section
                 ref={(el) => (sectionRefs.current[1] = el)}
-                data-index="1"
-                className={`image-section ${loadedSections.has('1') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('1') ? `url(${getImageUrl('hero2')})` : 'none',
-                    backgroundPositionY: `${50 - (scrollY - (sectionRefs.current[1]?.offsetTop || 0)) * 0.3}%`
-                }}
+                className="image-section loaded"
             >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('hero2')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[1]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
             </section>
 
             {/* Quote Section 2 */}
-            <section className="quote-section">
+            <section className="quote-section" ref={(el) => (sectionRefs.current[5] = el)}>
                 <div
                     ref={(el) => (contentRefs.current[1] = el)}
                     data-content="1"
@@ -138,24 +125,18 @@ function Home() {
                 </div>
             </section>
 
-            {/* Video Section 2 */}
+            {/* Image Section 2 */}
             <section
                 ref={(el) => (sectionRefs.current[2] = el)}
-                data-index="2"
-                className={`hero-section video-hero ${loadedSections.has('2') ? 'loaded' : ''}`}
+                className="image-section loaded"
             >
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="hero-video"
-                    style={{ playbackRate: 0.05 }}
-                    onLoadedMetadata={(e) => { e.target.playbackRate = 0.5; }}
-                >
-                    <source src="/images-new/home-hero-3.mp4" type="video/mp4" />
-                </video>
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('hero3')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[2]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
             </section>
 
             {/* Quote Section 3 */}
@@ -185,22 +166,18 @@ function Home() {
                 </div>
             </section>
 
-            {/* Video Section 3 */}
+            {/* Image Section 3 */}
             <section
                 ref={(el) => (sectionRefs.current[3] = el)}
-                data-index="3"
-                className={`hero-section video-hero ${loadedSections.has('3') ? 'loaded' : ''}`}
+                className="image-section loaded"
             >
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="hero-video"
-                >
-                    <source src="/images-new/home-hero-4.mp4" type="video/mp4" />
-                </video>
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('hero4')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[3]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
             </section>
 
             {/* Quote Section 4 */}
@@ -233,13 +210,15 @@ function Home() {
             {/* Image Section 4 */}
             <section
                 ref={(el) => (sectionRefs.current[4] = el)}
-                data-index="4"
-                className={`image-section ${loadedSections.has('4') ? 'loaded' : ''}`}
-                style={{
-                    backgroundImage: loadedSections.has('4') ? `url(${getImageUrl('hero5')})` : 'none',
-                    backgroundPositionY: `${50 - (scrollY - (sectionRefs.current[4]?.offsetTop || 0)) * 0.3}%`
-                }}
+                className="image-section loaded"
             >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('hero5')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[4]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
             </section>
 
             {/* The Invitation Section */}
