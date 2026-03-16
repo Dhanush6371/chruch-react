@@ -60,6 +60,7 @@ function TheInvitation() {
                         loop
                         muted
                         playsInline
+                        preload="auto"
                         poster={getImageUrl('invitationVideoPoster')}
                         style={{
                             width: '100%',

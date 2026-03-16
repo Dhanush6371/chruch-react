@@ -61,6 +61,7 @@ function TheBelief() {
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     poster={getImageUrl('beliefVideoPoster')}
                     style={{
                         width: '100%',

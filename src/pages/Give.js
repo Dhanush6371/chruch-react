@@ -59,6 +59,7 @@ function Give() {
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     poster={getImageUrl('giveHeroVideoPoster')}
                     style={{
                         width: '100%',
