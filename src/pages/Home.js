@@ -62,7 +62,6 @@ function Home() {
                     muted
                     playsInline
                     preload="auto"
-                    poster={getImageUrl('hero1')}
                     className="hero-video"
                 >
                     <source src="/images-new/home-hero-1.mp4" type="video/mp4" />
