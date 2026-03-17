@@ -103,48 +103,7 @@ function TheTeam() {
 
     return (
         <div className="home-page">
-            {/* Section 1 - About Us (Light Blue Background) */}
-            <section className="team-about-section">
-                <div
-                    ref={(el) => (contentRefs.current[0] = el)}
-                    data-content="0"
-                    className={`section-content ${visibleContent.has('0') ? 'animate-in' : ''}`}
-                >
-                    <h1>About Us</h1>
-                    <p className="subtitle">Finding Inspiration in Every Turn</p>
-                    <p className="description">
-                        This is your About Page. This space is a great opportunity to give a full background on who you are, what you do and what your website has to offer. Double click on the text box to start editing your content and make sure to add all the relevant details you want site visitors to know.
-                    </p>
-
-                    {/* Hero Image */}
-                    <div className="team-hero-image">
-                        <img
-                            src={getImageUrl('teamHero')}
-                            alt="The Team"
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* Section 2 - Our Story (Light Blue Background) */}
-            <section className="content-section">
-                <div
-                    ref={(el) => (contentRefs.current[1] = el)}
-                    data-content="1"
-                    className={`section-content ${visibleContent.has('1') ? 'animate-in' : ''}`}
-                >
-                    <h2>Our Story</h2>
-                    <div className="horizontal-line"></div>
-                    <p>
-                        Every website has a story, and your visitors want to hear yours. This space is a great opportunity to give a full background on who you are, what your team does, and what your site has to offer. Double click on the text box to start editing your content and make sure to add all the relevant details you want site visitors to know.
-                    </p>
-                    <p>
-                        If you're a business, talk about how you started and share your professional journey. Explain your core values, your commitment to customers, and how you stand out from the crowd. Add a photo, gallery, or video for even more engagement.
-                    </p>
-                </div>
-            </section>
-
-            {/* Section 3 - Leadership Team */}
+            {/* Leadership Team */}
             <section className="leadership-team-section">
                 <div
                     ref={(el) => (contentRefs.current[2] = el)}
@@ -170,7 +129,7 @@ function TheTeam() {
                                     {index % 2 === 1 && (
                                         <div className="team-member-image-wrapper">
                                             <div className="team-member-photo">
-                                                <img src={member.image} alt={member.name} />
+                                                <img src={member.image} alt={member.name} loading="lazy" />
                                             </div>
                                             <button
                                                 className="team-member-expand-btn"
@@ -190,7 +149,7 @@ function TheTeam() {
                                     {index % 2 === 0 && (
                                         <div className="team-member-image-wrapper">
                                             <div className="team-member-photo">
-                                                <img src={member.image} alt={member.name} />
+                                                <img src={member.image} alt={member.name} loading="lazy" />
                                             </div>
                                             <button
                                                 className="team-member-expand-btn"
@@ -218,7 +177,7 @@ function TheTeam() {
                     <div className="team-images-grid">
                         {teamMembers.map((member) => (
                             <div key={member.id} className="team-image-item">
-                                <img src={member.image} alt={member.name} />
+                                <img src={member.image} alt={member.name} loading="lazy" />
                                 <button
                                     className="team-image-expand-btn"
                                     onClick={() => toggleMember(member.id)}

@@ -61,7 +61,7 @@ function TheBelief() {
                     loop
                     muted
                     playsInline
-                    poster={getImageUrl('beliefVideoPoster')}
+                    poster={getImageUrl('giveHeroVideoPoster')}
                     style={{
                         width: '100%',
                         height: '100%',
@@ -71,8 +71,8 @@ function TheBelief() {
                         left: 0
                     }}
                 >
-                    <source src="/videos/belief-video-720p.mp4" type="video/mp4" />
-                    <source src="/videos/belief-video-480p.mp4" type="video/mp4" />
+                    <source src="https://video.wixstatic.com/video/11062b_e12e778250c54ec0aa0d967b228e9cc3/720p/mp4/file.mp4" type="video/mp4" />
+                    <source src="https://video.wixstatic.com/video/11062b_e12e778250c54ec0aa0d967b228e9cc3/480p/mp4/file.mp4" type="video/mp4" />
                 </video>
             </section>
 

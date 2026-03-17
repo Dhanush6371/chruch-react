@@ -73,7 +73,7 @@ function TheInvitation() {
                 </div>
             </section>
 
-            {/* Section 1 - CONNECT (Split: Text LEFT, Heading RIGHT) */}
+            {/* Section 1 - GIVE (Split: Text LEFT, Heading RIGHT) */}
             <section className="split-section mission-section">
                 <div className="split-left">
                     <div
@@ -82,25 +82,28 @@ function TheInvitation() {
                         className={`split-content ${visibleContent.has('0') ? 'animate-in' : ''}`}
                     >
                         <p>
-                            The Way is being formed as a local church with a simple conviction: that Jesus still meets people in the middle of real life, and that the Church is called to walk closely with others through both beauty and brokenness.
+                            Giving is an act of worship that reveals the posture of the heart before God. From the opening pages of Scripture, God shows that what we bring to Him and how we bring it, matters. In Christ, giving flows not from obligation, but from grace, gratitude, and trust.
+                        </p>
+                        <p style={{ fontStyle: 'italic', marginTop: '20px' }}>
+                            "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Corinthians 9:7
                         </p>
                         <p>
-                            As a church rooted in Cardiff, we seek to live among the people of this city and bear witness to the way, the truth, and the life of Jesus. From the streets and homes of Cardiff, we trust that God will raise a sent people to the nations, conduits of His grace who will carry the life of Jesus beyond the city to plant and strengthen churches across the UK and Europe.
+                            We invite you to give prayerfully and obediently as the Lord leads.
                         </p>
                     </div>
                 </div>
                 <div className="split-right mission-heading">
                     <div
-                        ref={(el) => (contentRefs.current[2] = el)}
-                        data-content="2"
-                        className={`${visibleContent.has('2') ? 'animate-in' : ''}`}
+                        ref={(el) => (contentRefs.current[1] = el)}
+                        data-content="1"
+                        className={`${visibleContent.has('1') ? 'animate-in' : ''}`}
                     >
-                        <h2>CONNECT</h2>
+                        <h2>GIVE</h2>
                     </div>
                 </div>
             </section>
 
-            {/* Full-width Forest Road Image */}
+            {/* Full-width Image */}
             <section
                 ref={(el) => (sectionRefs.current[0] = el)}
                 className="image-section loaded"
@@ -114,22 +117,54 @@ function TheInvitation() {
                 />
             </section>
 
-            {/* Section 2 - SERVE (Split: Heading LEFT, Content RIGHT) */}
+            {/* Section 2 - CONNECT (Split: Heading LEFT, Content RIGHT) */}
             <section className="split-section how-we-live-section">
                 <div className="split-left how-we-live-heading">
                     <div
-                        ref={(el) => (contentRefs.current[3] = el)}
-                        data-content="3"
-                        className={`${visibleContent.has('3') ? 'animate-in' : ''}`}
+                        ref={(el) => (contentRefs.current[2] = el)}
+                        data-content="2"
+                        className={`${visibleContent.has('2') ? 'animate-in' : ''}`}
                     >
-                        <h2>SERVE</h2>
+                        <h2>CONNECT</h2>
                     </div>
                 </div>
                 <div className="split-right">
                     <div
-                        ref={(el) => (contentRefs.current[1] = el)}
-                        data-content="1"
-                        className={`split-content ${visibleContent.has('1') ? 'animate-in' : ''}`}
+                        ref={(el) => (contentRefs.current[3] = el)}
+                        data-content="3"
+                        className={`split-content ${visibleContent.has('3') ? 'animate-in' : ''}`}
+                    >
+                        <p>
+                            The Way is being formed as a local church with a simple conviction: that Jesus still meets people in the middle of real life, and that the Church is called to walk closely with others through both beauty and brokenness.
+                        </p>
+                        <p>
+                            As a church rooted in Cardiff, we seek to live among the people of this city and bear witness to the way, the truth, and the life of Jesus. From the streets and homes of Cardiff, we trust that God will raise a sent people to the nations, conduits of His grace who will carry the life of Jesus beyond the city to plant and strengthen churches across the UK and Europe.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Full-width Image */}
+            <section
+                ref={(el) => (sectionRefs.current[1] = el)}
+                className="image-section loaded"
+            >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('mountainRoad')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[1]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
+            </section>
+
+            {/* Section 3 - SERVE (Split: Text LEFT, Heading RIGHT) */}
+            <section className="split-section mission-section">
+                <div className="split-left">
+                    <div
+                        ref={(el) => (contentRefs.current[4] = el)}
+                        data-content="4"
+                        className={`split-content ${visibleContent.has('4') ? 'animate-in' : ''}`}
                     >
                         <p>
                             We believe serving is one of the primary ways people grow, belong, and participate in the life of the Church. God has intentionally placed gifts within each person, not for individual recognition, but for the strengthening of the whole body. As we serve one another, faith is formed, relationships deepen, and the life of Christ is made visible through ordinary acts of love and faithfulness.
@@ -142,20 +177,15 @@ function TheInvitation() {
                         </p>
                     </div>
                 </div>
-            </section>
-
-            {/* Full-width Mountain Road Image */}
-            <section
-                ref={(el) => (sectionRefs.current[1] = el)}
-                className="image-section loaded"
-            >
-                <div
-                    className="bg-image-wrapper"
-                    style={{
-                        backgroundImage: `url(${getImageUrl('mountainRoad')})`,
-                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[1]?.offsetTop || 0)) * 0.3}px, 0)`
-                    }}
-                />
+                <div className="split-right mission-heading">
+                    <div
+                        ref={(el) => (contentRefs.current[5] = el)}
+                        data-content="5"
+                        className={`${visibleContent.has('5') ? 'animate-in' : ''}`}
+                    >
+                        <h2>SERVE</h2>
+                    </div>
+                </div>
             </section>
         </div>
     );
