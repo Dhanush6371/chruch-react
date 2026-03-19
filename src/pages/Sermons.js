@@ -5,7 +5,68 @@ import './Sermons.css';
 
 function Sermons() {
     const [visibleContent, setVisibleContent] = useState(new Set());
+    const [sermons, setSermons] = useState([]);
+    const [loading, setLoading] = useState(true);
     const contentRefs = useRef([]);
+
+    // YouTube API Configuration - Replace these with your actual values
+    const YOUTUBE_API_KEY = 'AIzaSyA5rZwWSNRSgA8uiPlIkCy6vVMDQMiMQlM';
+    const CHANNEL_ID = 'UCLLCOdaPPPSyNe0eT4gusCw';
+
+    useEffect(() => {
+        const fetchSermons = async () => {
+            try {
+                let allSermons = [];
+                let nextPageToken = '';
+
+                // Fetch all videos using pagination
+                do {
+                    const response = await fetch(
+                        `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet&order=date&maxResults=50&type=video${nextPageToken ? `&pageToken=${nextPageToken}` : ''}`
+                    );
+                    const data = await response.json();
+
+                    const videoIds = data.items.map(item => item.id.videoId).join(',');
+                    const detailsResponse = await fetch(
+                        `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=contentDetails`
+                    );
+                    const detailsData = await detailsResponse.json();
+
+                    const sermonsData = data.items.map((item, index) => ({
+                        id: item.id.videoId,
+                        title: item.snippet.title,
+                        date: new Date(item.snippet.publishedAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        }),
+                        duration: formatDuration(detailsData.items[index].contentDetails.duration),
+                        series: 'Walking in Faith'
+                    }));
+
+                    allSermons = [...allSermons, ...sermonsData];
+                    nextPageToken = data.nextPageToken || '';
+                } while (nextPageToken);
+
+                setSermons(allSermons);
+                setLoading(false);
+            } catch (err) {
+                console.error('Error fetching sermons:', err);
+                setLoading(false);
+            }
+        };
+
+        fetchSermons();
+    }, []);
+
+    const formatDuration = (duration) => {
+        const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+        const hours = (match[1] || '').replace('H', '');
+        const minutes = (match[2] || '').replace('M', '');
+        const seconds = (match[3] || '').replace('S', '');
+        if (hours) return `${hours}:${minutes.padStart(2, '0')}:${seconds.padStart(2, '0')}`;
+        return `${minutes || '0'}:${seconds.padStart(2, '0')}`;
+    };
 
     useEffect(() => {
         const contentObserver = new IntersectionObserver(
@@ -31,65 +92,7 @@ function Sermons() {
         return () => {
             contentObserver.disconnect();
         };
-    }, []);
-
-    // Sample sermon data - you'll update this every Sunday
-    const sermons = [
-        {
-            id: 1,
-            title: 'The Way of Faith',
-            speaker: 'Pastor Name',
-            date: 'March 17, 2026',
-            duration: '45:30',
-            audioUrl: '#',
-            series: 'Walking in Faith'
-        },
-        {
-            id: 2,
-            title: 'Grace Upon Grace',
-            speaker: 'Pastor Name',
-            date: 'March 10, 2026',
-            duration: '42:15',
-            audioUrl: '#',
-            series: 'Walking in Faith'
-        },
-        {
-            id: 3,
-            title: 'Living in the Light',
-            speaker: 'Pastor Name',
-            date: 'March 3, 2026',
-            duration: '38:45',
-            audioUrl: '#',
-            series: 'Walking in Faith'
-        },
-        {
-            id: 4,
-            title: 'The Power of Prayer',
-            speaker: 'Pastor Name',
-            date: 'February 24, 2026',
-            duration: '41:20',
-            audioUrl: '#',
-            series: 'Foundations'
-        },
-        {
-            id: 5,
-            title: 'Love One Another',
-            speaker: 'Pastor Name',
-            date: 'February 17, 2026',
-            duration: '44:10',
-            audioUrl: '#',
-            series: 'Foundations'
-        },
-        {
-            id: 6,
-            title: 'The Gospel Message',
-            speaker: 'Pastor Name',
-            date: 'February 10, 2026',
-            duration: '39:55',
-            audioUrl: '#',
-            series: 'Foundations'
-        }
-    ];
+    }, [sermons]);
 
     return (
         <div className="home-page">
@@ -130,32 +133,40 @@ function Sermons() {
                         <p>Catch up on our latest Sunday sermons. New messages uploaded every week.</p>
                     </div>
 
-                    <div className="sermons-grid">
-                        {sermons.map((sermon, index) => (
-                            <div
-                                key={sermon.id}
-                                ref={(el) => (contentRefs.current[index + 1] = el)}
-                                data-content={index + 1}
-                                className={`sermon-card ${visibleContent.has(String(index + 1)) ? 'animate-in' : ''}`}
-                            >
-                                <div className="sermon-card-header">
-                                    <span className="sermon-series">{sermon.series}</span>
-                                    <span className="sermon-duration">{sermon.duration}</span>
+                    {loading ? (
+                        <div className="sermons-loading">Loading sermons...</div>
+                    ) : (
+                        <div className="sermons-grid">
+                            {sermons.map((sermon, index) => (
+                                <div
+                                    key={sermon.id}
+                                    ref={(el) => (contentRefs.current[index + 1] = el)}
+                                    data-content={index + 1}
+                                    className={`sermon-card ${visibleContent.has(String(index + 1)) ? 'animate-in' : ''}`}
+                                >
+                                    <div className="sermon-card-header">
+                                        <span className="sermon-series">{sermon.series}</span>
+                                        <span className="sermon-duration">{sermon.duration}</span>
+                                    </div>
+                                    <h3 className="sermon-title">{sermon.title}</h3>
+                                    <div className="sermon-meta">
+                                        <span className="sermon-date">{sermon.date}</span>
+                                    </div>
+                                    <div className="sermon-video-player">
+                                        <iframe
+                                            width="100%"
+                                            height="200"
+                                            src={`https://www.youtube.com/embed/${sermon.id}`}
+                                            title={sermon.title}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
                                 </div>
-                                <h3 className="sermon-title">{sermon.title}</h3>
-                                <div className="sermon-meta">
-                                    <span className="sermon-speaker">{sermon.speaker}</span>
-                                    <span className="sermon-date">{sermon.date}</span>
-                                </div>
-                                <div className="sermon-audio-player">
-                                    <audio controls>
-                                        <source src={sermon.audioUrl} type="audio/mpeg" />
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 

@@ -36,6 +36,8 @@ export const images = {
 
     // The Team Page
     teamHero: '/images-new/team-hero.jpg',
+    team1: '/images-new/team_1.jpeg',
+    team2: '/images-new/team-2.jpeg',
     teamMember1: '/images-new/team-member-1.jpg',
     teamMember2: '/images-new/team-member-2.jpg',
     teamMember3: '/images-new/team-member-3.jpg',
