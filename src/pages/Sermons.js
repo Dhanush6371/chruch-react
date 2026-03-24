@@ -97,25 +97,16 @@ function Sermons() {
 
     return (
         <div className="home-page">
-            {/* Hero Section with Video */}
-            <section className="sermons-hero">
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster={getImageUrl('beliefVideoPoster')}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'center center',
-                        display: 'block'
-                    }}
-                >
-                    <source src="/videos/belief-video-720p.mp4" type="video/mp4" />
-                    <source src="/videos/belief-video-480p.mp4" type="video/mp4" />
-                </video>
+            {/* Hero Section */}
+            <section
+                className="sermons-hero"
+                style={{
+                    backgroundImage: `url(${getImageUrl('belief2')})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    position: 'relative'
+                }}
+            >
                 <div className="sermons-hero-overlay">
                     <h1>SERMONS</h1>
                     <p>Listen to our weekly messages</p>

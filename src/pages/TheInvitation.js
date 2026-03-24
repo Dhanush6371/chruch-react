@@ -52,25 +52,18 @@ function TheInvitation() {
 
     return (
         <div className="home-page">
-            {/* Hero Section with Video */}
-            <section className="invitation-hero">
-                <div className="invitation-hero-video">
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        poster={getImageUrl('invitationVideoPoster')}
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover'
-                        }}
-                    >
-                        <source src="/videos/invitation-video-720p.mp4" type="video/mp4" />
-                        <source src="/videos/invitation-video-480p.mp4" type="video/mp4" />
-                    </video>
-                </div>
+            {/* Hero Section */}
+            <section
+                className="invitation-hero"
+                style={{
+                    backgroundImage: `url(${getImageUrl('invitation1')})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed',
+                    height: '60vh',
+                    minHeight: '400px'
+                }}
+            >
             </section>
 
             {/* Section 1 - CONNECT (Split: Heading LEFT, Content RIGHT) */}

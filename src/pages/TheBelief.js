@@ -51,29 +51,17 @@ function TheBelief() {
 
     return (
         <div className="home-page">
-            {/* Hero Section with Video */}
+            {/* Hero Section */}
             <section
                 ref={(el) => (sectionRefs.current[0] = el)}
                 className="hero-section loaded"
+                style={{
+                    backgroundImage: `url(${getImageUrl('belief1')})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed'
+                }}
             >
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    poster={getImageUrl('giveHeroVideoPoster')}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0
-                    }}
-                >
-                    <source src="https://video.wixstatic.com/video/11062b_e12e778250c54ec0aa0d967b228e9cc3/720p/mp4/file.mp4" type="video/mp4" />
-                    <source src="https://video.wixstatic.com/video/11062b_e12e778250c54ec0aa0d967b228e9cc3/480p/mp4/file.mp4" type="video/mp4" />
-                </video>
             </section>
 
             {/* Split Section - Text LEFT, Heading RIGHT */}

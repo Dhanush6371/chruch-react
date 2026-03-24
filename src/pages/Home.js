@@ -64,7 +64,7 @@ function Home() {
                     preload="auto"
                     className="hero-video"
                 >
-                    <source src="/images-new/home-hero-1.mp4" type="video/mp4" />
+                    <source src="/images-new/home-1.mp4" type="video/mp4" />
                 </video>
             </section>
 

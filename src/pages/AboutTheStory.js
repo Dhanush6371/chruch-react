@@ -51,25 +51,17 @@ function AboutTheStory() {
 
     return (
         <div className="home-page">
-            {/* Hero Section - London building video */}
+            {/* Hero Section - London building */}
             <section
                 ref={(el) => (sectionRefs.current[0] = el)}
-                className="hero-section video-hero loaded"
+                className="hero-section loaded"
+                style={{
+                    backgroundImage: `url(${getImageUrl('story1')})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center bottom',
+                    backgroundAttachment: 'fixed'
+                }}
             >
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="hero-video"
-                    style={{
-                        objectPosition: 'center bottom',
-                        transform: `translate3d(0, ${scrollY * 0.3}px, 0)`
-                    }}
-                >
-                    <source src="/images-new/london-building.mp4" type="video/mp4" />
-                </video>
             </section>
 
             {/* The Reason Section - Text LEFT, Heading RIGHT */}
