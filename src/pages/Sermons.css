@@ -69,31 +69,7 @@
     font-size: 1.1rem;
     color: #666;
     max-width: 600px;
-    margin: 0 auto 20px;
-}
-
-.refresh-btn {
-    background: #667eea;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-.refresh-btn:hover:not(:disabled) {
-    background: #5568d3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.refresh-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    margin: 0 auto;
 }
 
 /* Sermons Grid */
@@ -172,68 +148,14 @@
     font-size: 0.9rem;
 }
 
-.sermon-audio-player {
+.sermon-video-player {
     width: 100%;
-}
-
-.custom-audio-player {
-    width: 100%;
-    background: #f5f5f5;
     border-radius: 8px;
-    padding: 12px;
-}
-
-.audio-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.play-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: #667eea;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-}
-
-.play-button:hover:not(:disabled) {
-    background: #5568d3;
-}
-
-.play-button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
-
-.time-display {
-    font-size: 0.85rem;
-    color: #666;
-    min-width: 45px;
-}
-
-.progress-bar {
-    flex: 1;
-    height: 6px;
-    background: #ddd;
-    border-radius: 3px;
-    cursor: pointer;
-    position: relative;
     overflow: hidden;
 }
 
-.progress-fill {
-    height: 100%;
-    background: #667eea;
-    border-radius: 3px;
-    transition: width 0.1s linear;
+.sermon-video-player iframe {
+    border-radius: 8px;
 }
 
 .sermons-loading {
@@ -447,89 +369,5 @@
     .subscribe-btn {
         padding: 12px 30px;
         font-size: 0.9rem;
-    }
-}
-
-
-/* Pagination */
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-top: 60px;
-    padding: 20px;
-}
-
-.pagination-btn {
-    background: white;
-    color: #667eea;
-    border: 2px solid #667eea;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.pagination-btn:hover:not(:disabled) {
-    background: #667eea;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.pagination-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-
-.pagination-numbers {
-    display: flex;
-    gap: 10px;
-}
-
-.pagination-number {
-    background: white;
-    color: #333;
-    border: 1px solid #ddd;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.pagination-number:hover {
-    border-color: #667eea;
-    color: #667eea;
-}
-
-.pagination-number.active {
-    background: #667eea;
-    color: white;
-    border-color: #667eea;
-}
-
-@media (max-width: 768px) {
-    .pagination {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .pagination-btn {
-        padding: 8px 20px;
-        font-size: 0.9rem;
-    }
-
-    .pagination-numbers {
-        gap: 5px;
-    }
-
-    .pagination-number {
-        width: 35px;
-        height: 35px;
-        font-size: 0.85rem;
     }
 }

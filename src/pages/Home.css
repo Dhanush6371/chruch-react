@@ -139,11 +139,11 @@
 /* Content Sections - White background */
 .content-section {
     background-color: #FFFFFF;
-    padding: 80px 40px;
+    padding: 80px 20px;
 }
 
 .content-section .section-content {
-    max-width: 980px;
+    max-width: 1200px;
     margin: 0 auto;
     opacity: 0;
     transform: translateY(50px);
@@ -175,7 +175,7 @@
 
 .content-section p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.8;
     color: #5a5a5a;
     text-align: left;
@@ -232,7 +232,7 @@
 
 .contact-section p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.8;
     color: #ffffff;
     text-align: center;
@@ -434,7 +434,7 @@
 
 .split-content p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 1.8;
     color: #5a5a5a;
     margin: 0 0 20px 0;
@@ -519,7 +519,7 @@
 
 .value-block p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 15px;
+    font-size: 22px;
     line-height: 1.7;
     color: #5a5a5a;
     margin: 0 0 8px 0;
@@ -527,7 +527,7 @@
 
 .value-block .scripture {
     font-style: italic;
-    font-size: 14px;
+    font-size: 17px;
     color: #7a7a7a;
     margin-top: 8px;
 }

@@ -3,169 +3,15 @@ import { getImageUrl } from '../imageConfig';
 import '../pages/Home.css';
 import './Sermons.css';
 
-// YouTube Audio Player Component
-const YouTubeAudioPlayer = React.forwardRef(({ videoId, onPlay }, ref) => {
-    const playerRef = useRef(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(0);
-    const [isReady, setIsReady] = useState(false);
-
-    // Expose stop method to parent via ref
-    React.useImperativeHandle(ref, () => ({
-        stop: () => {
-            if (playerRef.current && playerRef.current.pauseVideo) {
-                playerRef.current.pauseVideo();
-                setIsPlaying(false);
-            }
-        }
-    }));
-
-    useEffect(() => {
-        const initPlayer = () => {
-            if (window.YT && window.YT.Player) {
-                const player = new window.YT.Player(`player-${videoId}`, {
-                    height: '0',
-                    width: '0',
-                    videoId: videoId,
-                    playerVars: {
-                        controls: 0,
-                        disablekb: 1,
-                        modestbranding: 1,
-                    },
-                    events: {
-                        onReady: (event) => {
-                            playerRef.current = event.target;
-                            setDuration(event.target.getDuration());
-                            setIsReady(true);
-                        },
-                        onStateChange: (event) => {
-                            if (event.data === window.YT.PlayerState.PLAYING) {
-                                setIsPlaying(true);
-                                onPlay(videoId); // Notify parent that this player started
-                            } else {
-                                setIsPlaying(false);
-                            }
-                        },
-                    },
-                });
-                return player;
-            }
-            return null;
-        };
-
-        // Load YouTube IFrame API if not loaded
-        if (!window.YT) {
-            const tag = document.createElement('script');
-            tag.src = 'https://www.youtube.com/iframe_api';
-            const firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-            window.onYouTubeIframeAPIReady = () => {
-                initPlayer();
-            };
-        } else {
-            initPlayer();
-        }
-
-        return () => {
-            if (playerRef.current && playerRef.current.destroy) {
-                playerRef.current.destroy();
-            }
-        };
-    }, [videoId, onPlay]);
-
-    useEffect(() => {
-        let interval;
-        if (isPlaying && playerRef.current) {
-            interval = setInterval(() => {
-                if (playerRef.current && playerRef.current.getCurrentTime) {
-                    setCurrentTime(playerRef.current.getCurrentTime());
-                }
-            }, 1000);
-        }
-        return () => {
-            if (interval) clearInterval(interval);
-        };
-    }, [isPlaying]);
-
-    const togglePlay = () => {
-        if (playerRef.current && isReady) {
-            if (isPlaying) {
-                playerRef.current.pauseVideo();
-            } else {
-                playerRef.current.playVideo();
-            }
-        }
-    };
-
-    const handleSeek = (e) => {
-        if (!playerRef.current || !isReady) return;
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const percentage = x / rect.width;
-        const newTime = percentage * duration;
-        playerRef.current.seekTo(newTime);
-        setCurrentTime(newTime);
-    };
-
-    const formatTime = (seconds) => {
-        if (!seconds || isNaN(seconds)) return '0:00';
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs.toString().padStart(2, '0')}`;
-    };
-
-    return (
-        <div className="custom-audio-player">
-            <div id={`player-${videoId}`} style={{ display: 'none' }}></div>
-            <div className="audio-controls">
-                <button className="play-button" onClick={togglePlay} disabled={!isReady}>
-                    {isPlaying ? '⏸' : '▶'}
-                </button>
-                <div className="time-display">{formatTime(currentTime)}</div>
-                <div className="progress-bar" onClick={handleSeek}>
-                    <div
-                        className="progress-fill"
-                        style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
-                    ></div>
-                </div>
-                <div className="time-display">{formatTime(duration)}</div>
-            </div>
-        </div>
-    );
-});
-
 function Sermons() {
     const [visibleContent, setVisibleContent] = useState(new Set());
     const [sermons, setSermons] = useState([]);
-    const [loading, setLoading] = useState(false); // Changed to false initially
-    const [currentPage, setCurrentPage] = useState(1);
+    const [loading, setLoading] = useState(true);
     const contentRefs = useRef([]);
-    const playerRefs = useRef({});
 
-    const SERMONS_PER_PAGE = 12;
-
-    // YouTube API Configuration
+    // YouTube API Configuration - Replace these with your actual values
     const YOUTUBE_API_KEY = 'AIzaSyA5rZwWSNRSgA8uiPlIkCy6vVMDQMiMQlM';
     const CHANNEL_ID = 'UCLLCOdaPPPSyNe0eT4gusCw';
-
-    // Handle when a player starts playing
-    const handlePlay = (videoId) => {
-        // Stop all other players
-        Object.keys(playerRefs.current).forEach((id) => {
-            if (id !== videoId && playerRefs.current[id] && playerRefs.current[id].stop) {
-                playerRefs.current[id].stop();
-            }
-        });
-    };
-
-    // Force refresh - clear cache and fetch new data
-    const handleRefresh = () => {
-        sessionStorage.removeItem('sermons');
-        sessionStorage.removeItem('sermonsTimestamp');
-        fetchSermons();
-    };
 
     useEffect(() => {
         fetchSermons();
@@ -173,27 +19,6 @@ function Sermons() {
     }, []);
 
     const fetchSermons = async () => {
-        // Check if data exists in sessionStorage
-        const cachedSermons = sessionStorage.getItem('sermons');
-        const cacheTimestamp = sessionStorage.getItem('sermonsTimestamp');
-        const cacheExpiry = 24 * 60 * 60 * 1000; // 24 hours (until next day's sermon)
-
-        // Use cached data if available and not expired
-        if (cachedSermons && cacheTimestamp) {
-            const age = Date.now() - parseInt(cacheTimestamp);
-            if (age < cacheExpiry) {
-                setSermons(JSON.parse(cachedSermons));
-                setLoading(false);
-                return; // Don't fetch new data
-            }
-        }
-
-        // Only show loading if no cache exists
-        if (!cachedSermons) {
-            setLoading(true);
-        }
-
-        // Fetch fresh data if no cache or expired
         try {
             let allSermons = [];
             let nextPageToken = '';
@@ -226,10 +51,6 @@ function Sermons() {
                 allSermons = [...allSermons, ...sermonsData];
                 nextPageToken = data.nextPageToken || '';
             } while (nextPageToken);
-
-            // Save to sessionStorage
-            sessionStorage.setItem('sermons', JSON.stringify(allSermons));
-            sessionStorage.setItem('sermonsTimestamp', Date.now().toString());
 
             setSermons(allSermons);
             setLoading(false);
@@ -274,17 +95,6 @@ function Sermons() {
         };
     }, [sermons]);
 
-    // Pagination logic
-    const totalPages = Math.ceil(sermons.length / SERMONS_PER_PAGE);
-    const startIndex = (currentPage - 1) * SERMONS_PER_PAGE;
-    const endIndex = startIndex + SERMONS_PER_PAGE;
-    const currentSermons = sermons.slice(startIndex, endIndex);
-
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-        window.scrollTo({ top: 400, behavior: 'smooth' });
-    };
-
     return (
         <div className="home-page">
             {/* Hero Section with Video */}
@@ -322,73 +132,41 @@ function Sermons() {
                     <div className="sermons-intro">
                         <h2>Recent Messages</h2>
                         <p>Catch up on our latest Sunday sermons. New messages uploaded every week.</p>
-                        <button className="refresh-btn" onClick={handleRefresh} disabled={loading}>
-                            {loading ? 'Checking for new sermons...' : 'Check for New Sermons'}
-                        </button>
                     </div>
 
                     {loading ? (
                         <div className="sermons-loading">Loading sermons...</div>
                     ) : (
-                        <>
-                            <div className="sermons-grid">
-                                {currentSermons.map((sermon, index) => (
-                                    <div
-                                        key={sermon.id}
-                                        ref={(el) => (contentRefs.current[index + 1] = el)}
-                                        data-content={index + 1}
-                                        className={`sermon-card ${visibleContent.has(String(index + 1)) ? 'animate-in' : ''}`}
-                                    >
-                                        <div className="sermon-card-header">
-                                            <span className="sermon-series">{sermon.series}</span>
-                                            <span className="sermon-duration">{sermon.duration}</span>
-                                        </div>
-                                        <h3 className="sermon-title">{sermon.title}</h3>
-                                        <div className="sermon-meta">
-                                            <span className="sermon-date">{sermon.date}</span>
-                                        </div>
-                                        <div className="sermon-audio-player">
-                                            <YouTubeAudioPlayer
-                                                videoId={sermon.id}
-                                                onPlay={handlePlay}
-                                                ref={(el) => (playerRefs.current[sermon.id] = el)}
-                                            />
-                                        </div>
+                        <div className="sermons-grid">
+                            {sermons.map((sermon, index) => (
+                                <div
+                                    key={sermon.id}
+                                    ref={(el) => (contentRefs.current[index + 1] = el)}
+                                    data-content={index + 1}
+                                    className={`sermon-card ${visibleContent.has(String(index + 1)) ? 'animate-in' : ''}`}
+                                >
+                                    <div className="sermon-card-header">
+                                        <span className="sermon-series">{sermon.series}</span>
+                                        <span className="sermon-duration">{sermon.duration}</span>
                                     </div>
-                                ))}
-                            </div>
-
-                            {/* Pagination */}
-                            {totalPages > 1 && (
-                                <div className="pagination">
-                                    <button
-                                        className="pagination-btn"
-                                        onClick={() => handlePageChange(currentPage - 1)}
-                                        disabled={currentPage === 1}
-                                    >
-                                        Previous
-                                    </button>
-                                    <div className="pagination-numbers">
-                                        {[...Array(totalPages)].map((_, i) => (
-                                            <button
-                                                key={i + 1}
-                                                className={`pagination-number ${currentPage === i + 1 ? 'active' : ''}`}
-                                                onClick={() => handlePageChange(i + 1)}
-                                            >
-                                                {i + 1}
-                                            </button>
-                                        ))}
+                                    <h3 className="sermon-title">{sermon.title}</h3>
+                                    <div className="sermon-meta">
+                                        <span className="sermon-date">{sermon.date}</span>
                                     </div>
-                                    <button
-                                        className="pagination-btn"
-                                        onClick={() => handlePageChange(currentPage + 1)}
-                                        disabled={currentPage === totalPages}
-                                    >
-                                        Next
-                                    </button>
+                                    <div className="sermon-video-player">
+                                        <iframe
+                                            width="100%"
+                                            height="200"
+                                            src={`https://www.youtube.com/embed/${sermon.id}`}
+                                            title={sermon.title}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        ></iframe>
+                                    </div>
                                 </div>
-                            )}
-                        </>
+                            ))}
+                        </div>
                     )}
                 </div>
             </section>
@@ -413,4 +191,3 @@ function Sermons() {
 }
 
 export default Sermons;
-
