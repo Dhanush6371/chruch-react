@@ -10,8 +10,8 @@ function Sermons() {
     const contentRefs = useRef([]);
 
     // YouTube API Configuration - Replace these with your actual values
-    const YOUTUBE_API_KEY = 'AIzaSyA5rZwWSNRSgA8uiPlIkCy6vVMDQMiMQlM';
-    const CHANNEL_ID = 'UCLLCOdaPPPSyNe0eT4gusCw';
+    const YOUTUBE_API_KEY = 'AIzaSyDCQBYfOptAl6GqartyhBp8RMojZVek-IU';
+    const CHANNEL_ID = 'UCoxbIC_3Gr9b91S38SlML0w';
 
     useEffect(() => {
         fetchSermons();
@@ -172,8 +172,8 @@ function Sermons() {
                     <h2>Never Miss a Message</h2>
                     <p>Subscribe to our podcast or follow us on YouTube to get notified when new sermons are available.</p>
                     <div className="subscribe-buttons">
-                        <a href="https://podcasts.apple.com" target="_blank" rel="noopener noreferrer" className="subscribe-btn">Subscribe on Podcast</a>
-                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="subscribe-btn">Watch on YouTube</a>
+                        <a href="https://www.youtube.com/channel/UCoxbIC_3Gr9b91S38SlML0w?sub_confirmation=1" target="_blank" rel="noopener noreferrer" className="subscribe-btn">Watch on YouTube</a>
+                        <a href="https://www.instagram.com/thewaycardiff?igsh=MXVtd2J6OHhjM2gyNw==" target="_blank" rel="noopener noreferrer" className="subscribe-btn">Subscribe to Podcast</a>
                     </div>
                 </div>
             </section>
