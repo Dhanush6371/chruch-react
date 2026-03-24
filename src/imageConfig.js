@@ -16,7 +16,6 @@ export const images = {
 
     // Story Page Images (story-1 to story-4)
     story1: '/images-new/story-1.jpg',      // london building
-    story1Video: '/images-new/story-1.mp4', // london building video
     story2: '/images-new/story-2.jpg',      // dark forest
     story3: '/images-new/story-3.jpg',      // mountain road
     story4: '/images-new/story-4.jpg',      // sunset road

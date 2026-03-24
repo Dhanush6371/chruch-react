@@ -141,7 +141,7 @@ function TheTeam() {
                                     {index % 2 === 1 && (
                                         <div className="team-member-image-wrapper">
                                             <div className="team-member-photo">
-                                                <img src={member.image} alt={member.name} loading="lazy" />
+                                                <img src={member.image} alt={member.name} />
                                             </div>
                                             <button
                                                 className="team-member-expand-btn"
@@ -161,7 +161,7 @@ function TheTeam() {
                                     {index % 2 === 0 && (
                                         <div className="team-member-image-wrapper">
                                             <div className="team-member-photo">
-                                                <img src={member.image} alt={member.name} loading="lazy" />
+                                                <img src={member.image} alt={member.name} />
                                             </div>
                                             <button
                                                 className="team-member-expand-btn"
@@ -189,7 +189,7 @@ function TheTeam() {
                     <div className="team-images-grid">
                         {teamMembers.map((member) => (
                             <div key={member.id} className="team-image-item">
-                                <img src={member.image} alt={member.name} loading="lazy" />
+                                <img src={member.image} alt={member.name} />
                                 <button
                                     className="team-image-expand-btn"
                                     onClick={() => toggleMember(member.id)}
