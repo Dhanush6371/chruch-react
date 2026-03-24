@@ -175,7 +175,7 @@
 
 .content-section p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     line-height: 1.8;
     color: #5a5a5a;
     text-align: left;
@@ -232,7 +232,7 @@
 
 .contact-section p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     line-height: 1.8;
     color: #ffffff;
     text-align: center;
@@ -434,7 +434,7 @@
 
 .split-content p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     line-height: 1.8;
     color: #5a5a5a;
     margin: 0 0 20px 0;
@@ -519,7 +519,7 @@
 
 .value-block p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     line-height: 1.7;
     color: #5a5a5a;
     margin: 0 0 8px 0;
@@ -562,7 +562,7 @@
     }
 
     .content-section p {
-        font-size: 16px;
+        font-size: 19px;
     }
 
     .contact-section {

@@ -101,7 +101,7 @@ function TheInvitation() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('darkForest')})`,
+                        backgroundImage: `url(${getImageUrl('invitation5')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[0]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -145,19 +145,28 @@ function TheInvitation() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('mountainRoad')})`,
+                        backgroundImage: `url(${getImageUrl('invitation6')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[1]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
             </section>
 
             {/* Section 3 - GIVE (Split: Text LEFT, Heading RIGHT) */}
-            <section className="split-section mission-section">
-                <div className="split-left">
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
                     <div
                         ref={(el) => (contentRefs.current[4] = el)}
                         data-content="4"
-                        className={`split-content ${visibleContent.has('4') ? 'animate-in' : ''}`}
+                        className={`${visibleContent.has('4') ? 'animate-in' : ''}`}
+                    >
+                        <h2>GIVE</h2>
+                    </div>
+                </div>
+                <div className="split-right">
+                    <div
+                        ref={(el) => (contentRefs.current[5] = el)}
+                        data-content="5"
+                        className={`split-content ${visibleContent.has('5') ? 'animate-in' : ''}`}
                     >
                         <p>
                             Giving is an act of worship that reveals the posture of the heart before God. From the opening pages of Scripture, God shows that what we bring to Him and how we bring it, matters. In Christ, giving flows not from obligation, but from grace, gratitude, and trust.
@@ -168,15 +177,6 @@ function TheInvitation() {
                         <p>
                             We invite you to give prayerfully and obediently as the Lord leads.
                         </p>
-                    </div>
-                </div>
-                <div className="split-right mission-heading">
-                    <div
-                        ref={(el) => (contentRefs.current[5] = el)}
-                        data-content="5"
-                        className={`${visibleContent.has('5') ? 'animate-in' : ''}`}
-                    >
-                        <h2>GIVE</h2>
                     </div>
                 </div>
             </section>

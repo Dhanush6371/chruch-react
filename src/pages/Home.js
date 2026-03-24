@@ -118,7 +118,7 @@ function Home() {
                     data-content="2"
                     className={`section-content ${visibleContent.has('2') ? 'animate-in' : ''}`}
                 >
-                    <h2>The Story</h2>
+                    <h2>Why Do We Exist?</h2>
                     <p>
                         It often begins in ordinary moments, when life feels unfinished and questions remain. The Way is formed out of a simple but deep conviction that Jesus still meets people in the middle of real life, and that the Church is called to walk closely with others through both beauty and brokenness. We believe the gospel is not an idea to be admired from a distance, but a life to be lived together patiently, honestly, and faithfully. Rooted in Cardiff, we seek to live among the people of this city as witnesses to the way, the truth, and the life of Jesus. The Way is not about building a platform, but about forming a people who walk faithfully with God and with one another for the sake of the world He loves.
                     </p>
@@ -159,7 +159,7 @@ function Home() {
                     data-content="4"
                     className={`section-content ${visibleContent.has('4') ? 'animate-in' : ''}`}
                 >
-                    <h2>The Belief</h2>
+                    <h2>What Do We Believe?</h2>
                     <p>
                         Before anything else, there is God, and everything begins with Him. We believe in one God, Father, Son, and Holy Spirit, eternally existing in perfect unity. We believe Jesus Christ is God incarnate, fully God and fully man, who lived a sinless life, died as our substitute, rose bodily from the dead, ascended into heaven, and now reigns as Lord. Through His death and resurrection, salvation is offered freely by grace through faith to all who repent and believe. We believe humanity was created in God's image but is fallen and unable to restore itself apart from Christ. New life comes through the regenerating work of the Holy Spirit, who indwells, transforms, and empowers believers for Christlike living and service.
                     </p>
@@ -200,7 +200,7 @@ function Home() {
                     data-content="6"
                     className={`section-content ${visibleContent.has('6') ? 'animate-in' : ''}`}
                 >
-                    <h2>The Team</h2>
+                    <h2>Who We Are?</h2>
                     <p>
                         Behind every new beginning are people who said yes before the outcome was visible. The Way is led by Noel and Geraldine, who serve as the founding elders and planting family in Cardiff. Their journey has been shaped by years of faithful ministry, deep personal loss, and living hope, forming in them a steady trust that God builds His Church. Heath and Leah serve alongside them in co-eldership and apostolic oversight, offering wisdom, accountability, and shared discernment. The Way is locally led, yet relationally connected within an apostolic household, following the biblical pattern of shared leadership, mutual accountability, and spiritual covering.
                     </p>
@@ -228,7 +228,7 @@ function Home() {
                     data-content="7"
                     className={`section-content ${visibleContent.has('7') ? 'animate-in' : ''}`}
                 >
-                    <h2>The Invitation</h2>
+                    <h2>Where Do You Begin?</h2>
                     <p>
                         Every journey begins with a step, even when the way forward is unclear. The Way takes shape through relationship, shared life, and simple steps of obedience. Whether you are exploring faith, returning to church, or sensing a desire to walk with us in this season, you are warmly invited. You do not need to have all the answers, and you do not need to commit to anything. You are welcome to come as you are. If you are curious, interested, or quietly hopeful, we would love to hear from you. The Way is not about perfection, but about walking together toward Jesus, step by step, in faith, hope, and love.
                     </p>

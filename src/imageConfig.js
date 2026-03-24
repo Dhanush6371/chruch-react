@@ -27,9 +27,13 @@ export const images = {
     belief3: '/images-new/belief-3.jpg',    // forest aerial
     belief4: '/images-new/belief-4.jpg',    // forest road aerial
 
-    // Invitation Page Images (invitation-1 to invitation-2)
+    // Invitation Page Images (invitation-1 to invitation-6)
     invitation1: '/images-new/invitation-1.jpg',  // hero
     invitation2: '/images-new/invitation-2.jpg',  // video poster
+    invitation3: '/images-new/invitation-3.jpg',  // image 1
+    invitation4: '/images-new/invitation-4.jpg',  // image 2
+    invitation5: '/images-new/invitation-5.jpeg', // image 3 (under CONNECT)
+    invitation6: '/images-new/invitation-6.jpeg', // image 4 (under SERVE)
 
     // Team Page Images (team-1 to team-13)
     team1: '/images-new/team-1.jpg',    // hero

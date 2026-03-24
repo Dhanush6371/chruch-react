@@ -20,7 +20,7 @@ function Footer() {
                         <img src={getImageUrl('iconTiktok')} alt="TikTok" />
                     </a>
                 </div>
-                <p>&copy; {new Date().getFullYear()} The Way Church Cardiff</p>
+                <p>&copy; {new Date().getFullYear()} The Way Church Cardiff | made my afterlife</p>
             </div>
         </footer>
     );
