@@ -82,6 +82,7 @@
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     min-height: 600px;
+    overflow: visible;
 }
 
 .split-section.loaded {
@@ -104,6 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: visible;
 }
 
 .split-left.loaded,

@@ -45,15 +45,17 @@
     max-width: 100%;
     margin: 0 auto;
     min-height: 600px;
-    overflow: hidden;
+    overflow: visible;
 }
 
+.split-left,
 .split-left,
 .split-right {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: visible;
 }
 
 .split-image {
@@ -84,7 +86,6 @@
 .split-content-blue {
     background-color: #FFFFFF;
     padding: 45px 50px;
-    overflow: hidden;
 }
 
 .split-text-content {
