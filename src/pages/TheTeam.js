@@ -1,38 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { getImageUrl } from '../imageConfig';
 import '../pages/Home.css';
 import './TheTeam.css';
 
 function TheTeam() {
-    const [visibleContent, setVisibleContent] = useState(new Set());
     const [expandedMember, setExpandedMember] = useState(null);
-    const contentRefs = useRef([]);
-
-    useEffect(() => {
-        const contentObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = entry.target.dataset.content;
-                        setVisibleContent((prev) => new Set([...prev, index]));
-                        contentObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                rootMargin: '0px',
-                threshold: 0.15
-            }
-        );
-
-        contentRefs.current.forEach((ref) => {
-            if (ref) contentObserver.observe(ref);
-        });
-
-        return () => {
-            contentObserver.disconnect();
-        };
-    }, []);
 
     const toggleMember = (id) => {
         setExpandedMember(expandedMember === id ? null : id);
@@ -118,9 +90,7 @@ function TheTeam() {
             {/* Leadership Team */}
             <section className="leadership-team-section">
                 <div
-                    ref={(el) => (contentRefs.current[2] = el)}
-                    data-content="2"
-                    className={`section-content ${visibleContent.has('2') ? 'animate-in' : ''}`}
+                    className="section-content animate-in"
                 >
                     <div className="leadership-header">
                         <div className="leadership-text">
@@ -214,9 +184,7 @@ function TheTeam() {
             {/* Section 4 - Our Clients (Light Blue Background) */}
             <section className="content-section">
                 <div
-                    ref={(el) => (contentRefs.current[7] = el)}
-                    data-content="7"
-                    className={`section-content ${visibleContent.has('7') ? 'animate-in' : ''}`}
+                    className="section-content animate-in"
                 >
                     <h2>Our Clients</h2>
                     <div className="horizontal-line"></div>

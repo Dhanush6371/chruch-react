@@ -1,0 +1,51 @@
+/* Story Page Specific Styles */
+
+/* Override split section alignment for Story page */
+.split-section .split-left,
+.split-section .split-right {
+    align-items: flex-start;
+    padding-top: 120px;
+}
+
+/* Mission Section - align to top */
+.mission-section .split-right {
+    align-items: flex-start;
+    padding-top: 120px;
+}
+
+/* Mission Section - reverse order on desktop to show heading on right */
+.mission-section {
+    flex-direction: row-reverse;
+}
+
+/* How We Live Section - align to top */
+.how-we-live-section .split-left {
+    align-items: flex-start;
+    padding-top: 120px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .split-section .split-left,
+    .split-section .split-right {
+        padding-top: 0;
+        align-items: center;
+    }
+
+    .mission-section .split-right,
+    .how-we-live-section .split-left {
+        padding-top: 0;
+        align-items: center;
+    }
+
+    .mission-heading h2,
+    .how-we-live-heading h2 {
+        padding: 30px;
+    }
+
+    /* Reset flex-direction on mobile so heading appears first */
+    .mission-section {
+        flex-direction: column;
+    }
+}

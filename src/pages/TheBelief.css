@@ -104,9 +104,10 @@
 .split-right {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     overflow: visible;
+    padding-top: 120px;
 }
 
 .split-left.loaded,
@@ -146,7 +147,7 @@
 .split-content h2 {
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 60px;
     margin: 0 0 30px 0;
     color: #000000;
     letter-spacing: 2px;
@@ -227,6 +228,18 @@
 
     .split-content h2 {
         font-size: 36px;
+    }
+
+    .split-left,
+    .split-right {
+        padding-top: 0;
+        align-items: center;
+    }
+
+    /* Reset flex-direction on mobile so heading appears first */
+    .mission-section,
+    .how-we-live-section {
+        flex-direction: column;
     }
 }
 
@@ -391,4 +404,9 @@ html {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* Mission sections - reverse order on desktop to show heading on right */
+.mission-section {
+    flex-direction: row-reverse;
 }

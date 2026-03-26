@@ -4,10 +4,10 @@ import '../pages/Home.css';
 import './TheInvitation.css';
 
 function TheInvitation() {
-    const [visibleContent, setVisibleContent] = useState(new Set());
+
     const [scrollY, setScrollY] = useState(0);
     const sectionRefs = useRef([]);
-    const contentRefs = useRef([]);
+
 
     useEffect(() => {
         let ticking = false;
@@ -24,29 +24,8 @@ function TheInvitation() {
 
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        const contentObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = entry.target.dataset.content;
-                        setVisibleContent((prev) => new Set([...prev, index]));
-                        contentObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                rootMargin: '0px',
-                threshold: 0.15
-            }
-        );
-
-        contentRefs.current.forEach((ref) => {
-            if (ref) contentObserver.observe(ref);
-        });
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            contentObserver.disconnect();
         };
     }, []);
 
@@ -70,18 +49,14 @@ function TheInvitation() {
             <section className="split-section how-we-live-section">
                 <div className="split-left how-we-live-heading">
                     <div
-                        ref={(el) => (contentRefs.current[0] = el)}
-                        data-content="0"
-                        className={`${visibleContent.has('0') ? 'animate-in' : ''}`}
+                        className="animate-in"
                     >
                         <h2>CONNECT</h2>
                     </div>
                 </div>
                 <div className="split-right">
                     <div
-                        ref={(el) => (contentRefs.current[1] = el)}
-                        data-content="1"
-                        className={`split-content ${visibleContent.has('1') ? 'animate-in' : ''}`}
+                        className="split-content animate-in"
                     >
                         <p>
                             The Way is being formed as a local church with a simple conviction: that Jesus still meets people in the middle of real life, and that the Church is called to walk closely with others through both beauty and brokenness.
@@ -107,13 +82,18 @@ function TheInvitation() {
                 />
             </section>
 
-            {/* Section 2 - SERVE (Split: Text LEFT, Heading RIGHT) */}
+            {/* Section 2 - SERVE (Split: Heading FIRST, Text SECOND) */}
             <section className="split-section mission-section">
+                <div className="split-right mission-heading">
+                    <div
+                        className="animate-in"
+                    >
+                        <h2>SERVE</h2>
+                    </div>
+                </div>
                 <div className="split-left">
                     <div
-                        ref={(el) => (contentRefs.current[2] = el)}
-                        data-content="2"
-                        className={`split-content ${visibleContent.has('2') ? 'animate-in' : ''}`}
+                        className="split-content animate-in"
                     >
                         <p>
                             We believe serving is one of the primary ways people grow, belong, and participate in the life of the Church. God has intentionally placed gifts within each person, not for individual recognition, but for the strengthening of the whole body. As we serve one another, faith is formed, relationships deepen, and the life of Christ is made visible through ordinary acts of love and faithfulness.
@@ -124,15 +104,6 @@ function TheInvitation() {
                         <p>
                             We invite you to explore where God may be leading you to serve, trusting that every gift matters and every contribution plays a part in building up the body of Christ.
                         </p>
-                    </div>
-                </div>
-                <div className="split-right mission-heading">
-                    <div
-                        ref={(el) => (contentRefs.current[3] = el)}
-                        data-content="3"
-                        className={`${visibleContent.has('3') ? 'animate-in' : ''}`}
-                    >
-                        <h2>SERVE</h2>
                     </div>
                 </div>
             </section>
@@ -155,18 +126,14 @@ function TheInvitation() {
             <section className="split-section how-we-live-section">
                 <div className="split-left how-we-live-heading">
                     <div
-                        ref={(el) => (contentRefs.current[4] = el)}
-                        data-content="4"
-                        className={`${visibleContent.has('4') ? 'animate-in' : ''}`}
+                        className="animate-in"
                     >
                         <h2>GIVE</h2>
                     </div>
                 </div>
                 <div className="split-right">
                     <div
-                        ref={(el) => (contentRefs.current[5] = el)}
-                        data-content="5"
-                        className={`split-content ${visibleContent.has('5') ? 'animate-in' : ''}`}
+                        className="split-content animate-in"
                     >
                         <p>
                             Giving is an act of worship that reveals the posture of the heart before God. From the opening pages of Scripture, God shows that what we bring to Him and how we bring it, matters. In Christ, giving flows not from obligation, but from grace, gratitude, and trust.

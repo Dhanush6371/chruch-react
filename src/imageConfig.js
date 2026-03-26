@@ -35,6 +35,12 @@ export const images = {
     teamMember3: '/images-new/team-member-3.jpg',
     teamMember4: '/images-new/team-member-4.jpg',
 
+    // Story Page Images (in order)
+    storySection1: '/images-new/story-1.jpg',
+    storySection2: '/images-new/story-2.jpg',
+    storySection3: '/images-new/story-3.jpg',
+    storySection4: '/images-new/story-4.jpg',
+
     // Social Icons
     iconYoutube: '/icons/youtube.png',
     iconInstagram: '/icons/instagram.png',

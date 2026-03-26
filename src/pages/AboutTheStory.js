@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getImageUrl } from '../imageConfig';
 import '../pages/Home.css';
+import './AboutTheStory.css';
 
 function AboutTheStory() {
-    const [visibleContent, setVisibleContent] = useState(new Set());
+
     const [scrollY, setScrollY] = useState(0);
     const sectionRefs = useRef([]);
-    const contentRefs = useRef([]);
+
 
     useEffect(() => {
         let ticking = false;
@@ -23,29 +24,8 @@ function AboutTheStory() {
 
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        const contentObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const index = entry.target.dataset.content;
-                        setVisibleContent((prev) => new Set([...prev, index]));
-                        contentObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                rootMargin: '0px',
-                threshold: 0.15
-            }
-        );
-
-        contentRefs.current.forEach((ref) => {
-            if (ref) contentObserver.observe(ref);
-        });
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            contentObserver.disconnect();
         };
     }, []);
 
@@ -56,7 +36,7 @@ function AboutTheStory() {
                 ref={(el) => (sectionRefs.current[0] = el)}
                 className="hero-section loaded"
                 style={{
-                    backgroundImage: `url(${getImageUrl('story1')})`,
+                    backgroundImage: `url(${getImageUrl('storySection1')})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center bottom',
                     backgroundAttachment: 'fixed'
@@ -64,26 +44,22 @@ function AboutTheStory() {
             >
             </section>
 
-            {/* The Reason Section - Text LEFT, Heading RIGHT */}
+            {/* The Reason Section - Heading FIRST, Text SECOND */}
             <section className="split-section mission-section">
+                <div className="split-right mission-heading">
+                    <div
+                        className="animate-in"
+                    >
+                        <h2>THE REASON</h2>
+                    </div>
+                </div>
                 <div className="split-left">
                     <div
-                        ref={(el) => (contentRefs.current[0] = el)}
-                        data-content="0"
-                        className={`split-content ${visibleContent.has('0') ? 'animate-in' : ''}`}
+                        className="split-content animate-in"
                     >
                         <p>
                             The Way is being formed as a local church with a simple conviction: that Jesus still meets people in the middle of real life, and that the Church is called to walk closely with others through both beauty and brokenness. As a church rooted in Cardiff, we seek to live among the people of this city and bear witness to the way, the truth, and the life of Jesus. From the streets and homes of Cardiff, we trust that God will raise a sent people to the nations, conduits of His grace who will carry the life of Jesus beyond the city to plant and strengthen churches across the UK and Europe.
                         </p>
-                    </div>
-                </div>
-                <div className="split-right mission-heading">
-                    <div
-                        ref={(el) => (contentRefs.current[6] = el)}
-                        data-content="6"
-                        className={`${visibleContent.has('6') ? 'animate-in' : ''}`}
-                    >
-                        <h2>THE REASON</h2>
                     </div>
                 </div>
             </section>
@@ -96,7 +72,7 @@ function AboutTheStory() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('darkForest')})`,
+                        backgroundImage: `url(${getImageUrl('storySection2')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[2]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -106,18 +82,14 @@ function AboutTheStory() {
             <section className="split-section how-we-live-section">
                 <div className="split-left how-we-live-heading">
                     <div
-                        ref={(el) => (contentRefs.current[1] = el)}
-                        data-content="1"
-                        className={`${visibleContent.has('1') ? 'animate-in' : ''}`}
+                        className="animate-in"
                     >
                         <h2>THE VISION</h2>
                     </div>
                 </div>
                 <div className="split-right">
                     <div
-                        ref={(el) => (contentRefs.current[7] = el)}
-                        data-content="7"
-                        className={`split-content how-we-live-content ${visibleContent.has('7') ? 'animate-in' : ''}`}
+                        className="split-content how-we-live-content animate-in"
                     >
                         <div className="value-block">
                             <h3>W — WITNESS</h3>
@@ -146,32 +118,28 @@ function AboutTheStory() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('mountainRoad')})`,
+                        backgroundImage: `url(${getImageUrl('storySection3')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[4]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
             </section>
 
-            {/* The Mission Section - Text LEFT, Heading RIGHT */}
+            {/* The Mission Section - Heading FIRST, Text SECOND */}
             <section className="split-section mission-section">
+                <div className="split-right mission-heading">
+                    <div
+                        className="animate-in"
+                    >
+                        <h2>THE MISSION</h2>
+                    </div>
+                </div>
                 <div className="split-left">
                     <div
-                        ref={(el) => (contentRefs.current[2] = el)}
-                        data-content="2"
-                        className={`split-content ${visibleContent.has('2') ? 'animate-in' : ''}`}
+                        className="split-content animate-in"
                     >
                         <p>
                             Our mission is to walk with people from death to life, from life to fullness, and from fullness into mission. We form disciples who follow Jesus wholeheartedly, people whose lives are shaped by the Word and the Spirit, expressed through faithful obedience, as we journey together toward Christlikeness and are sent to live on mission in the world.
                         </p>
-                    </div>
-                </div>
-                <div className="split-right mission-heading">
-                    <div
-                        ref={(el) => (contentRefs.current[3] = el)}
-                        data-content="3"
-                        className={`${visibleContent.has('3') ? 'animate-in' : ''}`}
-                    >
-                        <h2>THE MISSION</h2>
                     </div>
                 </div>
             </section>
@@ -184,7 +152,7 @@ function AboutTheStory() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('sunsetRoad')})`,
+                        backgroundImage: `url(${getImageUrl('storySection4')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[5]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -194,18 +162,14 @@ function AboutTheStory() {
             <section className="split-section how-we-live-section">
                 <div className="split-left how-we-live-heading">
                     <div
-                        ref={(el) => (contentRefs.current[4] = el)}
-                        data-content="4"
-                        className={`${visibleContent.has('4') ? 'animate-in' : ''}`}
+                        className="animate-in"
                     >
                         <h2>HOW WE LIVE THIS OUT</h2>
                     </div>
                 </div>
                 <div className="split-right">
                     <div
-                        ref={(el) => (contentRefs.current[5] = el)}
-                        data-content="5"
-                        className={`split-content how-we-live-content ${visibleContent.has('5') ? 'animate-in' : ''}`}
+                        className="split-content how-we-live-content animate-in"
                     >
                         <div className="value-block">
                             <h3>CHRIST EXALTED</h3>

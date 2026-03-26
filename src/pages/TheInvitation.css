@@ -52,9 +52,10 @@
 .split-right {
     width: 50%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     overflow: visible;
+    padding-top: 120px;
 }
 
 .split-image {
@@ -182,6 +183,12 @@
         margin: 0 0 40px 0;
     }
 
+    .split-left,
+    .split-right {
+        padding-top: 0;
+        align-items: center;
+    }
+
     .connect-text,
     .serve-text,
     .serve-quote {
@@ -286,5 +293,19 @@
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mission section - reverse order on desktop to show heading on right */
+.mission-section {
+    flex-direction: row-reverse;
+}
+
+/* Reset on mobile */
+@media (max-width: 768px) {
+
+    .mission-section,
+    .how-we-live-section {
+        flex-direction: column;
     }
 }

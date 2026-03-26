@@ -105,6 +105,13 @@
     background-position: center -15%;
 }
 
+/* Mobile view - show more top for home-section-4 */
+@media (max-width: 768px) {
+    .home-5-section .bg-image-wrapper {
+        background-position: center -45%;
+    }
+}
+
 /* Quote Sections - Black background with white text */
 .quote-section {
     background-color: #000000;
@@ -438,7 +445,7 @@
 .split-content h2 {
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 60px;
     margin: 0 0 30px 0;
     color: #000000;
     letter-spacing: 2px;
@@ -497,7 +504,7 @@
 .how-we-live-heading h2 {
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 60px;
     color: #ffffff;
     margin: 0;
     letter-spacing: 3px;
