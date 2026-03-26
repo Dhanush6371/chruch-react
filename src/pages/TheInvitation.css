@@ -1,9 +1,8 @@
 /* Hero Section with Video Background */
 .invitation-hero {
     width: 100%;
-    height: 80vh;
-    min-height: 600px;
-    max-height: 900px;
+    aspect-ratio: 16 / 9;
+    max-height: 550px;
     position: relative;
     overflow: hidden;
     background-color: #000000;
@@ -125,7 +124,8 @@
 /* Image Section */
 .image-section {
     width: 100%;
-    height: 600px;
+    aspect-ratio: 16 / 9;
+    max-height: 550px;
     overflow: hidden;
     position: relative;
 }
@@ -149,8 +149,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .invitation-hero {
-        height: 70vh;
-        min-height: 500px;
+        aspect-ratio: 3 / 4;
     }
 
     .split-container {
@@ -165,11 +164,13 @@
     }
 
     .split-image {
-        height: 400px;
+        aspect-ratio: 3 / 4;
+        height: auto;
     }
 
     .split-video {
-        height: 400px;
+        aspect-ratio: 3 / 4;
+        height: auto;
     }
 
     .split-content-blue {
@@ -188,7 +189,7 @@
     }
 
     .image-section {
-        height: 400px;
+        aspect-ratio: 3 / 4;
     }
 }
 

@@ -56,7 +56,7 @@ function TheBelief() {
                 ref={(el) => (sectionRefs.current[0] = el)}
                 className="hero-section loaded"
                 style={{
-                    backgroundImage: `url(${getImageUrl('belief1')})`,
+                    backgroundImage: `url(${getImageUrl('beliefHero')})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundAttachment: 'fixed'
@@ -96,7 +96,7 @@ function TheBelief() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('bruno')})`,
+                        backgroundImage: `url(${getImageUrl('beliefSection1')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[2]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -134,7 +134,7 @@ function TheBelief() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('johntower')})`,
+                        backgroundImage: `url(${getImageUrl('beliefSection2')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[4]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -167,12 +167,12 @@ function TheBelief() {
             {/* Image Section */}
             <section
                 ref={(el) => (sectionRefs.current[5] = el)}
-                className="image-section loaded"
+                className="image-section team-7-section loaded"
             >
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('sheikh')})`,
+                        backgroundImage: `url(${getImageUrl('beliefSection3')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[5]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -210,7 +210,7 @@ function TheBelief() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('saagar')})`,
+                        backgroundImage: `url(${getImageUrl('beliefSection4')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[6]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -248,7 +248,7 @@ function TheBelief() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('forestAerial')})`,
+                        backgroundImage: `url(${getImageUrl('beliefSection5')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[7]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -286,7 +286,7 @@ function TheBelief() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('forestRoadAerial')})`,
+                        backgroundImage: `url(${getImageUrl('beliefSection6')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[9]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />

@@ -45,7 +45,6 @@ function Header() {
                         <li><Link to="/the-belief" className={location.pathname === '/the-belief' ? 'active' : ''}>the belief</Link></li>
                         <li><Link to="/the-team" className={location.pathname === '/the-team' ? 'active' : ''}>the team</Link></li>
                         <li><Link to="/the-invitation" className={location.pathname === '/the-invitation' ? 'active' : ''}>the invitation</Link></li>
-                        <li><Link to="/sermons" className={location.pathname === '/sermons' ? 'active' : ''}>sermons</Link></li>
                     </ul>
 
                     {/* Social icons in mobile menu */}

@@ -42,7 +42,7 @@
 .team-hero-image {
     width: 100%;
     max-width: 980px;
-    height: 600px;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -514,7 +514,7 @@
     }
 
     .team-hero-image {
-        height: 400px;
+        aspect-ratio: 3 / 4;
     }
 
     .team-members-section h2 {

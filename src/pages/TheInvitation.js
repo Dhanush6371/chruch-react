@@ -56,7 +56,7 @@ function TheInvitation() {
             <section
                 className="invitation-hero"
                 style={{
-                    backgroundImage: `url(${getImageUrl('invitation1')})`,
+                    backgroundImage: `url(${getImageUrl('invitationHero')})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundAttachment: 'fixed',
@@ -101,7 +101,7 @@ function TheInvitation() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('invitation5')})`,
+                        backgroundImage: `url(${getImageUrl('invitationSection1')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[0]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -145,7 +145,7 @@ function TheInvitation() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('invitation6')})`,
+                        backgroundImage: `url(${getImageUrl('invitationSection2')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[1]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />

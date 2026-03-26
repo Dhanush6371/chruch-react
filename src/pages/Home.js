@@ -64,7 +64,7 @@ function Home() {
                     preload="auto"
                     className="hero-video"
                 >
-                    <source src="/images-new/home-1.mp4" type="video/mp4" />
+                    <source src="/images-new/home-hero-video.mp4" type="video/mp4" />
                 </video>
             </section>
 
@@ -92,7 +92,7 @@ function Home() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('hero2')})`,
+                        backgroundImage: `url(${getImageUrl('homeSection1')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[1]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -133,7 +133,7 @@ function Home() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('hero3')})`,
+                        backgroundImage: `url(${getImageUrl('homeSection2')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[2]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -174,7 +174,7 @@ function Home() {
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('hero4')})`,
+                        backgroundImage: `url(${getImageUrl('homeSection3')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[3]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />
@@ -210,12 +210,12 @@ function Home() {
             {/* Image Section 4 */}
             <section
                 ref={(el) => (sectionRefs.current[4] = el)}
-                className="image-section loaded"
+                className="image-section home-5-section loaded"
             >
                 <div
                     className="bg-image-wrapper"
                     style={{
-                        backgroundImage: `url(${getImageUrl('hero5')})`,
+                        backgroundImage: `url(${getImageUrl('homeSection4')})`,
                         transform: `translate3d(0, ${(scrollY - (sectionRefs.current[4]?.offsetTop || 0)) * 0.3}px, 0)`
                     }}
                 />

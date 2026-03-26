@@ -41,14 +41,14 @@ function TheTeam() {
     const leadershipTeam = [
         {
             id: 1,
-            image: getImageUrl('team8'),
+            image: getImageUrl('teamLeader1'),
             name: 'Noel and Geraldine',
             description: 'Noel and Geraldine Wienand are the founding apostolic leaders and spiritual parents of The Way. With decades of ministry experience across multiple continents, they carry a deep passion for church planting, leadership development, and seeing the gospel transform communities.',
             expandedBio: 'Noel and Geraldine have spent over 30 years in full-time ministry, planting churches, training leaders, and establishing apostolic networks across Europe, Africa, and beyond. Their ministry philosophy is rooted in relational discipleship, authentic community, and empowering local leaders to fulfill their God-given calling. They believe that the Church is not built through programs or platforms, but through people who are willing to lay down their lives for the sake of the gospel.'
         },
         {
             id: 2,
-            image: getImageUrl('team9'),
+            image: getImageUrl('teamLeader2'),
             name: 'Heath and Leah',
             description: 'Heath and Leah are the founding elders and planting family of The Way in Cardiff. Their journey to this moment has been shaped by years of faithful ministry, deep personal loss, and the sustaining grace of God.',
             expandedBio: 'Heath and Leah have walked through seasons of both joy and sorrow, and it is in these places that their faith has been refined and their calling clarified. They understand what it means to trust God when the way forward is unclear, to hold onto hope when circumstances seem impossible, and to believe that God is faithful even when the outcome is not yet visible.'
@@ -107,7 +107,7 @@ function TheTeam() {
             <section
                 className="hero-section loaded"
                 style={{
-                    backgroundImage: `url(${getImageUrl('team1')})`,
+                    backgroundImage: `url(${getImageUrl('teamHero')})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundAttachment: 'fixed'

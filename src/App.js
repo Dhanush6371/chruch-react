@@ -8,7 +8,6 @@ import AboutTheStory from './pages/AboutTheStory';
 import TheBelief from './pages/TheBelief';
 import TheTeam from './pages/TheTeam';
 import TheInvitation from './pages/TheInvitation';
-import Sermons from './pages/Sermons';
 import './App.css';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
                         <Route path="/the-belief" element={<TheBelief />} />
                         <Route path="/the-team" element={<TheTeam />} />
                         <Route path="/the-invitation" element={<TheInvitation />} />
-                        <Route path="/sermons" element={<Sermons />} />
                     </Routes>
                 </main>
                 <Footer />
