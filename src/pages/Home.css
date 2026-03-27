@@ -211,7 +211,7 @@
 /* Contact Section */
 .contact-section {
     background-color: #000000;
-    padding: 80px 40px;
+    padding: 40px 40px 20px 40px;
     color: #ffffff;
 }
 
@@ -229,10 +229,10 @@
 }
 
 .contact-section h2 {
-    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-weight: 300;
-    font-size: 48px;
-    margin: 0 0 30px 0;
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    margin: 0 0 20px 0;
     color: #ffffff;
     text-align: center;
     letter-spacing: 2px;
@@ -584,11 +584,11 @@
     }
 
     .contact-section {
-        padding: 50px 20px;
+        padding: 30px 20px 20px 20px;
     }
 
     .contact-section h2 {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     .form-row {
@@ -800,5 +800,16 @@ html {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* Contact image section - smaller height */
+.contact-image-section {
+    max-height: 100px;
+}
+
+@media (max-width: 768px) {
+    .contact-image-section {
+        max-height: none;
     }
 }

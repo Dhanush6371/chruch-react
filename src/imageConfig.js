@@ -11,6 +11,7 @@ export const images = {
     homeSection2: '/images-new/home-section-2.jpg',
     homeSection3: '/images-new/home-section-3.jpg',
     homeSection4: '/images-new/home-section-4.jpg',
+    homeSection5: '/images-new/home-section-5.jpg',
 
     // Belief Page Images (in order)
     beliefHero: '/images-new/belief-hero.jpg',
@@ -24,7 +25,7 @@ export const images = {
     // Invitation Page Images (in order)
     invitationHero: '/images-new/invitation-hero.jpg',
     invitationSection1: '/images-new/invitation-section-1.jpeg',
-    invitationSection2: '/images-new/invitation-section-2.jpeg',
+    invitationSection2: '/images-new/invitation-section-2.jpg',
 
     // Team Page Images (in order)
     teamHero: '/images-new/team-hero.jpg',

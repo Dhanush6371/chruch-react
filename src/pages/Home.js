@@ -182,13 +182,30 @@ function Home() {
                 </div>
             </section>
 
+            {/* Full-width Image Section */}
+            <section
+                ref={(el) => (sectionRefs.current[10] = el)}
+                className="image-section contact-image-section loaded"
+            >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('homeSection5')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[10]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
+            </section>
+
             {/* Contact Section */}
-            <section className="contact-section">
+            <section className="contact-section" style={{ paddingBottom: '0px', marginBottom: '-20px' }}>
                 <div className="section-content animate-in">
-                    <h2>contact.</h2>
-                    <p>
-                        Sometimes the smallest step is the one that matters most. Whether you have a question, need prayer, want to join a gathering, or curious about The Way, we would love to hear from you. You do not need the right words, just an open heart. Sometimes the next step is not big. It is simply reaching out, and we will walk from there together.
-                    </p>
+                    <h2>see you there.</h2>
+                </div>
+            </section>
+
+            {/* Contact Form Section */}
+            <section className="contact-section" style={{ paddingTop: '0px' }}>
+                <div className="section-content animate-in">
                     <form className="contact-form">
                         <div className="form-row">
                             <div className="form-group">
