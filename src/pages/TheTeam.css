@@ -55,7 +55,7 @@
     display: block;
 }
 
-/* Section 3 - Leadership Team */
+/* Section 3 - Leadership Team Header */
 .leadership-team-section {
     background-color: #FFFFFF;
     padding: 60px 40px;
@@ -67,7 +67,7 @@
 }
 
 .leadership-header {
-    margin-bottom: 60px;
+    margin-bottom: 0;
     text-align: center;
 }
 
@@ -89,85 +89,96 @@
     max-width: 800px;
 }
 
-/* Team Members List */
-.team-members-list {
+/* Team Split Sections - Similar to other pages */
+.home-page .split-section {
+    min-height: 350px;
+    max-height: 350px;
+    overflow: hidden;
+}
+
+.home-page .split-section .split-left,
+.home-page .split-section .split-right {
+    min-height: 350px;
+    max-height: 350px;
+    overflow: hidden;
+    align-items: flex-start;
+}
+
+.split-section .team-image-side {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-split-image-wrapper {
+    width: 100%;
+    height: 350px;
+    min-height: 350px;
+    max-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.home-page .split-section .split-content {
+    max-width: 600px;
+    padding: 0 60px;
+    max-height: 350px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-}
-
-.team-member-item {
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 30px;
-}
-
-.team-member-item:last-child {
-    border-bottom: none;
-}
-
-.team-member-row {
-    display: flex;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 60px;
 }
 
-.team-member-image-wrapper {
-    width: 300px;
-    flex-shrink: 0;
+.home-page .split-section .split-content p {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #5a5a5a;
+    margin: 0 0 15px 0;
 }
 
-.team-member-photo {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.team-member-photo img {
+.team-split-image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
 }
 
-.team-member-content {
-    flex: 1;
-    padding: 20px 0;
+/* Specific positioning for first team member - show top of image */
+.image-right-section:first-of-type .team-split-image-wrapper img {
+    object-position: center 10%;
 }
 
-.team-member-content p {
-    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 26px;
-    line-height: 1.8;
-    color: #5a5a5a;
-    margin: 0;
-}
-
-.team-member-expand-btn {
-    width: 100%;
-    display: flex;
+.team-expand-btn {
+    display: inline-flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    text-align: left;
-    transition: background-color 0.3s ease;
-    border-radius: 8px;
+    padding: 12px 0;
+    margin-top: 20px;
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    transition: opacity 0.3s ease;
 }
 
-.team-member-expand-btn:hover {
-    background-color: #f5f5f5;
+.team-expand-btn:hover {
+    opacity: 0.7;
 }
 
-.expand-icon {
-    font-size: 24px;
+.team-expand-btn .expand-icon {
+    font-size: 20px;
     color: #000000;
     font-weight: 300;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,41 +188,36 @@
     transition: transform 0.3s ease;
 }
 
-.team-member-item.expanded .expand-icon {
-    transform: rotate(180deg);
-}
-
-.expand-name {
+.team-expand-btn .expand-text {
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: #000000;
-    font-weight: 400;
 }
 
-.team-member-details {
-    margin-top: 30px;
-    padding: 0 60px;
+.team-expanded-content {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
     animation: slideDown 0.3s ease-out;
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.team-member-details p {
+.team-expanded-content p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
     font-size: 26px;
     line-height: 1.8;
     color: #5a5a5a;
     margin: 0;
+}
+
+/* Team Grid Section Wrapper */
+.team-grid-section-wrapper {
+    background-color: #FFFFFF;
+    padding: 60px 40px;
+}
+
+.team-grid-section-wrapper .section-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Team Images Grid - Simple 3x2 grid of images */
@@ -384,6 +390,72 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1440px) {
+    .home-page .split-section {
+        min-height: 350px;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .home-page .split-section .split-left,
+    .home-page .split-section .split-right {
+        min-height: 350px;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .team-split-image-wrapper {
+        height: 350px;
+        min-height: 350px;
+        max-height: 350px;
+    }
+
+    .home-page .split-section .split-content {
+        padding: 0 40px;
+        font-size: 18px;
+    }
+
+    /* Move first team member image to show bottom in laptop view */
+    .image-right-section:first-of-type .team-split-image-wrapper img {
+        object-position: center bottom;
+    }
+}
+
+@media (max-width: 1200px) {
+    .home-page .split-section {
+        min-height: 350px;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .home-page .split-section .split-left,
+    .home-page .split-section .split-right {
+        min-height: 350px;
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .team-split-image-wrapper {
+        height: 350px;
+        min-height: 350px;
+        max-height: 350px;
+    }
+
+    .home-page .split-section .split-content {
+        padding: 0 40px;
+    }
+
+    .home-page .split-section .split-content p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    /* Move first team member image to show bottom in smaller laptop view */
+    .image-right-section:first-of-type .team-split-image-wrapper img {
+        object-position: center bottom;
+    }
+}
+
 @media (max-width: 968px) {
     .leadership-team-section {
         padding: 60px 20px;
@@ -397,35 +469,47 @@
         font-size: 19px;
     }
 
-    .team-member-row {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
+    .home-page .split-section {
+        min-height: auto;
+        max-height: none;
     }
 
-    .team-member-image-wrapper {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
+    .home-page .split-section .split-left,
+    .home-page .split-section .split-right {
+        min-height: auto;
+        max-height: none;
+    }
+
+    .split-section .team-image-side {
         order: -1;
     }
 
-    .team-member-photo {
-        height: 300px;
+    .team-split-image-wrapper {
+        min-height: 400px;
+        max-height: none;
+        height: auto;
     }
 
-    .team-member-content {
-        width: 100%;
-        order: 0;
+    .home-page .split-section .split-content {
+        max-height: none;
+        padding: 40px 20px;
     }
 
-    .expand-name {
-        font-size: 18px;
+    .home-page .split-section .split-content p {
+        font-size: 19px;
+        line-height: 1.8;
     }
 
-    .team-member-details {
-        padding: 0 20px !important;
-        margin-top: 20px;
+    .split-content .team-member-name {
+        font-size: 36px;
+    }
+
+    .team-expanded-content p {
+        font-size: 19px;
+    }
+
+    .team-grid-section-wrapper {
+        padding: 60px 20px;
     }
 
     .team-grid-section {
@@ -567,6 +651,18 @@
 }
 
 /* Animation styles */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .section-content.animate-in {
     animation: fadeInUp 1s ease-out forwards;
 }

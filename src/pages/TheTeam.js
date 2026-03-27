@@ -87,11 +87,9 @@ function TheTeam() {
             >
             </section>
 
-            {/* Leadership Team */}
+            {/* Leadership Team Header */}
             <section className="leadership-team-section">
-                <div
-                    className="section-content animate-in"
-                >
+                <div className="section-content animate-in">
                     <div className="leadership-header">
                         <div className="leadership-text">
                             <h2>Leadership Team</h2>
@@ -100,62 +98,45 @@ function TheTeam() {
                             </p>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div className="team-members-list">
-                        {leadershipTeam.map((member, index) => (
-                            <div
-                                key={member.id}
-                                className={`team-member-item ${expandedMember === member.id ? 'expanded' : ''} ${index % 2 === 0 ? 'image-right' : 'image-left'}`}
-                            >
-                                <div className="team-member-row">
-                                    {index % 2 === 1 && (
-                                        <div className="team-member-image-wrapper">
-                                            <div className="team-member-photo">
-                                                <img src={member.image} alt={member.name} />
-                                            </div>
-                                            <button
-                                                className="team-member-expand-btn"
-                                                onClick={() => toggleMember(member.id)}
-                                                aria-expanded={expandedMember === member.id}
-                                            >
-                                                <span className="expand-icon">
-                                                    {expandedMember === member.id ? '−' : '+'}
-                                                </span>
-                                                <span className="expand-name">{member.name}</span>
-                                            </button>
-                                        </div>
-                                    )}
-                                    <div className="team-member-content">
-                                        <p>{member.description}</p>
-                                    </div>
-                                    {index % 2 === 0 && (
-                                        <div className="team-member-image-wrapper">
-                                            <div className="team-member-photo">
-                                                <img src={member.image} alt={member.name} />
-                                            </div>
-                                            <button
-                                                className="team-member-expand-btn"
-                                                onClick={() => toggleMember(member.id)}
-                                                aria-expanded={expandedMember === member.id}
-                                            >
-                                                <span className="expand-icon">
-                                                    {expandedMember === member.id ? '−' : '+'}
-                                                </span>
-                                                <span className="expand-name">{member.name}</span>
-                                            </button>
-                                        </div>
-                                    )}
+            {/* Leadership Team Members - Split Sections */}
+            {leadershipTeam.map((member, index) => (
+                <section key={member.id} className={`split-section ${index % 2 === 0 ? 'image-right-section' : 'image-left-section'}`}>
+                    {index % 2 === 0 ? (
+                        <>
+                            <div className="split-left">
+                                <div className="split-content animate-in">
+                                    <p>{member.description}</p>
                                 </div>
-                                {expandedMember === member.id && (
-                                    <div className="team-member-details">
-                                        <p>{member.expandedBio}</p>
-                                    </div>
-                                )}
                             </div>
-                        ))}
-                    </div>
+                            <div className="split-right team-image-side">
+                                <div className="team-split-image-wrapper">
+                                    <img src={member.image} alt={member.name} />
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="split-left team-image-side">
+                                <div className="team-split-image-wrapper">
+                                    <img src={member.image} alt={member.name} />
+                                </div>
+                            </div>
+                            <div className="split-right">
+                                <div className="split-content animate-in">
+                                    <p>{member.description}</p>
+                                </div>
+                            </div>
+                        </>
+                    )}
+                </section>
+            ))}
 
-                    {/* Team Images Grid - 6 images in 3x2 grid */}
+            {/* Team Images Grid - 6 images in 3x2 grid */}
+            <section className="team-grid-section-wrapper">
+                <div className="section-content">
                     <div className="team-images-grid">
                         {teamMembers.map((member) => (
                             <div key={member.id} className="team-image-item">

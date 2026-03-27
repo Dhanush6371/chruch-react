@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getImageUrl } from '../imageConfig';
 import '../pages/Home.css';
 import './TheInvitation.css';
 
 function TheInvitation() {
+    const navigate = useNavigate();
 
     const [scrollY, setScrollY] = useState(0);
     const sectionRefs = useRef([]);
@@ -52,6 +54,20 @@ function TheInvitation() {
                         className="animate-in"
                     >
                         <h2>CONNECT</h2>
+                        <button
+                            className="know-more-btn"
+                            onClick={() => {
+                                navigate('/#see-you-there');
+                                setTimeout(() => {
+                                    const element = document.getElementById('see-you-there');
+                                    if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }, 100);
+                            }}
+                        >
+                            Know More
+                        </button>
                     </div>
                 </div>
                 <div className="split-right">
