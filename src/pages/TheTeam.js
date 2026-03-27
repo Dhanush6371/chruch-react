@@ -74,7 +74,7 @@ function TheTeam() {
     ];
 
     return (
-        <div className="home-page">
+        <div className="home-page team-page">
             {/* Hero Section */}
             <section
                 className="hero-section loaded"

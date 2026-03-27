@@ -89,15 +89,15 @@
     max-width: 800px;
 }
 
-/* Team Split Sections - Similar to other pages */
-.home-page .split-section {
+/* Team Split Sections - Only for team page */
+.team-page .split-section {
     min-height: 350px;
     max-height: 350px;
     overflow: hidden;
 }
 
-.home-page .split-section .split-left,
-.home-page .split-section .split-right {
+.team-page .split-section .split-left,
+.team-page .split-section .split-right {
     min-height: 350px;
     max-height: 350px;
     overflow: hidden;
@@ -122,7 +122,7 @@
     overflow: hidden;
 }
 
-.home-page .split-section .split-content {
+.team-page .split-section .split-content {
     max-width: 600px;
     padding: 0 60px;
     max-height: 350px;
@@ -133,7 +133,7 @@
     align-items: flex-start;
 }
 
-.home-page .split-section .split-content p {
+.team-page .split-section .split-content p {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
     font-size: 20px;
     line-height: 1.6;
@@ -391,14 +391,14 @@
 
 /* Responsive Design */
 @media (max-width: 1440px) {
-    .home-page .split-section {
+    .team-page .split-section {
         min-height: 350px;
         max-height: 350px;
         overflow: hidden;
     }
 
-    .home-page .split-section .split-left,
-    .home-page .split-section .split-right {
+    .team-page .split-section .split-left,
+    .team-page .split-section .split-right {
         min-height: 350px;
         max-height: 350px;
         overflow: hidden;
@@ -410,7 +410,7 @@
         max-height: 350px;
     }
 
-    .home-page .split-section .split-content {
+    .team-page .split-section .split-content {
         padding: 0 40px;
         font-size: 18px;
     }
@@ -422,14 +422,14 @@
 }
 
 @media (max-width: 1200px) {
-    .home-page .split-section {
+    .team-page .split-section {
         min-height: 350px;
         max-height: 350px;
         overflow: hidden;
     }
 
-    .home-page .split-section .split-left,
-    .home-page .split-section .split-right {
+    .team-page .split-section .split-left,
+    .team-page .split-section .split-right {
         min-height: 350px;
         max-height: 350px;
         overflow: hidden;
@@ -441,11 +441,11 @@
         max-height: 350px;
     }
 
-    .home-page .split-section .split-content {
+    .team-page .split-section .split-content {
         padding: 0 40px;
     }
 
-    .home-page .split-section .split-content p {
+    .team-page .split-section .split-content p {
         font-size: 18px;
         line-height: 1.5;
     }
@@ -469,13 +469,13 @@
         font-size: 19px;
     }
 
-    .home-page .split-section {
+    .team-page .split-section {
         min-height: auto;
         max-height: none;
     }
 
-    .home-page .split-section .split-left,
-    .home-page .split-section .split-right {
+    .team-page .split-section .split-left,
+    .team-page .split-section .split-right {
         min-height: auto;
         max-height: none;
     }
@@ -490,12 +490,12 @@
         height: auto;
     }
 
-    .home-page .split-section .split-content {
+    .team-page .split-section .split-content {
         max-height: none;
         padding: 40px 20px;
     }
 
-    .home-page .split-section .split-content p {
+    .team-page .split-section .split-content p {
         font-size: 19px;
         line-height: 1.8;
     }
