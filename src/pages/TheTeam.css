@@ -4,6 +4,23 @@
     padding: 40px 40px 60px 40px;
 }
 
+/* Parallax background wrapper for hero section */
+.team-page .hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-page .hero-section .bg-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
 .team-about-section .section-content {
     max-width: 980px;
     margin: 0 auto;
@@ -57,8 +74,10 @@
 
 /* Section 3 - Leadership Team Header */
 .leadership-team-section {
-    background-color: #FFFFFF;
+    background-color: #000000;
     padding: 60px 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .leadership-team-section .section-content {
@@ -75,7 +94,7 @@
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
     font-size: 56px;
     font-weight: 400;
-    color: #000000;
+    color: #FFFFFF;
     margin: 0 0 20px 0;
     line-height: normal;
 }
@@ -84,21 +103,82 @@
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
     font-size: 26px;
     line-height: 1.8;
-    color: #5a5a5a;
+    color: #FFFFFF;
     margin: 0 auto;
     max-width: 800px;
 }
 
 /* Team Split Sections - Only for team page */
-.team-page .split-section {
-    min-height: 400px;
+.team-page .split-section.team-leader-section {
+    min-height: auto;
     max-height: none;
     overflow: visible;
+    display: block;
+}
+
+.team-leader-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-leader-top {
+    display: flex;
+    flex-direction: row;
+    min-height: 400px;
+}
+
+.team-leader-section.expanded .team-leader-top {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.team-leader-section .team-image-side {
+    flex: 0 0 50%;
+    width: 50%;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.team-leader-section.expanded .team-image-side {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.team-leader-section .team-text-side {
+    flex: 0 0 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.team-leader-section.expanded .team-text-side {
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.team-leader-bottom {
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 40px 60px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.expanded-bio-content p {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #5a5a5a;
+    margin: 0;
+    max-width: 100%;
 }
 
 .team-page .split-section .split-left,
 .team-page .split-section .split-right {
-    min-height: 400px;
+    min-height: auto;
     max-height: none;
     overflow: visible;
     align-items: flex-start;
@@ -117,13 +197,13 @@
     min-height: 400px;
     max-height: 400px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     overflow: hidden;
 }
 
 .team-page .split-section .split-content {
-    max-width: 600px;
+    max-width: 100%;
     padding: 0 60px;
     max-height: none;
     overflow-y: visible;
@@ -131,6 +211,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
 }
 
 .team-page .split-section .split-content p {
@@ -142,22 +223,22 @@
     transition: all 0.3s ease;
 }
 
+/* Specific positioning for first team member - show bottom of image */
+.image-left-section:first-of-type .team-split-image-wrapper img {
+    object-position: center bottom;
+}
+
+/* Specific positioning for third team member (team-leader-3) - show top of image */
+.image-left-section:nth-of-type(3) .team-split-image-wrapper img {
+    object-position: center top;
+}
+
 .team-split-image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     display: block;
-}
-
-/* Specific positioning for first team member - show top of image */
-.image-right-section:first-of-type .team-split-image-wrapper img {
-    object-position: center 10%;
-}
-
-/* Specific positioning for third team member (team-leader-3) - show top of image */
-.image-right-section:nth-of-type(3) .team-split-image-wrapper img {
-    object-position: center top;
 }
 
 .team-expand-btn {
@@ -228,7 +309,7 @@
 
 /* Apostolic Household Section */
 .apostolic-section {
-    background-color: #FFFFFF;
+    background-color: #000000;
     padding: 60px 40px;
 }
 
@@ -242,7 +323,7 @@
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
     font-size: 48px;
     font-weight: 400;
-    color: #000000;
+    color: #FFFFFF;
     margin: 0 0 30px 0;
     line-height: normal;
 }
@@ -251,7 +332,7 @@
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
     font-size: 32px;
     font-weight: 400;
-    color: #000000;
+    color: #FFFFFF;
     margin: 40px 0 20px 0;
     line-height: normal;
 }
@@ -260,7 +341,7 @@
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
     font-size: 22px;
     line-height: 1.8;
-    color: #5a5a5a;
+    color: #FFFFFF;
     margin: 0 0 20px 0;
 }
 
@@ -269,7 +350,7 @@
 }
 
 .apostolic-section a {
-    color: #000000;
+    color: #FFFFFF;
     text-decoration: underline;
     transition: opacity 0.3s ease;
 }
@@ -449,17 +530,8 @@
 
 /* Responsive Design */
 @media (max-width: 1440px) {
-    .team-page .split-section {
+    .team-leader-top {
         min-height: 400px;
-        max-height: none;
-        overflow: visible;
-    }
-
-    .team-page .split-section .split-left,
-    .team-page .split-section .split-right {
-        min-height: 400px;
-        max-height: none;
-        overflow: visible;
     }
 
     .team-split-image-wrapper {
@@ -473,29 +545,24 @@
         font-size: 18px;
     }
 
+    .team-leader-bottom {
+        padding: 40px;
+    }
+
     /* Move first team member image to show bottom in laptop view */
-    .image-right-section:first-of-type .team-split-image-wrapper img {
+    .image-left-section:first-of-type .team-split-image-wrapper img {
         object-position: center bottom;
     }
 
     /* Keep third team member (team-leader-3) showing top in laptop view */
-    .image-right-section:nth-of-type(3) .team-split-image-wrapper img {
+    .image-left-section:nth-of-type(3) .team-split-image-wrapper img {
         object-position: center top;
     }
 }
 
 @media (max-width: 1200px) {
-    .team-page .split-section {
+    .team-leader-top {
         min-height: 400px;
-        max-height: none;
-        overflow: visible;
-    }
-
-    .team-page .split-section .split-left,
-    .team-page .split-section .split-right {
-        min-height: 400px;
-        max-height: none;
-        overflow: visible;
     }
 
     .team-split-image-wrapper {
@@ -513,13 +580,21 @@
         line-height: 1.5;
     }
 
+    .team-leader-bottom {
+        padding: 40px;
+    }
+
+    .expanded-bio-content p {
+        font-size: 18px;
+    }
+
     /* Move first team member image to show bottom in smaller laptop view */
-    .image-right-section:first-of-type .team-split-image-wrapper img {
+    .image-left-section:first-of-type .team-split-image-wrapper img {
         object-position: center bottom;
     }
 
     /* Keep third team member (team-leader-3) showing top in smaller laptop view */
-    .image-right-section:nth-of-type(3) .team-split-image-wrapper img {
+    .image-left-section:nth-of-type .team-split-image-wrapper img {
         object-position: center top;
     }
 }
@@ -537,18 +612,18 @@
         font-size: 19px;
     }
 
-    .team-page .split-section {
+    .team-leader-top {
+        flex-direction: column;
         min-height: auto;
-        max-height: none;
     }
 
-    .team-page .split-section .split-left,
-    .team-page .split-section .split-right {
-        min-height: auto;
-        max-height: none;
+    .team-leader-section .team-image-side,
+    .team-leader-section .team-text-side {
+        flex: 1 1 100%;
+        width: 100%;
     }
 
-    .split-section .team-image-side {
+    .team-leader-section .team-image-side {
         order: -1;
     }
 
@@ -566,6 +641,14 @@
     .team-page .split-section .split-content p {
         font-size: 19px;
         line-height: 1.8;
+    }
+
+    .team-leader-bottom {
+        padding: 40px 20px;
+    }
+
+    .expanded-bio-content p {
+        font-size: 19px;
     }
 
     .split-content .team-member-name {

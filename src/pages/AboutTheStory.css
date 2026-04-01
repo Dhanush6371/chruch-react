@@ -4,13 +4,13 @@
 .split-section .split-left,
 .split-section .split-right {
     align-items: flex-start;
-    padding-top: 120px;
+    padding-top: 60px;
 }
 
 /* Mission Section - align to top */
 .mission-section .split-right {
     align-items: flex-start;
-    padding-top: 120px;
+    padding-top: 60px;
 }
 
 /* Mission Section - reverse order on desktop to show heading on right */
@@ -21,7 +21,13 @@
 /* How We Live Section - align to top */
 .how-we-live-section .split-left {
     align-items: flex-start;
-    padding-top: 120px;
+    padding-top: 60px;
+}
+
+/* Align description content with heading */
+.split-section .split-content {
+    padding-top: 0;
+    padding-bottom: 60px;
 }
 
 /* Responsive adjustments */

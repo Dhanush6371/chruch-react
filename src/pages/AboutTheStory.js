@@ -44,16 +44,16 @@ function AboutTheStory() {
             >
             </section>
 
-            {/* The Reason Section - Heading FIRST, Text SECOND */}
-            <section className="split-section mission-section">
-                <div className="split-right mission-heading">
+            {/* The Reason Section - Heading LEFT, Text RIGHT */}
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
                     <div
                         className="animate-in"
                     >
                         <h2>THE REASON</h2>
                     </div>
                 </div>
-                <div className="split-left">
+                <div className="split-right">
                     <div
                         className="split-content animate-in"
                     >
@@ -78,16 +78,16 @@ function AboutTheStory() {
                 />
             </section>
 
-            {/* The Vision Section - Heading LEFT, Content RIGHT */}
-            <section className="split-section how-we-live-section">
-                <div className="split-left how-we-live-heading">
+            {/* The Vision Section - Heading RIGHT, Content LEFT */}
+            <section className="split-section mission-section">
+                <div className="split-right mission-heading">
                     <div
                         className="animate-in"
                     >
                         <h2>THE VISION</h2>
                     </div>
                 </div>
-                <div className="split-right">
+                <div className="split-left">
                     <div
                         className="split-content how-we-live-content animate-in"
                     >
@@ -124,16 +124,16 @@ function AboutTheStory() {
                 />
             </section>
 
-            {/* The Mission Section - Heading FIRST, Text SECOND */}
-            <section className="split-section mission-section">
-                <div className="split-right mission-heading">
+            {/* The Mission Section - Heading LEFT, Text RIGHT */}
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
                     <div
                         className="animate-in"
                     >
                         <h2>THE MISSION</h2>
                     </div>
                 </div>
-                <div className="split-left">
+                <div className="split-right">
                     <div
                         className="split-content animate-in"
                     >
@@ -158,16 +158,16 @@ function AboutTheStory() {
                 />
             </section>
 
-            {/* How We Live This Out Section - Heading LEFT, Content RIGHT */}
-            <section className="split-section how-we-live-section">
-                <div className="split-left how-we-live-heading">
+            {/* How We Live This Out Section - Heading RIGHT, Content LEFT */}
+            <section className="split-section mission-section">
+                <div className="split-right mission-heading">
                     <div
                         className="animate-in"
                     >
-                        <h2>HOW WE LIVE THIS OUT</h2>
+                        <h2>HOW WE LIVE THIS<br />OUT</h2>
                     </div>
                 </div>
-                <div className="split-right">
+                <div className="split-left">
                     <div
                         className="split-content how-we-live-content animate-in"
                     >

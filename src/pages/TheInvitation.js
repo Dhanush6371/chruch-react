@@ -31,6 +31,18 @@ function TheInvitation() {
         };
     }, []);
 
+    useEffect(() => {
+        // Handle hash navigation on page load
+        if (window.location.hash === '#give') {
+            setTimeout(() => {
+                const element = document.getElementById('give');
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, []);
+
     return (
         <div className="home-page">
             {/* Hero Section */}
@@ -139,7 +151,7 @@ function TheInvitation() {
             </section>
 
             {/* Section 3 - GIVE (Split: Text LEFT, Heading RIGHT) */}
-            <section className="split-section how-we-live-section">
+            <section id="give" className="split-section how-we-live-section">
                 <div className="split-left how-we-live-heading">
                     <div
                         className="animate-in"

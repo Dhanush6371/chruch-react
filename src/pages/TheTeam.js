@@ -1,14 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getImageUrl } from '../imageConfig';
 import '../pages/Home.css';
 import './TheTeam.css';
 
 function TheTeam() {
     const [expandedMember, setExpandedMember] = useState(null);
+    const [scrollY, setScrollY] = useState(0);
+    const sectionRefs = useRef([]);
 
     const toggleMember = (id) => {
         setExpandedMember(expandedMember === id ? null : id);
     };
+
+    useEffect(() => {
+        let ticking = false;
+
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrollY(window.scrollY);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const leadershipTeam = [
         {
@@ -37,57 +59,22 @@ function TheTeam() {
         }
     ];
 
-    const teamMembers = [
-        {
-            id: 4,
-            image: getImageUrl('teamMember4'),
-            name: 'Team Member 1',
-            description: 'Brief description about this team member and their role in the church community.'
-        },
-        {
-            id: 5,
-            image: getImageUrl('teamMember1'),
-            name: 'Team Member 2',
-            description: 'Brief description about this team member and their role in the church community.'
-        },
-        {
-            id: 6,
-            image: getImageUrl('teamMember2'),
-            name: 'Team Member 3',
-            description: 'Brief description about this team member and their role in the church community.'
-        },
-        {
-            id: 7,
-            image: getImageUrl('teamMember3'),
-            name: 'Team Member 4',
-            description: 'Brief description about this team member and their role in the church community.'
-        },
-        {
-            id: 8,
-            image: getImageUrl('teamMember4'),
-            name: 'Team Member 5',
-            description: 'Brief description about this team member and their role in the church community.'
-        },
-        {
-            id: 9,
-            image: getImageUrl('teamMember1'),
-            name: 'Team Member 6',
-            description: 'Brief description about this team member and their role in the church community.'
-        }
-    ];
+
 
     return (
         <div className="home-page team-page">
             {/* Hero Section */}
             <section
+                ref={(el) => (sectionRefs.current[0] = el)}
                 className="hero-section loaded"
-                style={{
-                    backgroundImage: `url(${getImageUrl('teamHero')})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundAttachment: 'fixed'
-                }}
             >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('teamHero')})`,
+                        transform: `translate3d(0, ${scrollY * 0.3}px, 0)`
+                    }}
+                />
             </section>
 
             {/* Leadership Team Header */}
@@ -106,58 +93,69 @@ function TheTeam() {
 
             {/* Leadership Team Members - Split Sections */}
             {leadershipTeam.map((member, index) => (
-                <section key={member.id} className={`split-section ${index % 2 === 0 ? 'image-right-section' : 'image-left-section'}`}>
-                    {index % 2 === 0 ? (
-                        <>
-                            <div className="split-left">
-                                <div className="split-content animate-in">
-                                    <p>{expandedMember === member.id ? member.description : member.summary}</p>
-                                    <button
-                                        className="team-expand-btn"
-                                        onClick={() => toggleMember(member.id)}
-                                        aria-expanded={expandedMember === member.id}
-                                    >
-                                        <span className="expand-icon">
-                                            {expandedMember === member.id ? '−' : '+'}
-                                        </span>
-                                        <span className="expand-text">
-                                            {expandedMember === member.id ? 'Read Less' : 'Read More'}
-                                        </span>
-                                    </button>
+                <section key={member.id} className={`split-section team-leader-section ${index % 2 === 0 ? 'image-left-section' : 'image-right-section'} ${expandedMember === member.id ? 'expanded' : ''}`}>
+                    <div className="team-leader-container">
+                        <div className="team-leader-top">
+                            {index % 2 === 0 ? (
+                                <>
+                                    <div className="team-image-side">
+                                        <div className="team-split-image-wrapper">
+                                            <img src={member.image} alt={member.name} />
+                                        </div>
+                                    </div>
+                                    <div className="team-text-side">
+                                        <div className="split-content animate-in">
+                                            <p>{expandedMember === member.id ? member.description : member.summary}</p>
+                                            <button
+                                                className="team-expand-btn"
+                                                onClick={() => toggleMember(member.id)}
+                                                aria-expanded={expandedMember === member.id}
+                                            >
+                                                <span className="expand-icon">
+                                                    {expandedMember === member.id ? '−' : '+'}
+                                                </span>
+                                                <span className="expand-text">
+                                                    {expandedMember === member.id ? 'Read Less' : 'Read More'}
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="team-text-side">
+                                        <div className="split-content animate-in">
+                                            <p>{expandedMember === member.id ? member.description : member.summary}</p>
+                                            <button
+                                                className="team-expand-btn"
+                                                onClick={() => toggleMember(member.id)}
+                                                aria-expanded={expandedMember === member.id}
+                                            >
+                                                <span className="expand-icon">
+                                                    {expandedMember === member.id ? '−' : '+'}
+                                                </span>
+                                                <span className="expand-text">
+                                                    {expandedMember === member.id ? 'Read Less' : 'Read More'}
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className="team-image-side">
+                                        <div className="team-split-image-wrapper">
+                                            <img src={member.image} alt={member.name} />
+                                        </div>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                        {expandedMember === member.id && member.expandedBio && (
+                            <div className="team-leader-bottom">
+                                <div className="expanded-bio-content">
+                                    <p>{member.expandedBio}</p>
                                 </div>
                             </div>
-                            <div className="split-right team-image-side">
-                                <div className="team-split-image-wrapper">
-                                    <img src={member.image} alt={member.name} />
-                                </div>
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <div className="split-left team-image-side">
-                                <div className="team-split-image-wrapper">
-                                    <img src={member.image} alt={member.name} />
-                                </div>
-                            </div>
-                            <div className="split-right">
-                                <div className="split-content animate-in">
-                                    <p>{expandedMember === member.id ? member.description : member.summary}</p>
-                                    <button
-                                        className="team-expand-btn"
-                                        onClick={() => toggleMember(member.id)}
-                                        aria-expanded={expandedMember === member.id}
-                                    >
-                                        <span className="expand-icon">
-                                            {expandedMember === member.id ? '−' : '+'}
-                                        </span>
-                                        <span className="expand-text">
-                                            {expandedMember === member.id ? 'Read Less' : 'Read More'}
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </>
-                    )}
+                        )}
+                    </div>
                 </section>
             ))}
 
@@ -168,74 +166,11 @@ function TheTeam() {
                     <p>
                         The Way is locally led by Noel and Geraldine, while joyfully walking in apostolic relationship and accountability with trusted leaders from Genesis Collective, a team of seasoned leaders who invest into churches, support pioneers, and help strengthen healthy New Testament communities. To know more about Genesis Collective, please click here: <a href="https://www.genesiscollective.org" target="_blank" rel="noopener noreferrer">https://www.genesiscollective.org</a>
                     </p>
-                    <h3>What does this mean for you?</h3>
-                    <p>
-                        It means The Way is not built around one couple alone. We are part of a bigger spiritual family.
-                    </p>
-                    <p>
-                        We are supported, prayed for, and encouraged by trusted leaders who help us remain healthy, accountable, and faithful to Jesus. This apostolic partnership helps guard the heart, doctrine, and direction of the church as we grow.
-                    </p>
-                    <p>
-                        We believe healthy churches grow best in healthy relationships, and we are grateful to walk this journey together with leaders who share our heart for God\'s Kingdom.
-                    </p>
+                    
                 </div>
             </section>
 
-            {/* Team Images Grid - 6 images in 3x2 grid */}
-            <section className="team-grid-section-wrapper">
-                <div className="section-content">
-                    <div className="team-images-grid">
-                        {teamMembers.map((member) => (
-                            <div key={member.id} className="team-image-item">
-                                <img src={member.image} alt={member.name} />
-                                <button
-                                    className="team-image-expand-btn"
-                                    onClick={() => toggleMember(member.id)}
-                                    aria-expanded={expandedMember === member.id}
-                                >
-                                    <span className="expand-icon">
-                                        {expandedMember === member.id ? '−' : '+'}
-                                    </span>
-                                    <span className="expand-name">{member.name}</span>
-                                </button>
-                                {expandedMember === member.id && (
-                                    <div className="team-image-description">
-                                        <p>{member.description}</p>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            {/* Section 4 - Our Clients (Light Blue Background) */}
-            <section className="content-section">
-                <div
-                    className="section-content animate-in"
-                >
-                    <h2>Our Clients</h2>
-                    <div className="horizontal-line"></div>
-
-                    <div className="clients-grid">
-                        <div className="client-logo">
-                            <img src={getImageUrl('clientLogo2')} alt="Client 1" />
-                        </div>
-                        <div className="client-logo">
-                            <img src={getImageUrl('clientLogo1')} alt="Client 2" />
-                        </div>
-                        <div className="client-logo">
-                            <img src={getImageUrl('clientLogo3')} alt="Client 3" />
-                        </div>
-                        <div className="client-logo">
-                            <img src={getImageUrl('clientLogo4')} alt="Client 4" />
-                        </div>
-                        <div className="client-logo">
-                            <img src={getImageUrl('clientLogo5')} alt="Client 5" />
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 }

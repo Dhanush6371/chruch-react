@@ -120,6 +120,31 @@
     flex-shrink: 0;
 }
 
+.desktop-social-icons .give-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    margin-right: 10px;
+}
+
+.desktop-social-icons .give-button:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
 .desktop-social-icons a {
     display: flex;
     align-items: center;
@@ -153,9 +178,7 @@
     cursor: pointer;
     padding: 5px;
     z-index: 1001;
-    position: fixed;
-    right: 20px;
-    top: 20px;
+    position: relative;
 }
 
 .mobile-menu-toggle span {
@@ -195,17 +218,21 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
         max-height: 0;
         overflow: hidden;
         background-color: #000000;
         transition: max-height 0.5s ease;
-        padding-top: 80px;
         z-index: 1000;
+        display: flex;
+        flex-direction: column;
     }
 
     .main-nav.mobile-open {
         max-height: 100vh;
+        overflow-y: auto;
     }
 
     .desktop-social-icons {
@@ -219,10 +246,16 @@
 
     /* Mobile Navigation Menu */
     .nav-menu {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 0;
-        padding: 30px 0 20px 0;
+        padding: 100px 0 20px 0;
         width: 100%;
+        list-style: none;
+        margin: 0;
+        flex: 1;
     }
 
     .nav-menu li {
@@ -231,6 +264,8 @@
         opacity: 0;
         transform: translateY(20px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        margin: 0;
+        padding: 0;
     }
 
     .nav-menu li:last-child {
@@ -276,9 +311,11 @@
         padding: 20px 30px;
         display: block;
         width: 100%;
-        font-size: 18px;
-        letter-spacing: 0.8px;
+        font-size: 22px;
+        letter-spacing: 1px;
         transition: all 0.3s ease;
+        text-align: center;
+        margin: 0;
     }
 
     .nav-menu li a:hover {
@@ -298,12 +335,64 @@
     /* Mobile Social Icons */
     .mobile-social-icons {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         gap: 25px;
-        padding: 30px 0 25px 0;
-        margin-top: 15px;
+        padding: 30px 0 50px 0;
+        margin: 0;
         opacity: 0;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100vw;
+        flex-shrink: 0;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .mobile-social-icons .give-button-mobile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 50px;
+        background-color: #ffffff;
+        color: #000000;
+        text-decoration: none;
+        font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-social-icons .give-button-mobile:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.05);
+    }
+
+    .social-icons-row {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-social-icons a:not(.give-button-mobile) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-social-icons a:not(.give-button-mobile):hover {
+        transform: translateY(-3px);
+        background-color: rgba(255, 255, 255, 0.15);
     }
 
     .mobile-open .mobile-social-icons {
@@ -322,20 +411,10 @@
         }
     }
 
-    .mobile-social-icons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.08);
-        transition: all 0.3s ease;
-    }
-
-    .mobile-social-icons a:hover {
-        transform: translateY(-3px);
-        background-color: rgba(255, 255, 255, 0.15);
+    .mobile-social-icons img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
     }
 
     .mobile-social-icons img {
@@ -355,11 +434,6 @@
 
 /* Small Mobile */
 @media (max-width: 480px) {
-    .mobile-menu-toggle {
-        right: 15px;
-        top: 15px;
-    }
-
     .header-container {
         padding: 0 15px;
     }

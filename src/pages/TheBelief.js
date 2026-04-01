@@ -41,14 +41,14 @@ function TheBelief() {
             >
             </section>
 
-            {/* Split Section - Heading FIRST, Text SECOND */}
-            <section className="split-section mission-section">
-                <div className="split-right mission-heading">
+            {/* Split Section - Heading LEFT, Text RIGHT */}
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
                     <div className="animate-in">
                         <h2>THE SCRIPTURES</h2>
                     </div>
                 </div>
-                <div className="split-left">
+                <div className="split-right">
                     <div className="split-content animate-in">
                         <p>
                             We believe in the scriptures of the Old and New Testaments in their original writing as fully inspired by God, and accept them as the final authority for faith and life.
@@ -71,16 +71,16 @@ function TheBelief() {
                 />
             </section>
 
-            {/* Split Section - Heading LEFT, Content RIGHT */}
-            <section className="split-section how-we-live-section">
-                <div className="split-left how-we-live-heading">
+            {/* Split Section - Heading RIGHT, Content LEFT */}
+            <section className="split-section mission-section">
+                <div className="split-right mission-heading">
                     <div
                         className="animate-in"
                     >
                         <h2>THE CHURCH</h2>
                     </div>
                 </div>
-                <div className="split-right">
+                <div className="split-left">
                     <div
                         className="split-content animate-in"
                     >
@@ -105,16 +105,16 @@ function TheBelief() {
                 />
             </section>
 
-            {/* Split Section - Heading FIRST, Text SECOND */}
-            <section className="split-section mission-section">
-                <div className="split-right mission-heading">
+            {/* Split Section - Heading LEFT, Text RIGHT */}
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
                     <div
                         className="animate-in"
                     >
-                        <h2>THE FALL & SALVATION OF MAN</h2>
+                        <h2>THE FALL<br/> &<br />SALVATION OF MAN</h2>
                     </div>
                 </div>
-                <div className="split-left">
+                <div className="split-right">
                     <div
                         className="split-content animate-in"
                     >
@@ -139,16 +139,16 @@ function TheBelief() {
                 />
             </section>
 
-            {/* Split Section - Heading LEFT, Content RIGHT */}
-            <section className="split-section how-we-live-section">
-                <div className="split-left how-we-live-heading">
+            {/* Split Section - Heading RIGHT, Content LEFT */}
+            <section className="split-section mission-section">
+                <div className="split-right mission-heading">
                     <div
                         className="animate-in"
                     >
                         <h2>THE GODHEAD</h2>
                     </div>
                 </div>
-                <div className="split-right">
+                <div className="split-left">
                     <div
                         className="split-content animate-in"
                     >
@@ -173,16 +173,16 @@ function TheBelief() {
                 />
             </section>
 
-            {/* Split Section - Heading FIRST, Text SECOND */}
-            <section className="split-section mission-section">
-                <div className="split-right mission-heading">
+            {/* Split Section - Heading LEFT, Text RIGHT */}
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
                     <div
                         className="animate-in"
                     >
                         <h2>THE CHRISTIAN LIVING</h2>
                     </div>
                 </div>
-                <div className="split-left">
+                <div className="split-right">
                     <div
                         className="split-content animate-in"
                     >
@@ -207,16 +207,16 @@ function TheBelief() {
                 />
             </section>
 
-            {/* Split Section - Heading LEFT, Content RIGHT */}
-            <section className="split-section how-we-live-section">
-                <div className="split-left how-we-live-heading">
+            {/* Split Section - Heading RIGHT, Text LEFT */}
+            <section className="split-section mission-section">
+                <div className="split-right mission-heading">
                     <div
                         className="animate-in"
                     >
-                        <h2>THE PERSON & WORK OF JESUS CHRIST</h2>
+                        <h2>THE PERSON <br />&<br /> WORKOF JESUS CHRIST</h2>
                     </div>
                 </div>
-                <div className="split-right">
+                <div className="split-left">
                     <div
                         className="split-content animate-in"
                     >
@@ -227,39 +227,6 @@ function TheBelief() {
                 </div>
             </section>
 
-            {/* Image Section - Forest Road Aerial */}
-            <section
-                ref={(el) => (sectionRefs.current[9] = el)}
-                className="image-section loaded"
-            >
-                <div
-                    className="bg-image-wrapper"
-                    style={{
-                        backgroundImage: `url(${getImageUrl('beliefSection6')})`,
-                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[9]?.offsetTop || 0)) * 0.3}px, 0)`
-                    }}
-                />
-            </section>
-
-            {/* Split Section - Heading FIRST, Text SECOND */}
-            <section className="split-section mission-section">
-                <div className="split-right mission-heading">
-                    <div
-                        className="animate-in"
-                    >
-                        <h2>THE PERSON & WORK OF THE HOLY SPIRIT</h2>
-                    </div>
-                </div>
-                <div className="split-left">
-                    <div
-                        className="split-content animate-in"
-                    >
-                        <p>
-                            We believe that the Holy Spirit, in all that He does, glorifies the Lord Jesus Christ. He convicts the world of its guilt. He regenerates sinners, and in Him they are baptized into union with Christ and adopted as heirs in the family of God. He also indwells, illuminates, guides, equips and empowers believers for Christ-like living and service.
-                        </p>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 }

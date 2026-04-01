@@ -4,6 +4,7 @@ import './Home.css';
 
 function Home() {
     const [scrollY, setScrollY] = useState(0);
+    const [showPopup, setShowPopup] = useState(true);
     const sectionRefs = useRef([]);
 
     useEffect(() => {
@@ -43,6 +44,22 @@ function Home() {
                 >
                     <source src="/images-new/home-hero-video.mp4" type="video/mp4" />
                 </video>
+                {showPopup && (
+                    <div className="hero-popup-overlay">
+                        <div className="hero-popup-content">
+                            <button
+                                className="popup-close-btn"
+                                onClick={() => setShowPopup(false)}
+                                aria-label="Close popup"
+                            >
+                                ×
+                            </button>
+                            <h2>Every Sunday</h2>
+                            <p className="time">11:00 AM</p>
+                            <p className="venue">The Venue, Cardiff</p>
+                        </div>
+                    </div>
+                )}
             </section>
 
             {/* Quote Section 1 */}
@@ -197,14 +214,8 @@ function Home() {
             </section>
 
             {/* Contact Section */}
-            <section id="see-you-there" className="contact-section" style={{ paddingBottom: '0px', marginBottom: '-20px' }}>
-                <div className="section-content animate-in">
-                    <h2>see you there!</h2>
-                </div>
-            </section>
-
-            {/* Contact Form Section */}
-            <section className="contact-section" style={{ paddingTop: '0px' }}>
+            {/* Contact Section */}
+            <section id="see-you-there" className="contact-section" style={{ paddingBottom: '20px', paddingTop: '40px' }}>
                 <div className="section-content animate-in">
                     <form className="contact-form">
                         <div className="form-row">
