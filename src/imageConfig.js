@@ -31,6 +31,7 @@ export const images = {
     teamHero: '/images-new/team-hero.jpg',
     teamLeader1: '/images-new/team-leader-1.jpeg',
     teamLeader2: '/images-new/team-leader-2.jpeg',
+    teamLeader3: '/images-new/team-leader-3.jpeg',
     teamMember1: '/images-new/team-member-1.jpg',
     teamMember2: '/images-new/team-member-2.jpg',
     teamMember3: '/images-new/team-member-3.jpg',

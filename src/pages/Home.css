@@ -100,15 +100,15 @@
     will-change: transform;
 }
 
-/* Special positioning for home-section-4 image - show top */
+/* Special positioning for home-section-4 image - show full image centered */
 .home-5-section .bg-image-wrapper {
-    background-position: center -15%;
+    background-position: center center;
 }
 
-/* Mobile view - show more top for home-section-4 */
+/* Mobile view - show top for home-section-4 */
 @media (max-width: 768px) {
     .home-5-section .bg-image-wrapper {
-        background-position: center -45%;
+        background-position: center top;
     }
 }
 

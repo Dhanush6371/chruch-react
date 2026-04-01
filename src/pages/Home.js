@@ -199,7 +199,7 @@ function Home() {
             {/* Contact Section */}
             <section id="see-you-there" className="contact-section" style={{ paddingBottom: '0px', marginBottom: '-20px' }}>
                 <div className="section-content animate-in">
-                    <h2>see you there.</h2>
+                    <h2>see you there!</h2>
                 </div>
             </section>
 

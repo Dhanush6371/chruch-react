@@ -91,16 +91,16 @@
 
 /* Team Split Sections - Only for team page */
 .team-page .split-section {
-    min-height: 350px;
-    max-height: 350px;
-    overflow: hidden;
+    min-height: 400px;
+    max-height: none;
+    overflow: visible;
 }
 
 .team-page .split-section .split-left,
 .team-page .split-section .split-right {
-    min-height: 350px;
-    max-height: 350px;
-    overflow: hidden;
+    min-height: 400px;
+    max-height: none;
+    overflow: visible;
     align-items: flex-start;
 }
 
@@ -113,9 +113,9 @@
 
 .team-split-image-wrapper {
     width: 100%;
-    height: 350px;
-    min-height: 350px;
-    max-height: 350px;
+    height: 400px;
+    min-height: 400px;
+    max-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -125,8 +125,8 @@
 .team-page .split-section .split-content {
     max-width: 600px;
     padding: 0 60px;
-    max-height: 350px;
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -139,6 +139,7 @@
     line-height: 1.6;
     color: #5a5a5a;
     margin: 0 0 15px 0;
+    transition: all 0.3s ease;
 }
 
 .team-split-image-wrapper img {
@@ -152,6 +153,11 @@
 /* Specific positioning for first team member - show top of image */
 .image-right-section:first-of-type .team-split-image-wrapper img {
     object-position: center 10%;
+}
+
+/* Specific positioning for third team member (team-leader-3) - show top of image */
+.image-right-section:nth-of-type(3) .team-split-image-wrapper img {
+    object-position: center top;
 }
 
 .team-expand-btn {
@@ -218,6 +224,58 @@
 .team-grid-section-wrapper .section-content {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Apostolic Household Section */
+.apostolic-section {
+    background-color: #FFFFFF;
+    padding: 60px 40px;
+}
+
+.apostolic-section .section-content {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.apostolic-section h2 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 30px 0;
+    line-height: normal;
+}
+
+.apostolic-section h3 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #000000;
+    margin: 40px 0 20px 0;
+    line-height: normal;
+}
+
+.apostolic-section p {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 22px;
+    line-height: 1.8;
+    color: #5a5a5a;
+    margin: 0 0 20px 0;
+}
+
+.apostolic-section p:last-child {
+    margin-bottom: 0;
+}
+
+.apostolic-section a {
+    color: #000000;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.apostolic-section a:hover {
+    opacity: 0.7;
 }
 
 /* Team Images Grid - Simple 3x2 grid of images */
@@ -392,22 +450,22 @@
 /* Responsive Design */
 @media (max-width: 1440px) {
     .team-page .split-section {
-        min-height: 350px;
-        max-height: 350px;
-        overflow: hidden;
+        min-height: 400px;
+        max-height: none;
+        overflow: visible;
     }
 
     .team-page .split-section .split-left,
     .team-page .split-section .split-right {
-        min-height: 350px;
-        max-height: 350px;
-        overflow: hidden;
+        min-height: 400px;
+        max-height: none;
+        overflow: visible;
     }
 
     .team-split-image-wrapper {
-        height: 350px;
-        min-height: 350px;
-        max-height: 350px;
+        height: 400px;
+        min-height: 400px;
+        max-height: 400px;
     }
 
     .team-page .split-section .split-content {
@@ -419,26 +477,31 @@
     .image-right-section:first-of-type .team-split-image-wrapper img {
         object-position: center bottom;
     }
+
+    /* Keep third team member (team-leader-3) showing top in laptop view */
+    .image-right-section:nth-of-type(3) .team-split-image-wrapper img {
+        object-position: center top;
+    }
 }
 
 @media (max-width: 1200px) {
     .team-page .split-section {
-        min-height: 350px;
-        max-height: 350px;
-        overflow: hidden;
+        min-height: 400px;
+        max-height: none;
+        overflow: visible;
     }
 
     .team-page .split-section .split-left,
     .team-page .split-section .split-right {
-        min-height: 350px;
-        max-height: 350px;
-        overflow: hidden;
+        min-height: 400px;
+        max-height: none;
+        overflow: visible;
     }
 
     .team-split-image-wrapper {
-        height: 350px;
-        min-height: 350px;
-        max-height: 350px;
+        height: 400px;
+        min-height: 400px;
+        max-height: 400px;
     }
 
     .team-page .split-section .split-content {
@@ -453,6 +516,11 @@
     /* Move first team member image to show bottom in smaller laptop view */
     .image-right-section:first-of-type .team-split-image-wrapper img {
         object-position: center bottom;
+    }
+
+    /* Keep third team member (team-leader-3) showing top in smaller laptop view */
+    .image-right-section:nth-of-type(3) .team-split-image-wrapper img {
+        object-position: center top;
     }
 }
 
