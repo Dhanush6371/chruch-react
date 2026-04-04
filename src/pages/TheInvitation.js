@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getImageUrl } from '../imageConfig';
-import '../pages/Home.css';
 import './TheInvitation.css';
 
 function TheInvitation() {
@@ -157,6 +156,16 @@ function TheInvitation() {
                         className="animate-in"
                     >
                         <h2>GIVE</h2>
+                        <div className="bank-details">
+                            <div className="bank-detail-row">
+                                <span className="bank-label">Sort Code</span>
+                                <span className="bank-value">30-54-66</span>
+                            </div>
+                            <div className="bank-detail-row">
+                                <span className="bank-label">Account Number</span>
+                                <span className="bank-value">44611460</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="split-right">

@@ -111,7 +111,7 @@ function TheBelief() {
                     <div
                         className="animate-in"
                     >
-                        <h2>THE FALL<br/> &<br />SALVATION OF MAN</h2>
+                        <h2>THE FALL<br /> &<br />SALVATION OF MAN</h2>
                     </div>
                 </div>
                 <div className="split-right">
@@ -179,7 +179,7 @@ function TheBelief() {
                     <div
                         className="animate-in"
                     >
-                        <h2>THE CHRISTIAN LIVING</h2>
+                        <h2>THE CHRISTIAN<br />LIVING</h2>
                     </div>
                 </div>
                 <div className="split-right">

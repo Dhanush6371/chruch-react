@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { getImageUrl } from '../imageConfig';
-import '../pages/Home.css';
 import './AboutTheStory.css';
 
 function AboutTheStory() {

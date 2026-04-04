@@ -1,33 +1,219 @@
-/* Story Page Specific Styles */
+/* AboutTheStory Page - Standalone CSS */
+.home-page {
+    width: 100%;
+    overflow-x: hidden;
+}
 
-/* Override split section alignment for Story page */
-.split-section .split-left,
-.split-section .split-right {
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    aspect-ratio: 16 / 9;
+    max-height: 550px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    will-change: transform;
+}
+
+.hero-section.loaded {
+    opacity: 1;
+}
+
+.hero-section .bg-image,
+.image-section .bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* Image Sections */
+.image-section {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    max-height: 550px;
+    background-color: #f5f5f5;
+    opacity: 0;
+    transition: opacity 1.4s ease-in-out;
+}
+
+.image-section.loaded {
+    opacity: 1;
+}
+
+.bg-image-wrapper {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Split Section Layout */
+.split-section {
+    display: flex;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    min-height: 600px;
+    overflow: visible;
+}
+
+.split-left,
+.split-right {
+    flex: 1;
+    display: flex;
     align-items: flex-start;
+    justify-content: center;
+    overflow: visible;
     padding-top: 60px;
 }
 
-/* Mission Section - align to top */
-.mission-section .split-right {
-    align-items: flex-start;
-    padding-top: 60px;
+.split-left {
+    background-color: #FFFFFF;
 }
 
-/* Mission Section - reverse order on desktop to show heading on right */
+.split-right {
+    background-color: #FFFFFF;
+}
+
+.split-content {
+    max-width: 600px;
+    padding: 0 60px 60px 60px;
+    margin-top: -10px;
+}
+
+.split-content h2 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    margin: 0 0 30px 0;
+    color: #000000;
+    letter-spacing: 2px;
+}
+
+.split-content p {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 26px;
+    line-height: 1.8;
+    color: #5a5a5a;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.3px;
+}
+
+.split-content p:last-child {
+    margin-bottom: 0;
+}
+
+.split-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* Mission Section - Special styling */
 .mission-section {
     flex-direction: row-reverse;
 }
 
-/* How We Live Section - align heading to top */
+.mission-section .split-right {
+    background-color: #000000;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.mission-heading h2 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+/* How We Live This Out Section */
 .how-we-live-section .split-left {
+    background-color: #000000;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.how-we-live-section .split-right {
     align-items: flex-start;
     padding-top: 60px;
 }
 
-/* How We Live Section - align description to top */
-.how-we-live-section .split-right {
-    align-items: flex-start;
-    padding-top: 60px;
+.how-we-live-heading h2 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 40px;
+    line-height: 1.3;
+}
+
+.how-we-live-content {
+    max-width: 700px;
+    padding: 0 80px 60px 80px;
+    margin-top: -10px;
+}
+
+.value-block {
+    margin-bottom: 40px;
+}
+
+.value-block:last-child {
+    margin-bottom: 0;
+}
+
+.value-block h3 {
+    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+    margin: 0 0 10px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.value-block p {
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 26px;
+    line-height: 1.7;
+    color: #5a5a5a;
+    margin: 0 0 8px 0;
+}
+
+.value-block .scripture {
+    font-style: italic;
+    font-size: 17px;
+    color: #7a7a7a;
+    margin-top: 8px;
 }
 
 /* Fix THE REASON heading alignment - heading on left */
@@ -52,29 +238,52 @@
     padding-top: 0;
 }
 
-/* Align description content with heading - remove top padding */
-.split-section .split-content {
-    padding: 0 60px 60px 60px !important;
-    margin-top: -10px !important;
-}
-
 /* Specifically ensure left-side descriptions align with headings */
 .how-we-live-section:nth-of-type(2) .split-content,
 .how-we-live-section:nth-of-type(6) .split-content {
-    padding: 0 60px 60px 60px !important;
-    margin-top: -10px !important;
+    padding: 0 60px 60px 60px;
+    margin-top: -10px;
 }
 
 .how-we-live-section:nth-of-type(2) .split-content p:first-child,
 .how-we-live-section:nth-of-type(6) .split-content p:first-child {
-    margin-top: 0 !important;
+    margin-top: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Animations */
+.split-content.animate-in {
+    animation: fadeInUp 1s ease-out forwards;
+}
 
-    .split-section .split-left,
-    .split-section .split-right {
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        aspect-ratio: 3 / 4;
+    }
+
+    .image-section {
+        aspect-ratio: 3 / 4;
+    }
+
+    .split-section {
+        flex-direction: column;
+    }
+
+    .split-left,
+    .split-right {
+        width: 100%;
         padding-top: 0;
         align-items: center;
     }
@@ -90,13 +299,49 @@
         align-items: center;
     }
 
+    .split-image {
+        aspect-ratio: 3 / 4;
+        height: auto;
+    }
+
+    .split-content {
+        padding: 50px 30px;
+    }
+
+    .how-we-live-content {
+        padding: 50px 30px;
+    }
+
     .mission-heading h2,
     .how-we-live-heading h2 {
+        font-size: 40px;
         padding: 30px;
     }
 
     /* Reset flex-direction on mobile so heading appears first */
     .mission-section {
         flex-direction: column;
+    }
+}
+
+/* Smooth transitions */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
