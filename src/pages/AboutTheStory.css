@@ -18,16 +18,56 @@
     flex-direction: row-reverse;
 }
 
-/* How We Live Section - align to top */
+/* How We Live Section - align heading to top */
 .how-we-live-section .split-left {
     align-items: flex-start;
     padding-top: 60px;
 }
 
-/* Align description content with heading */
-.split-section .split-content {
+/* How We Live Section - align description to top */
+.how-we-live-section .split-right {
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+/* Fix THE REASON heading alignment - heading on left */
+.how-we-live-section:nth-of-type(2) .how-we-live-heading {
+    display: flex;
+    align-items: flex-start;
     padding-top: 0;
-    padding-bottom: 60px;
+}
+
+.how-we-live-section:nth-of-type(2) .how-we-live-heading .animate-in {
+    padding-top: 0;
+}
+
+/* Fix THE MISSION heading alignment - heading on left */
+.how-we-live-section:nth-of-type(6) .how-we-live-heading {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0;
+}
+
+.how-we-live-section:nth-of-type(6) .how-we-live-heading .animate-in {
+    padding-top: 0;
+}
+
+/* Align description content with heading - remove top padding */
+.split-section .split-content {
+    padding: 0 60px 60px 60px !important;
+    margin-top: -10px !important;
+}
+
+/* Specifically ensure left-side descriptions align with headings */
+.how-we-live-section:nth-of-type(2) .split-content,
+.how-we-live-section:nth-of-type(6) .split-content {
+    padding: 0 60px 60px 60px !important;
+    margin-top: -10px !important;
+}
+
+.how-we-live-section:nth-of-type(2) .split-content p:first-child,
+.how-we-live-section:nth-of-type(6) .split-content p:first-child {
+    margin-top: 0 !important;
 }
 
 /* Responsive adjustments */
@@ -41,6 +81,11 @@
 
     .mission-section .split-right,
     .how-we-live-section .split-left {
+        padding-top: 0;
+        align-items: center;
+    }
+
+    .how-we-live-section .split-right {
         padding-top: 0;
         align-items: center;
     }

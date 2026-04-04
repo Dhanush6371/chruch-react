@@ -55,7 +55,7 @@
     align-items: flex-start;
     justify-content: center;
     overflow: visible;
-    padding-top: 120px;
+    padding-top: 60px;
 }
 
 .split-image {
@@ -85,7 +85,8 @@
 
 .split-content-blue {
     background-color: #FFFFFF;
-    padding: 45px 50px;
+    padding: 0 50px 45px 50px;
+    margin-top: -10px;
 }
 
 .split-text-content {

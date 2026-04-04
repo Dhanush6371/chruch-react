@@ -107,7 +107,7 @@
     align-items: flex-start;
     justify-content: center;
     overflow: visible;
-    padding-top: 120px;
+    padding-top: 60px;
 }
 
 .split-left.loaded,
@@ -125,7 +125,8 @@
 
 .split-content {
     max-width: 600px;
-    padding: 80px 60px;
+    padding: 0 60px 60px 60px;
+    margin-top: -10px;
 }
 
 .split-content.animate-in {
@@ -409,4 +410,47 @@ html {
 /* Mission sections - reverse order on desktop to show heading on right */
 .mission-section {
     flex-direction: row-reverse;
+}
+
+
+/* Belief Page Specific Alignment Fixes */
+
+/* Align all left-side headings to top */
+.how-we-live-section .how-we-live-heading {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.how-we-live-section .how-we-live-heading .animate-in {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.how-we-live-section .how-we-live-heading h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Align all right-side headings to top */
+.mission-section .mission-heading {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.mission-section .mission-heading .animate-in {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.mission-section .mission-heading h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Ensure descriptions align with headings */
+.how-we-live-section .split-content p:first-child,
+.mission-section .split-content p:first-child {
+    margin-top: 0 !important;
 }
