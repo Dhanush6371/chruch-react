@@ -213,7 +213,7 @@ function TheBelief() {
                     <div
                         className="animate-in"
                     >
-                        <h2>THE PERSON <br />&<br /> WORKOF JESUS CHRIST</h2>
+                        <h2>THE PERSON <br />&<br /> WORK OF JESUS CHRIST</h2>
                     </div>
                 </div>
                 <div className="split-left">

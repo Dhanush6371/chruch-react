@@ -31,8 +31,8 @@ function TheTeam() {
             id: 1,
             image: getImageUrl('teamLeader1'),
             name: 'Noel and Geraldine',
-            title: 'Noel & Geraldine - The Way Lead',
-            subtitle: 'Eldership & Planting Family',
+            title: 'Noel & Geraldine - The Way',
+            subtitle: 'Lead Eldership & Planting Family',
             description: 'Noel and Geraldine are the founding leaders and church planters of The Way. Right after their marriage, they sensed a clear call from God to be equipped for church planting, which led them to Dubai, where they served faithfully at Well of Life Church for nearly a decade. During this time, they served across various ministries, including eldership. They now carry their personal journey, ministry experience, and family into the work God is doing through planting and leading The Way, trusting Him to build His Church and reach the people of Cardiff, Wales, the UK and Europe with the hope of the gospel. Their family story holds both deep loss and living hope. In 2022, they welcomed their daughter, Ella Hadassah, who lived for ten precious days. God later reaffirmed His faithfulness through the birth of their son, Judah, a joyful reminder of God\'s kindness and restoration.',
         },
         {

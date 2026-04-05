@@ -57,56 +57,23 @@
 /* Hero Popup Overlay */
 .hero-popup-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -250%);
+    top: 20px;
+    right: 20px;
+    transform: translateY(-250%);
     z-index: 10;
-    animation: dropFromTop 0.8s ease-out 1s forwards;
+    animation: dropFromTopRight 0.6s ease-out 1s forwards;
     opacity: 1;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-@keyframes dropFromTop {
+@keyframes dropFromTopRight {
     0% {
-        opacity: 1;
-        transform: translate(-50%, -250%);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translate(-50%, -45%);
-    }
-
-    80% {
-        transform: translate(-50%, -52%);
+        opacity: 0;
+        transform: translateY(-250%);
     }
 
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%);
+        transform: translateY(0);
     }
 }
 
@@ -114,13 +81,14 @@
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(30px) saturate(120%);
     -webkit-backdrop-filter: blur(30px) saturate(120%);
-    padding: 40px 60px;
-    border-radius: 16px;
+    padding: 25px 35px;
+    border-radius: 12px;
     text-align: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.5);
     border: 1.5px solid rgba(255, 255, 255, 0.5);
     position: relative;
     background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+    max-width: 300px;
 }
 
 .popup-close-btn {
@@ -150,26 +118,26 @@
 
 .hero-popup-content h2 {
     font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
-    font-size: 42px;
+    font-size: 32px;
     font-weight: 400;
     color: #000000;
-    margin: 0 0 15px 0;
-    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+    letter-spacing: 1.5px;
     text-shadow: none;
 }
 
 .hero-popup-content .time {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 32px;
+    font-size: 24px;
     color: #000000;
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     font-weight: 300;
     text-shadow: none;
 }
 
 .hero-popup-content .venue {
     font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     color: #000000;
     margin: 0;
     font-weight: 300;
