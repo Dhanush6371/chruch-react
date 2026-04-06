@@ -284,19 +284,27 @@
     .split-left,
     .split-right {
         width: 100%;
-        padding-top: 0;
-        align-items: center;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 400px;
+        height: auto;
     }
 
     .mission-section .split-right,
     .how-we-live-section .split-left {
-        padding-top: 0;
-        align-items: center;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .how-we-live-section .split-right {
-        padding-top: 0;
-        align-items: center;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 
     .split-image {
@@ -305,7 +313,14 @@
     }
 
     .split-content {
-        padding: 50px 30px;
+        padding: 80px 40px !important;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .split-content h2,
+    .split-content p {
+        text-align: center;
     }
 
     .how-we-live-content {

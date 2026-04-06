@@ -244,6 +244,9 @@
 @media (max-width: 768px) {
     .invitation-hero {
         aspect-ratio: 3 / 4;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
     }
 
     .split-section {
@@ -253,8 +256,12 @@
     .split-left,
     .split-right {
         width: 100%;
-        padding-top: 0;
-        align-items: center;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 400px;
+        height: auto;
     }
 
     .split-image {
@@ -263,7 +270,19 @@
     }
 
     .split-content {
-        padding: 50px 30px;
+        padding: 80px 40px !important;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .split-content h2,
+    .split-content p {
+        text-align: center;
+    }
+
+    /* Ensure GIVE description section also gets proper padding */
+    .how-we-live-section:last-of-type .split-content {
+        padding: 80px 40px !important;
     }
 
     .mission-heading h2,
@@ -407,5 +426,19 @@ html {
 
     .bank-value {
         font-size: 18px;
+    }
+
+    /* Reset GIVE heading margin in mobile and ensure proper centering */
+    .how-we-live-section:last-of-type .how-we-live-heading {
+        padding: 60px 40px !important;
+    }
+
+    .how-we-live-section:last-of-type .how-we-live-heading h2 {
+        margin-top: 0 !important;
+        margin-bottom: 30px;
+    }
+
+    .how-we-live-section:last-of-type .how-we-live-heading .animate-in {
+        margin-top: 0 !important;
     }
 }

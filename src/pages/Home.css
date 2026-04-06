@@ -884,8 +884,8 @@ html {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -250%);
-        width: calc(100% - 40px);
-        max-width: 400px;
+        width: calc(100% - 100px);
+        max-width: 240px;
         animation: dropFromTop 0.8s ease-out 1s forwards;
     }
 
@@ -921,33 +921,40 @@ html {
 
         60% {
             opacity: 1;
-            transform: translate(-50%, -45%);
+            transform: translate(-50%, 50%);
         }
 
         80% {
-            transform: translate(-50%, -52%);
+            transform: translate(-50%, 48%);
         }
 
         100% {
             opacity: 1;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, 50%);
         }
     }
 
     .hero-popup-content {
-        padding: 30px 35px;
+        padding: 18px 20px;
+        max-width: 100%;
+        text-align: center;
     }
 
     .hero-popup-content h2 {
-        font-size: 32px;
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 6px;
     }
 
     .hero-popup-content .time {
-        font-size: 26px;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 5px;
     }
 
     .hero-popup-content .venue {
-        font-size: 18px;
+        font-size: 14px;
+        text-align: center;
     }
 }
 

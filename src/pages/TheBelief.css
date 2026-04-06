@@ -233,8 +233,23 @@
 
     .split-left,
     .split-right {
-        padding-top: 0;
-        align-items: center;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-height: 400px;
+        height: auto;
+    }
+
+    .split-content {
+        text-align: center;
+        margin-top: 0;
+        padding: 80px 40px !important;
+    }
+
+    .split-content h2,
+    .split-content p {
+        text-align: center;
     }
 
     /* Reset flex-direction on mobile so heading appears first */
@@ -504,7 +519,7 @@ html {
 .how-we-live-section:last-of-type .how-we-live-heading h2 {
     padding: 0 60px !important;
     margin: 0 !important;
-    text-align: left !important;
+    text-align: center !important;
 }
 
 .how-we-live-section:last-of-type .split-content {

@@ -227,6 +227,40 @@ function TheBelief() {
                 </div>
             </section>
 
+            {/* Image Section - belief-section-6 */}
+            <section
+                ref={(el) => (sectionRefs.current[8] = el)}
+                className="image-section loaded"
+            >
+                <div
+                    className="bg-image-wrapper"
+                    style={{
+                        backgroundImage: `url(${getImageUrl('beliefSection6')})`,
+                        transform: `translate3d(0, ${(scrollY - (sectionRefs.current[8]?.offsetTop || 0)) * 0.3}px, 0)`
+                    }}
+                />
+            </section>
+
+            {/* Split Section - Heading LEFT, Text RIGHT */}
+            <section className="split-section how-we-live-section">
+                <div className="split-left how-we-live-heading">
+                    <div
+                        className="animate-in"
+                    >
+                        <h2>THE PERSON<br />&<br />WORK OF THE HOLY SPIRIT</h2>
+                    </div>
+                </div>
+                <div className="split-right">
+                    <div
+                        className="split-content animate-in"
+                    >
+                        <p>
+                            We believe that the Holy Spirit, in all that He does, glorifies the Lord Jesus Christ. He convicts the world of its guilt. He regenerates sinners, and in Him they are baptized into union with Christ and adopted as heirs in the family of God. He also indwells, illuminates, guides, equips and empowers believers for Christ-like living and service.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
         </div>
     );
 }
