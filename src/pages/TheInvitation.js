@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getImageUrl } from '../imageConfig';
 import './TheInvitation.css';
 
 function TheInvitation() {
-    const navigate = useNavigate();
 
     const [scrollY, setScrollY] = useState(0);
     const sectionRefs = useRef([]);
@@ -65,7 +63,7 @@ function TheInvitation() {
                         className="animate-in"
                     >
                         <h2>CONNECT</h2>
-                        
+
                     </div>
                 </div>
                 <div className="split-right">
