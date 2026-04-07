@@ -185,47 +185,34 @@
     filter: brightness(0) invert(1);
 }
 
-/* Mobile Menu Toggle - Simple Centered Design */
+/* Mobile Social Icons - Hidden on desktop */
+.mobile-social-icons {
+    display: none;
+}
+
+/* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: transparent;
+    background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
-    z-index: 1002;
+    padding: 5px;
+    z-index: 1001;
     position: relative;
 }
 
 .mobile-menu-toggle span {
-    display: block;
     width: 25px;
     height: 2px;
     background-color: #ffffff;
-    transition: all 0.3s ease;
-    position: absolute;
+    margin: 4px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
 }
 
-.mobile-menu-toggle span:nth-child(1) {
-    top: 12px;
-}
-
-.mobile-menu-toggle span:nth-child(2) {
-    top: 19px;
-}
-
-.mobile-menu-toggle span:nth-child(3) {
-    top: 26px;
-}
-
-/* Simple X when open */
 .mobile-menu-toggle.open span:nth-child(1) {
-    top: 19px;
-    transform: rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
 }
 
 .mobile-menu-toggle.open span:nth-child(2) {
@@ -233,67 +220,7 @@
 }
 
 .mobile-menu-toggle.open span:nth-child(3) {
-    top: 19px;
-    transform: rotate(-45deg);
-}
-
-/* Mobile Social Icons - Hidden on desktop */
-.mobile-social-icons {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    margin-top: 30px;
-    align-items: center;
-}
-
-.mobile-social-icons .connect-button-mobile,
-.mobile-social-icons .give-button-mobile {
-    display: block;
-    text-align: center;
-    padding: 12px 40px;
-    background-color: #ffffff;
-    color: #000000;
-    text-decoration: none;
-    font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
-    width: 100%;
-    max-width: 250px;
-}
-
-.mobile-social-icons .connect-button-mobile:active,
-.mobile-social-icons .give-button-mobile:active {
-    background-color: #e0e0e0;
-}
-
-.mobile-social-icons .social-icons-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding-top: 10px;
-}
-
-.mobile-social-icons .social-icons-row a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease;
-}
-
-.mobile-social-icons .social-icons-row a:active {
-    opacity: 0.7;
-}
-
-.mobile-social-icons .social-icons-row img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
+    transform: translateY(-10px) rotate(-45deg);
 }
 
 /* Tablet and Mobile Styles */
@@ -307,12 +234,30 @@
         flex-wrap: nowrap;
     }
 
-    .logo-img {
-        height: 50px;
+    /* Mobile Menu - Slides down from header */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        max-height: 0;
+        overflow: hidden;
+        background-color: #000000;
+        transition: max-height 0.5s ease;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
     }
 
-    .site-header.scrolled .logo-img {
-        height: 45px;
+    .main-nav.mobile-open {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .desktop-social-icons {
+        display: none;
     }
 
     /* Show mobile menu toggle */
@@ -320,55 +265,83 @@
         display: flex;
     }
 
-    /* Hide desktop social icons */
-    .desktop-social-icons {
-        display: none;
-    }
-
-    /* Mobile Navigation - Full Screen */
-    .main-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: #000000;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        z-index: 999;
+    /* Mobile Navigation Menu */
+    .nav-menu {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        overflow-y: auto;
-    }
-
-    .main-nav.mobile-open {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-menu {
-        flex-direction: column;
         gap: 0;
-        align-items: center;
-        padding: 0;
-        margin-bottom: 40px;
+        padding: 100px 0 0 0;
+        width: 100%;
+        list-style: none;
+        margin: 0;
+        flex: 0 0 auto;
     }
 
     .nav-menu li {
         width: 100%;
         text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-open .nav-menu li {
+        animation: slideInUp 0.4s ease forwards;
+    }
+
+    .mobile-open .nav-menu li:nth-child(1) {
+        animation-delay: 0.05s;
+    }
+
+    .mobile-open .nav-menu li:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+
+    .mobile-open .nav-menu li:nth-child(3) {
+        animation-delay: 0.15s;
+    }
+
+    .mobile-open .nav-menu li:nth-child(4) {
+        animation-delay: 0.2s;
+    }
+
+    .mobile-open .nav-menu li:nth-child(5) {
+        animation-delay: 0.25s;
+    }
+
+    .mobile-open .nav-menu li:nth-child(6) {
+        animation-delay: 0.3s;
+    }
+
+    @keyframes slideInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nav-menu li a {
+        padding: 18px 30px;
         display: block;
-        padding: 18px 20px;
-        font-size: 20px;
-        font-weight: 300;
         width: 100%;
+        font-size: 22px;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        text-align: center;
+        margin: 0;
+    }
+
+    .nav-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
     }
 
     .nav-menu li a::after {
@@ -376,13 +349,108 @@
     }
 
     .nav-menu li a.active {
-        background-color: rgba(255, 255, 255, 0.1);
-        font-weight: 400;
+        background-color: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
     }
 
-    /* Show mobile social icons */
+    /* Mobile Social Icons */
     .mobile-social-icons {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 20px 50px 20px;
+        margin: 0;
+        opacity: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        flex-shrink: 0;
+        margin-top: 100px;
+    }
+
+    .mobile-social-icons .connect-button-mobile,
+    .mobile-social-icons .give-button-mobile {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 40px 14px 100px;
+        background-color: #ffffff;
+        color: #000000;
+        text-decoration: none;
+        font-family: 'futura-lt-w01-book', 'Futura', sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+        width: 200px;
+    }
+
+    .mobile-social-icons .give-button-mobile:hover,
+    .mobile-social-icons .connect-button-mobile:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.05);
+    }
+
+    .social-icons-row {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-social-icons a:not(.give-button-mobile):not(.connect-button-mobile) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-social-icons a:not(.give-button-mobile):not(.connect-button-mobile):hover {
+        transform: translateY(-3px);
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .mobile-open .mobile-social-icons {
+        animation: fadeInScale 0.5s ease forwards 0.35s;
+    }
+
+    @keyframes fadeInScale {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .mobile-social-icons img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+    }
+
+    .mobile-social-icons img {
+        width: 22px;
+        height: 22px;
+        filter: brightness(0) invert(1);
+    }
+
+    .logo-img {
+        height: 50px;
+    }
+
+    .site-header.scrolled .logo-img {
+        height: 45px;
     }
 }
 
@@ -393,72 +461,30 @@
     }
 
     .logo-img {
-        height: 45px;
-    }
-
-    .site-header.scrolled .logo-img {
         height: 40px;
     }
 
-    .main-nav {
-        top: 0;
-    }
-
-    .main-nav.mobile-open {
-        opacity: 1;
-        visibility: visible;
+    .site-header.scrolled .logo-img {
+        height: 35px;
     }
 
     .nav-menu li a {
-        font-size: 18px;
-        padding: 16px 20px;
+        font-size: 16px;
+        padding: 18px 25px;
     }
 
     .mobile-social-icons {
-        gap: 18px;
-        padding: 25px 0 0;
-        margin-top: 25px;
+        gap: 20px;
+        padding: 25px 0 20px 0;
     }
 
-    .mobile-social-icons .connect-button-mobile,
-    .mobile-social-icons .give-button-mobile {
-        padding: 11px 35px;
-        font-size: 13px;
-        max-width: 220px;
+    .mobile-social-icons a {
+        width: 42px;
+        height: 42px;
     }
 
-    .mobile-social-icons .social-icons-row {
-        gap: 18px;
-    }
-
-    .mobile-social-icons .social-icons-row img {
-        width: 22px;
-        height: 22px;
-    }
-
-    .mobile-menu-toggle {
-        width: 38px;
-        height: 38px;
-    }
-
-    .mobile-menu-toggle span {
-        width: 23px;
-    }
-
-    .mobile-menu-toggle span:nth-child(1) {
-        top: 11px;
-    }
-
-    .mobile-menu-toggle span:nth-child(2) {
-        top: 18px;
-    }
-
-    .mobile-menu-toggle span:nth-child(3) {
-        top: 25px;
-    }
-
-    .mobile-menu-toggle.open span:nth-child(1),
-    .mobile-menu-toggle.open span:nth-child(3) {
-        top: 18px;
+    .mobile-social-icons img {
+        width: 20px;
+        height: 20px;
     }
 }

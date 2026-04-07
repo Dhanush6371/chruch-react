@@ -135,7 +135,7 @@ function TheTeam() {
                 <div className="section-content animate-in">
                     <h2>Apostolic Household & Partnership</h2>
                     <p>
-                        The Way is locally led by Noel and Geraldine, while joyfully walking in apostolic relationship and accountability with trusted leaders from Genesis Collective, a team of seasoned leaders who invest into churches, support pioneers, and help strengthen healthy New Testament communities. To know more about Genesis Collective, please click here: <a href="https://www.genesiscollective.org" target="_blank" rel="noopener noreferrer">https://www.genesiscollective.org</a>
+                        The Way is locally led by Noel and Geraldine, while joyfully walking in apostolic relationship and accountability with trusted leaders from Genesis Collective, a team of seasoned leaders who support pioneers, and help strengthen healthy New Testament communities. To know more about Genesis Collective, please click here: <a href="https://www.genesiscollective.org" target="_blank" rel="noopener noreferrer">https://www.genesiscollective.org</a>
                     </p>
 
                 </div>

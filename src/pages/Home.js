@@ -50,7 +50,7 @@ function Home() {
         setFormStatus({ type: '', message: '' });
 
         try {
-            const response = await fetch('http://localhost:5000/api/contact', {
+            const response = await fetch('https://qb0a00v3mg.execute-api.eu-west-3.amazonaws.com/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -277,12 +277,12 @@ function Home() {
             {/* Contact Section */}
             <section id="see-you-there" className="contact-section" style={{ paddingBottom: '20px', paddingTop: '40px' }}>
                 <div className="section-content animate-in">
+                    {formStatus.message && (
+                        <div className={`form-message ${formStatus.type}`}>
+                            {formStatus.message}
+                        </div>
+                    )}
                     <form className="contact-form" onSubmit={handleSubmit}>
-                        {formStatus.message && (
-                            <div className={`form-message ${formStatus.type}`}>
-                                {formStatus.message}
-                            </div>
-                        )}
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First Name *</label>

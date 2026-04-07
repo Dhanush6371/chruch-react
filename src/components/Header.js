@@ -19,6 +19,23 @@ function Header() {
 
     useEffect(() => {
         setMobileMenuOpen(false);
+
+        // Handle hash scrolling after navigation
+        if (location.hash === '#see-you-there') {
+            setTimeout(() => {
+                const contactSection = document.getElementById('see-you-there');
+                if (contactSection) {
+                    const headerOffset = 150;
+                    const elementPosition = contactSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300);
+        }
     }, [location]);
 
     const toggleMobileMenu = () => {
@@ -27,19 +44,53 @@ function Header() {
 
     const handleGiveClick = (e) => {
         setMobileMenuOpen(false); // Close mobile menu
-        if (location.pathname === '/the-invitation') {
-            e.preventDefault();
-            const giveSection = document.getElementById('give');
-            if (giveSection) {
-                const headerOffset = 150;
-                const elementPosition = giveSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        e.preventDefault();
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
+        // If already on invitation page, scroll to section
+        if (location.pathname === '/the-invitation') {
+            setTimeout(() => {
+                const giveSection = document.getElementById('give');
+                if (giveSection) {
+                    const headerOffset = 200;
+                    const elementPosition = giveSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+        // If on another page, navigate to invitation then scroll
+        else {
+            window.location.href = '/the-invitation#give';
+        }
+    };
+
+    const handleConnectClick = (e) => {
+        setMobileMenuOpen(false); // Close mobile menu
+        e.preventDefault();
+
+        // If already on home page, scroll to section
+        if (location.pathname === '/') {
+            setTimeout(() => {
+                const contactSection = document.getElementById('see-you-there');
+                if (contactSection) {
+                    const headerOffset = 150;
+                    const elementPosition = contactSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+        // If on another page, navigate to home then scroll
+        else {
+            window.location.href = '/#see-you-there';
         }
     };
 
@@ -67,6 +118,9 @@ function Header() {
 
                     {/* Social icons in mobile menu */}
                     <div className="mobile-social-icons">
+                        <Link to="/#see-you-there" className="connect-button-mobile" aria-label="Connect" onClick={handleConnectClick}>
+                            CONNECT
+                        </Link>
                         <Link to="/the-invitation#give" className="give-button-mobile" aria-label="Give" onClick={handleGiveClick}>
                             GIVE
                         </Link>
@@ -88,6 +142,9 @@ function Header() {
                 </nav>
 
                 <div className="desktop-social-icons">
+                    <Link to="/#see-you-there" className="connect-button" aria-label="Connect" onClick={handleConnectClick}>
+                        CONNECT
+                    </Link>
                     <Link to="/the-invitation#give" className="give-button" aria-label="Give" onClick={handleGiveClick}>
                         GIVE
                     </Link>
