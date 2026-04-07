@@ -967,16 +967,16 @@ html {
 
         60% {
             opacity: 1;
-            transform: translate(-50%, 90%);
+            transform: translate(-50%, 140%);
         }
 
         80% {
-            transform: translate(-50%, 88%);
+            transform: translate(-50%, 135%);
         }
 
         100% {
             opacity: 1;
-            transform: translate(-50%, 90%);
+            transform: translate(-50%, 140%);
         }
     }
 

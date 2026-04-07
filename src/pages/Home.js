@@ -115,8 +115,8 @@ function Home() {
                             >
                                 ×
                             </button>
-                            <h2>Every Sunday</h2>
-                            <p className="time">11:00 AM</p>
+                            <h2>Coming Soon</h2>
+                            {/* <p className="time">11:00 AM</p> */}
                             <p className="venue">The Venue, Cardiff</p>
                         </div>
                     </div>

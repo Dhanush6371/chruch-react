@@ -65,20 +65,7 @@ function TheInvitation() {
                         className="animate-in"
                     >
                         <h2>CONNECT</h2>
-                        <button
-                            className="know-more-btn"
-                            onClick={() => {
-                                navigate('/#see-you-there');
-                                setTimeout(() => {
-                                    const element = document.getElementById('see-you-there');
-                                    if (element) {
-                                        element.scrollIntoView({ behavior: 'smooth' });
-                                    }
-                                }, 100);
-                            }}
-                        >
-                            Know More
-                        </button>
+                        
                     </div>
                 </div>
                 <div className="split-right">

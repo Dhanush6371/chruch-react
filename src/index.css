@@ -11,3 +11,15 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+/* Prevent layout shift from images loading */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+    scroll-behavior: smooth;
+}

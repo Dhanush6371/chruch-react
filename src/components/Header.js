@@ -20,35 +20,44 @@ function Header() {
     useEffect(() => {
         setMobileMenuOpen(false);
 
+        // Wait for images to load before scrolling
+        const scrollToSection = (sectionId, offset) => {
+            const scrollAfterImagesLoad = () => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const elementPosition = section.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            };
+
+            // Wait for all images to load
+            const images = document.querySelectorAll('img');
+            const imagePromises = Array.from(images).map(img => {
+                if (img.complete) return Promise.resolve();
+                return new Promise(resolve => {
+                    img.addEventListener('load', resolve);
+                    img.addEventListener('error', resolve);
+                });
+            });
+
+            Promise.all(imagePromises).then(() => {
+                setTimeout(scrollAfterImagesLoad, 100);
+            });
+
+            // Fallback in case images take too long
+            setTimeout(scrollAfterImagesLoad, 1000);
+        };
+
         // Handle hash scrolling after navigation
         if (location.hash === '#see-you-there') {
-            setTimeout(() => {
-                const contactSection = document.getElementById('see-you-there');
-                if (contactSection) {
-                    const headerOffset = 150;
-                    const elementPosition = contactSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 300);
+            scrollToSection('see-you-there', 150);
         } else if (location.hash === '#give') {
-            setTimeout(() => {
-                const giveSection = document.getElementById('give');
-                if (giveSection) {
-                    const headerOffset = 200;
-                    const elementPosition = giveSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }, 300);
+            scrollToSection('give', 200);
         }
     }, [location]);
 
