@@ -35,6 +35,20 @@ function Header() {
                     });
                 }
             }, 300);
+        } else if (location.hash === '#give') {
+            setTimeout(() => {
+                const giveSection = document.getElementById('give');
+                if (giveSection) {
+                    const headerOffset = 200;
+                    const elementPosition = giveSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 300);
         }
     }, [location]);
 
