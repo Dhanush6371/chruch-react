@@ -288,7 +288,7 @@
         padding-bottom: 0 !important;
         align-items: center !important;
         justify-content: center !important;
-        min-height: 400px;
+        min-height: auto;
         height: auto;
     }
 
@@ -329,8 +329,8 @@
 
     .mission-heading h2,
     .how-we-live-heading h2 {
-        font-size: 40px;
-        padding: 30px;
+        font-size: 32px;
+        padding: 50px 30px;
     }
 
     /* Reset flex-direction on mobile so heading appears first */

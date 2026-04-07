@@ -363,6 +363,40 @@
     transition: opacity 0.8s ease-out 0.6s, transform 0.8s ease-out 0.6s;
 }
 
+.form-message {
+    padding: 15px 20px;
+    border-radius: 20px;
+    font-family: 'futura-lt-w01-light', 'Futura', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: slideDown 0.4s ease-out;
+}
+
+.form-message.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.5);
+    color: #4caf50;
+}
+
+.form-message.error {
+    background-color: rgba(244, 67, 54, 0.2);
+    border: 1px solid rgba(244, 67, 54, 0.5);
+    color: #f44336;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .contact-section .section-content.animate-in .contact-form {
     opacity: 1;
     transform: translateY(0);
@@ -468,6 +502,11 @@
     text-transform: lowercase;
     position: relative;
     overflow: hidden;
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .submit-button::before {
@@ -921,16 +960,16 @@ html {
 
         60% {
             opacity: 1;
-            transform: translate(-50%, 50%);
+            transform: translate(-50%, 90%);
         }
 
         80% {
-            transform: translate(-50%, 48%);
+            transform: translate(-50%, 88%);
         }
 
         100% {
             opacity: 1;
-            transform: translate(-50%, 50%);
+            transform: translate(-50%, 90%);
         }
     }
 

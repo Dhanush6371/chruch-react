@@ -25,6 +25,24 @@ function Header() {
         setMobileMenuOpen(!mobileMenuOpen);
     };
 
+    const handleGiveClick = (e) => {
+        setMobileMenuOpen(false); // Close mobile menu
+        if (location.pathname === '/the-invitation') {
+            e.preventDefault();
+            const giveSection = document.getElementById('give');
+            if (giveSection) {
+                const headerOffset = 150;
+                const elementPosition = giveSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+
     return (
         <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
             <div className="header-container">
@@ -49,7 +67,7 @@ function Header() {
 
                     {/* Social icons in mobile menu */}
                     <div className="mobile-social-icons">
-                        <Link to="/the-invitation#give" className="give-button-mobile" aria-label="Give">
+                        <Link to="/the-invitation#give" className="give-button-mobile" aria-label="Give" onClick={handleGiveClick}>
                             GIVE
                         </Link>
                         <div className="social-icons-row">
@@ -70,7 +88,7 @@ function Header() {
                 </nav>
 
                 <div className="desktop-social-icons">
-                    <Link to="/the-invitation#give" className="give-button" aria-label="Give">
+                    <Link to="/the-invitation#give" className="give-button" aria-label="Give" onClick={handleGiveClick}>
                         GIVE
                     </Link>
                     <a href="https://www.youtube.com/channel/UCoxbIC_3Gr9b91S38SlML0w" target="_blank" rel="noopener noreferrer" aria-label="Youtube">

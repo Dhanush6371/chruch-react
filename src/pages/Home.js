@@ -6,6 +6,15 @@ function Home() {
     const [scrollY, setScrollY] = useState(0);
     const [showPopup, setShowPopup] = useState(true);
     const sectionRefs = useRef([]);
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+    const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         let ticking = false;
@@ -26,6 +35,58 @@ function Home() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setFormStatus({ type: '', message: '' });
+
+        try {
+            const response = await fetch('http://localhost:5000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setFormStatus({
+                    type: 'success',
+                    message: 'Thank you! Your message has been sent successfully.'
+                });
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                    message: ''
+                });
+            } else {
+                setFormStatus({
+                    type: 'error',
+                    message: data.message || 'Something went wrong. Please try again.'
+                });
+            }
+        } catch (error) {
+            setFormStatus({
+                type: 'error',
+                message: 'Failed to send message. Please check your connection and try again.'
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="home-page">
@@ -214,33 +275,72 @@ function Home() {
             </section>
 
             {/* Contact Section */}
-            {/* Contact Section */}
             <section id="see-you-there" className="contact-section" style={{ paddingBottom: '20px', paddingTop: '40px' }}>
                 <div className="section-content animate-in">
-                    <form className="contact-form">
+                    <form className="contact-form" onSubmit={handleSubmit}>
+                        {formStatus.message && (
+                            <div className={`form-message ${formStatus.type}`}>
+                                {formStatus.message}
+                            </div>
+                        )}
                         <div className="form-row">
                             <div className="form-group">
-                                <label>First Name *</label>
-                                <input type="text" required />
+                                <label htmlFor="firstName">First Name *</label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    value={formData.firstName}
+                                    onChange={handleInputChange}
+                                    required
+                                />
                             </div>
                             <div className="form-group">
-                                <label>Last Name *</label>
-                                <input type="text" required />
+                                <label htmlFor="lastName">Last Name *</label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    value={formData.lastName}
+                                    onChange={handleInputChange}
+                                    required
+                                />
                             </div>
                         </div>
                         <div className="form-group">
-                            <label>Email *</label>
-                            <input type="email" required />
+                            <label htmlFor="email">Email *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                required
+                            />
                         </div>
                         <div className="form-group">
-                            <label>Phone</label>
-                            <input type="tel" />
+                            <label htmlFor="phone">Phone</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                            />
                         </div>
                         <div className="form-group">
-                            <label>Message *</label>
-                            <textarea required></textarea>
+                            <label htmlFor="message">Message *</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleInputChange}
+                                required
+                            ></textarea>
                         </div>
-                        <button type="submit" className="submit-button">Next</button>
+                        <button type="submit" className="submit-button" disabled={isSubmitting}>
+                            {isSubmitting ? 'Sending...' : 'Submit'}
+                        </button>
                     </form>
                 </div>
             </section>

@@ -541,7 +541,7 @@
     }
 
     .team-page .split-section .split-content p {
-        font-size: 18px;
+        font-size: 20px;
         line-height: 1.5;
     }
 
@@ -604,8 +604,29 @@
     }
 
     .team-page .split-section .split-content p {
-        font-size: 19px;
+        font-size: 22px !important;
         line-height: 1.8;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .team-page .split-section .split-content a {
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+        display: inline-block;
+        max-width: 100%;
+    }
+
+    .apostolic-section p {
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+
+    .apostolic-section a {
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+        display: inline-block !important;
+        max-width: 100% !important;
     }
 
     .team-leader-bottom {

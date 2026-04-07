@@ -163,7 +163,7 @@ function AboutTheStory() {
                     <div
                         className="animate-in"
                     >
-                        <h2>HOW WE LIVE THIS<br />OUT</h2>
+                        <h2>HOW WE LIVE THIS<br />OUT?</h2>
                     </div>
                 </div>
                 <div className="split-left">

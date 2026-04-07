@@ -21,6 +21,7 @@ export const images = {
     beliefSection4: '/images-new/belief-section-4.jpg',
     beliefSection5: '/images-new/belief-section-5.jpg',
     beliefSection6: '/images-new/belief-section-6.jpg',
+    beliefSection7: '/images-new/belief-section-7.jpg',
 
     // Invitation Page Images (in order)
     invitationHero: '/images-new/invitation-hero.jpg',
