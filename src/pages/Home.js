@@ -231,7 +231,7 @@ function Home() {
                 <div className="section-content animate-in">
                     <h2>Who We Are?</h2>
                     <p>
-                        Behind every new beginning are people who said yes before the outcome was visible. The Way is led by Noel and Geraldine, who serve as the founding elders and planting family in Cardiff. Their journey has been shaped by years of faithful ministry, deep personal loss, and living hope, forming in them a steady trust that God builds His Church. Heath and Leah serve alongside them in co-eldership and apostolic oversight, offering wisdom, accountability, and shared discernment. The Way is locally led, yet relationally connected within an apostolic household, following the biblical pattern of shared leadership, mutual accountability, and spiritual covering.
+                        Behind every new beginning are people who said yes before the outcome was visible. The Way is led by Noel and Geraldine, who serve as the founding eldership and planting family in Cardiff. Their journey has been shaped by years of faithful ministry, deep personal loss, and living hope, forming in them a steady trust that God builds His Church. Heath and Leah serve alongside them in co-eldership and apostolic oversight, offering wisdom, accountability, and shared discernment. The Way is locally led, yet relationally connected within an apostolic household, following the biblical pattern of shared leadership, mutual accountability, and spiritual covering.
                     </p>
                 </div>
             </section>
